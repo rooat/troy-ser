@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+			    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+			    <meta name="viewport" content="width=device-width, initial-scale=1">
+				<link href="stylesheets/toastr.min.css" rel="stylesheet">
+				<style>
+				input{
+					border:1px solid black;
+				}
+			</style>
+	</head>
+	<body>
+		<div>
+			<h1>Price Rate</h1>
+			<p>
+				symbol:<input type="text" id="symbol"/>
+				<button onclick="price_data_by_symbol()">根据symbol获取</button>
+			</p>
+			<p>
+				<button onclick="price_data()">price data</button>
+			</p>
+			<p>
+				<button onclick="rate_data()">rate data</button>
+			</p>
+		</div>
+		<div>
+			<h1>用户</h1>
+			<p>
+				code:<input type="text" id="code"/>
+				<button onclick="register()">注册</button>
+			</p>
+			<p>
+				<button onclick="makecode()">获取邮箱验证吗</button>
+			</p>
+			<p>
+				<button onclick="loginUser()">登陆</button>
+			</p>
+			<p>
+				<button onclick="logOut()">退出</button>
+			</p>
+			<p>
+				<button onclick="getUser()">获取用户信息</button>
+			</p>
+			<p>
+				<button onclick="transCurrency_etz_usd()">兑换美元</button>
+			</p>
+			<p>
+				<button onclick="transCurrency_usd_etz()">兑换etz</button>
+			</p>
+			<p>
+				<button onclick="isExistUser()">邮箱是否存在</button>
+			</p>
+			<p>
+				<button onclick="updateLoginPwd()">更新登陆密码</button>
+			</p>
+			<p>
+				<button onclick="updateTradePwd()">更新交易密码</button>
+			</p>
+			<p>
+				<button onclick="findPassword()">找回密码</button>
+			</p>
+			<p>
+				<button onclick="setNewPassword()">设置新密码</button>
+			</p>
+			<p>
+				address:<input type="text" id="addressid"/> <br/>
+				value:<input type="text" id="inputVal"/> <br/>
+				id:<input type="text" id="ids"/> <br/>
+				<button onclick="withdraw()">提现</button>
+			</p>
+			<p>
+				<button onclick="calculate()">归集</button>
+			</p>
+
+		</div>
+		<div>
+			<h1>公告</h1>
+			<p>
+				<button onclick="addNotice()">添加公告</button>
+			</p>
+			<p>
+				<button onclick="deleteNotice()">删除公告</button>
+			</p>
+			<p>
+				<button onclick="updateNotice()">更改公告</button>
+			</p>
+			<p>
+				<button onclick="getNotice()">查询公告</button>
+			</p>
+			<p>
+				<button onclick="getNoticeList()">查询公告列表</button>
+			</p>
+		</div>
+		<div>
+			<h1>理财</h1>
+			<p>
+				<button onclick="add_finance()">购买理财</button>
+			</p>
+			<p>
+				用户id:<input type="text" id="user_id"/>
+				<button onclick="get_finance_list_by_userid()">获取用户理财列表</button>
+			</p>
+			<p>
+				理财id:<input type="text" id="ff_id"/>
+				<button onclick="get_finance_by_id()">根据id获取理财</button>
+			</p>
+			<p>
+				理财Id:<input type="text" id="fin_id"/>
+				邮箱：<input type="text" id="email_num"/>
+				交易密码：<input type="text" id="tradepwd"/>
+				<button onclick="redeem()">赎回</button>
+			</p>
+			<p>
+				个人收益列表：<input type="text" id="userid"/>
+				<button onclick="get_benefit_detail_by_userid()">个人收益列表</button>
+		</div>
+
+
+	  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+      <script type="text/javascript" src="/javascripts/axios.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+	  <script type="text/javascript" src="/javascripts/toastr.min.js"></script>
+	  <script type="text/javascript">
+	  	//price rate
+	  	function price_data_by_symbol(){
+	  		let symbol = $("#symbol").val()
+	  		let url = "/api/price_data_by_symbol";
+			let params ={
+				"symbol":symbol
+			}
+			methods(url,params)
+	  	}
+	  	function price_data(){
+	  		let url = "/api/price_data";
+			let params ={
+			}
+			methods(url,params)
+	  	}
+	  	function rate_data(){
+	  		let url = "/api/rate_data";
+			let params ={
+			}
+			methods(url,params)
+	  	}
+
+		//finance=====================
+
+		function add_finance(){
+			let url = "/api/add_finance";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"trade_pad":"admin_new_trade",
+				"type":1,
+				"value":1,
+				"benefit_time":new Date().getTime()+1000000,
+				"finance_time":new Date().getTime()+1000000
+			}
+			methods(url,params)
+		}
+		function get_finance_by_id(){
+			let f_id = $("#ff_id").val()
+			let url = "/api/get_finance_by_id";
+			let params ={
+				"f_id":f_id
+			}
+			methods(url,params)
+		}
+		function get_finance_list_by_userid(){
+			let user_id = $("#user_id").val()
+			let url = "/api/get_finance_list_by_userid";
+			let params ={
+				"user_id":user_id
+			}
+			methods(url,params)
+		}
+		function redeem(){
+			let fin_id = $("#fin_id").val()
+			let email_num = $("#email_num").val()
+			let tradepwd = $("#tradepwd").val()
+			let url = "/api/redeem";
+			let params ={
+				"f_id":fin_id,
+				"trade_pwd":tradepwd,
+				"email_num":"896466205@qq.com"
+			}
+			methods(url,params)
+		}
+		function get_benefit_detail_by_userid(){
+			let user_id = $("#userid").val()
+			let url = "/api/get_benefit_detail_by_userid";
+			let params ={
+				"user_id":user_id
+			}
+			methods(url,params)
+		}
+
+
+	  	//user ==========================
+		function  findPassword(){
+			let url = "/api/findPassword";
+			let params ={
+				email_num:"896466205@qq.com",
+				address:"0xf2e95d6F75897e6501e185d218504995F300deb4"
+			}
+			methods(url,params)
+		}
+		function  getUser(){
+			let url = "/api/getUser";
+			let params ={
+				"email_num":"896466205@qq.com"
+			}
+			methods(url,params)
+		}
+		function  isExistUser(){
+			let url = "/api/isExistUser";
+			let params ={
+				"email_num":"896466205@qq.com"
+			}
+			methods(url,params)
+		}
+		function  loginUser(){
+			let url = "/api/loginUser";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"login_pwd":"123456"
+			}
+			methods(url,params)
+		}
+		function  logOut(){
+			let url = "/api/logOut";
+			let params ={}
+			methods(url,params)
+		}
+		function  makecode(){
+			let url = "/api/makecode";
+			let params ={
+				"email_num":"896466205@qq.com"
+			}
+			methods(url,params)
+		}
+		function  register(){
+			let code =$("#code").val();
+			let url = "/api/register";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"code":code,
+				"loginpwd":"admin_login",
+				"tradepwd":"admin_trade",
+				"invite":"123456"
+			}
+			methods(url,params)
+		}
+		function  setNewPassword(){
+			let url = "/api/setNewPassword";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"address":"0x68848786b5a0d824418010b19a7a9639490e50fb",
+				"password":"123456",
+				"code":892100
+			}
+			methods(url,params)
+		}	
+		function  transCurrency_etz_usd(){
+			let url = "/api/transCurrency";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"trans_amount":1,
+				"type":1
+			}
+			methods(url,params)
+		}
+		function  transCurrency_usd_etz(){
+			let url = "/api/transCurrency";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"trans_amount":1,
+				"type":2
+			}
+			methods(url,params)
+		}
+		function  updateLoginPwd(){
+			let url = "/api/updateLoginPwd";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"old_login_pwd":"admin_new",
+				"new_login_pwd":"admin_old",
+				"code":618389,
+			}
+			methods(url,params)
+		}
+
+
+		function  updateTradePwd(){
+			let url = "/api/updateTradePwd";
+			let params ={
+				"email_num":"896466205@qq.com",
+				"login_pwd":"admin_old",
+				"old_trade_pwd":"admin_trade",
+				"new_trade_pwd":"admin_new_trade",
+				"code":618389
+			}
+			methods(url,params)
+		}
+		
+
+
+
+
+	  	//notice =====================
+		function  addNotice(){
+			let url = "/api/add_notice";
+			let params ={
+				"content_type":1,
+				"notice_comment":"notice_comment test"
+			}
+			methods(url,params)
+		}
+		function  deleteNotice(){
+			let url = "/api/del_notice";
+			let params ={
+				"noticeId":8
+			}
+			methods(url,params)
+		}
+		function  getNotice(){
+			let url = "/api/get_notice";
+			let params ={
+				"noticeId":1
+			}
+			methods(url,params)
+		}
+		function  getNoticeList(){
+			let url = "/api/get_notice_list";
+			let params ={
+				"content_type":1
+			}
+			methods(url,params)
+		}
+		function  updateNotice(){
+			let url = "/api/update_notice";
+			let params ={
+				"noticeId":8,
+				"noticeType":2,
+				"noticeComment":"ddddddd",
+				"state":0
+			}
+			methods(url,params)
+		}
+
+	  	
+
+	  	function withdraw(){
+	  		let addressid = $("#addressid").val();
+	  		let inputVal = $("#inputVal").val();
+	  		let ids = $("#ids").val();
+	  		axios.post("/api/withdraw",{"address":addressid.toLowerCase(),"inputVal":inputVal,u_id:ids}).then(function(res){
+	  			console.log("res:",res.data.resp)
+	  		})
+	  	}
+	  	function calculate(){
+	  		axios.post("/api/calculate",{}).then(function(res){
+	  			console.log("res:",res.data.resp)
+	  		})
+	  	}
+
+	  	function methods(url,params){
+			axios.post(url,params).then(function(res){
+				console.log(url+":",res.data.resp)
+			})
+		}
+	  	
+	  </script>
+	</body>
+</html>
+
+
+
+
