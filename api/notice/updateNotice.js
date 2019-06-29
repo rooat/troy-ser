@@ -22,7 +22,7 @@ updateNotice = async (req, res, next) => {
 			await config.noticeData.update({
 				notice_type:noticeType,
 				notice_comment:noticeComment,
-				timestamps:config.utils.getFullTime(),
+				timestamps:new Date().getTime(),
 				state:state
 			},{where:{e_id:noticeId}})
 			return res.send({"resp":{"state":0,"datas":"success"}})

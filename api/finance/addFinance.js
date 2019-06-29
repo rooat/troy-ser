@@ -17,7 +17,7 @@ addFinance = async (req, res, next) => {
 		let f_finance_time = obj.finance_time;
 
 
-		if(trade_pad && f_type &&config.utils.IsEmail(email) && config.utils.IsNumber(f_amount) && config.utils.IsDate(f_benefit_time) && config.utils.IsDate(f_finance_time)){
+		if(trade_pad && f_type &&config.utils.IsEmail(email) && config.utils.IsNumber(f_amount) && config.utils.IsDateSec(f_benefit_time) && config.utils.IsDateSec(f_finance_time)){
 			let now = new Date().getTime()
 			if(new Date(f_benefit_time).getTime()>now&& new Date(f_finance_time).getTime()>now){
 				let pwd = config.utils.md5(trade_pad);
@@ -30,10 +30,11 @@ addFinance = async (req, res, next) => {
 						await config.financeData.create({
 							f_type:f_type,
 							f_value:f_amount,
+							get_value:0,
 							timestamps:now,
-							f_benefit_time:f_benefit_time,
-							f_finance_time:f_finance_time,
-							end_time:"0000-00-00",
+							f_benefit_time:new Date(f_benefit_time).getTime(),
+							f_finance_time:new Date(f_finance_time).getTime(),
+							end_time:0,
 							user_id:user.e_id,
 							state:1
 						})

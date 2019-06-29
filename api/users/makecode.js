@@ -3,7 +3,7 @@ var config = require('../../config');
 
 makecode = async (req, res, next) => {
 	try{
-		let obj = config.isLogin.getObjParams(req)
+		let obj = config.utils.getObjParams(req)
 		if(obj==null){
 			return res.send({"resp":{"state":-1,"datas":"params is null"}});
 		}

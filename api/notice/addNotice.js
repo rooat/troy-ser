@@ -19,7 +19,7 @@ addNotice = async (req, res, next) => {
 			await config.noticeData.create({
 				notice_type:content_type,
 				notice_comment:notice_comment,
-				timestamps:config.utils.getFullTime(),
+				timestamps:new Date().getTime(),
 				state:0
 			});
 			return res.send(config.utils.result_req(0,"10010","success"));

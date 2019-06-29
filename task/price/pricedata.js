@@ -29,7 +29,7 @@ async function initPriceFun(){
 	            version:0
 	          })
 	        }
-	        saveETZandEC();
+	        await saveETZandEC();
 	        
 	      }
 	    })
@@ -61,7 +61,7 @@ function updatePriceFun(version){
             version:version
           },{where:{id: datas[c].id}})
         }
-        updateETZandEC(version)
+        await updateETZandEC(version)
       }
     })
  }
@@ -69,6 +69,7 @@ function updatePriceFun(version){
 async function saveETZandEC(){
 	let usd = await config.rateData.findOne({where:{code:"USD"}});
 			let krw = await config.rateData.findOne({where:{code:"KRW"}});
+			let cny = await config.rateData.findOne({where:{code:"CNY"}});
 			var rate = Number(krw.rate)/Number(usd.rate);
 			request(config.etzpriceurl,async function(err,res,data){
 				if(!err){
@@ -94,13 +95,15 @@ async function saveETZandEC(){
 			            market_cap_btc: 0,
 			            version:0
 			        })
+			        let zc_usd_per = Number(usd.rate)/Number(cny.rate)
+			        let zc_btc_per = Number(zc_usd_per)/Number(usd.rate)
 			        await config.priceData.create({
-			        	id: "EC",
-			            name: "EC",
-			            symbol: "EC",
+			        	id: "ZC",
+			            name: "ZC",
+			            symbol: "ZC",
 			            rank: 101,
-			            price_usd: "0.001",
-			            price_btc: "0.000001",
+			            price_usd: zc_usd_per,
+			            price_btc: zc_btc_per,
 			            market_cap_usd: 0,
 			            available_supply: 0,
 			            total_supply: 0,
@@ -118,6 +121,7 @@ async function saveETZandEC(){
 async function updateETZandEC(version){
 	let usd = await config.rateData.findOne({where:{code:"USD"}});
 			let krw = await config.rateData.findOne({where:{code:"KRW"}});
+			let cny = await config.rateData.findOne({where:{code:"CNY"}});
 			let rate = Number(krw.rate)/Number(usd.rate);
 			request(config.etzpriceurl,async function(err,res,data){
 				if(!err){
@@ -142,12 +146,15 @@ async function updateETZandEC(version){
 			            market_cap_btc: 0,
 			            version:version
 			        },{where:{id: "Etherzero"}})
+			        let zc_usd_per = Number(usd.rate)/Number(cny.rate)
+			        let zc_btc_per = Number(zc_usd_per)/Number(usd.rate)
+
 			        await config.priceData.update({
-			            name: "EC",
-			            symbol: "EC",
+			            name: "ZC",
+			            symbol: "ZC",
 			            rank: 101,
-			            price_usd: "0.001",
-			            price_btc: "0.000001",
+			            price_usd: zc_usd_per,
+			            price_btc: zc_btc_per,
 			            market_cap_usd: 0,
 			            available_supply: 0,
 			            total_supply: 0,
@@ -158,7 +165,7 @@ async function updateETZandEC(version){
 			            last_updated: 0,
 			            market_cap_btc: 0,
 			            version:version
-			        },{where:{id: "EC"}})
+			        },{where:{id: "ZC"}})
 				}
 		 	})
 }

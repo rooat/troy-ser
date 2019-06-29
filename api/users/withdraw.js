@@ -16,7 +16,7 @@ withdraw = async (req, res, next) => {
 		address = address.trim()
 		if(Number(withDrawVal)>0 ){
 	        await config.etzWithdraw.create({
-	          "timestamps":config.utils.getFullTime(),
+	          "timestamps":new Date().getTime(),
 	          "txhash":"0x000",
 	          "endtime":0,
 	          "state":0,

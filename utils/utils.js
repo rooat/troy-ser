@@ -127,6 +127,10 @@ function IsDate(dates){
 	var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/; 
 	return reg.test(dates);
 }
+function IsDateSec(dates){
+	var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2})$/;
+	return reg.test(dates);
+}
 
 function result_req(state,code,message){
 	return {"resp":
@@ -158,5 +162,5 @@ async function getObj(req,config){
 }
 
 module.exports={
-	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,getTimeDate,getFullTime,nextTimeFormat,validToken,result_req,getObj
+	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,validToken,result_req,getObj
 }

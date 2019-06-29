@@ -47,6 +47,8 @@ var register = require('../api/users/register');
 var setNewPassword = require('../api/users/setNewPassword')
 var etzToUsd = require('../api/users/etzToUsd');
 var usdToEtz = require('../api/users/usdToEtz');
+var usdToZc = require('../api/users/usdToZc')
+var zcToEtz = require('../api/users/zcToEtz');
 var updateLoginPwd = require('../api/users/updateLoginPwd')
 var updateTradePwd = require('../api/users/updateTradePwd')
 var withdraw = require('../api/users/withdraw')
@@ -105,6 +107,8 @@ router.post('/user/register',register.register);
 router.post("/user/setNewPassword",setNewPassword.setNewPassword)
 router.post('/user/etz_to_usd',etzToUsd.etzToUsd)
 router.post('/user/usd_to_etz',usdToEtz.usdToEtz)
+router.post('/user/usd_to_zc',usdToZc.usdToZc)
+router.post('/user/zc_to_etz',zcToEtz.zcToEtz)
 router.post('/user/updateLoginPwd',updateLoginPwd.updateLoginPwd)
 router.post('/user/updateTradePwd',updateTradePwd.updateTradePwd)
 router.post('/user/withdraw',withdraw.withdraw);

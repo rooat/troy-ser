@@ -5,7 +5,12 @@ http://localhost:3000/api/user/loginUser?email_num=896466205@qq.com&login_pwd=12
 
 http://localhost:3000/api/user/logOut?token=9c44ab2c8b29e119454453867752c92c
 
-http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=1659bfbb726032c81ab1abcaf3008294
+http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=da9a1cf19d6e7cb4910936d9973433a4
+
+http://localhost:3000/api/user/zc_to_etz?email_num=896466205@qq.com&trans_amount=1000&token=0f6d8e4b2cc01b2e8819913b238c9bc4
+
+http://localhost:3000/api/user/usd_to_zc?email_num=896466205@qq.com&trans_amount=10&token=a41a4a0b7b7a5cd29c5a30713a80629a
+
 
 http://localhost:3000/api/user/findPassword/?email_num=896466205@qq.com&address=0xe5a253043be58a0233a41150c00f60fdeb25c443&token=944423269bae1e8fa4f086735dcf2b39
 
@@ -30,13 +35,13 @@ http://localhost:3000/api/finance/super_node_benefit_by_user_id?user_id=12&token
 
 http://localhost:3000/api/finance/node_benefit_by_user_id?user_id=12&token=ad7bb5d7ec9d333dfea5012f27debfdf
 
-http://localhost:3000/api/finance/get_finance_list_by_user_id?user_id=12&type=1&token=3d8cc6ed845cd514c6c0b0fc651a2113
+http://localhost:3000/api/finance/get_finance_list_by_user_id?user_id=12&type=0&token=04550bbb5ef60597a3f62fea498cdb15
 
 http://localhost:3000/api/finance/get_finance_by_id?f_id=2056&token=ad7bb5d7ec9d333dfea5012f27debfdf
 
-http://localhost:3000/api/finance/get_benefit_list_by_user_id?user_id=12&token=5383f88ecedc76c84df6cee2a1cfeb3e
+http://localhost:3000/api/finance/get_benefit_list_by_user_id?user_id=12&token=848b59e88d07429cdfa28f1548eb08cc
 
-http://localhost:3000/api/finance/finance_ist?token=5383f88ecedc76c84df6cee2a1cfeb3e
+http://localhost:3000/api/finance/product_ist?token=f7c5d4bd32c8a543d9dec5c770833133
 
 http://localhost:3000/api/finance/add_finance?email_num=896466205@qq.com&trade_pad=12345678&type=1&value=1&benefit_time=2019-07-09 00:00:00&finance_time=2019-09-09 00:00:00&token=5383f88ecedc76c84df6cee2a1cfeb3e
 

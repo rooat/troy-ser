@@ -40,8 +40,8 @@ register = async (req, res, next) => {
 		            usd_value:0,
 		            last_login_time:"0000-00-00",
 		            last_login_ip:"0.0.0.0",
-		            regist_time:config.utils.getFullTime(),
-		            update_time:config.utils.getFullTime(),
+		            regist_time:new Date().getTime(),
+		            update_time:new Date().getTime(),
 		            address:account.address,
 		            isInveted:0,
 		            node_member:0,
@@ -55,7 +55,8 @@ register = async (req, res, next) => {
 	                type_2_total:0,//类型2总定投
 	                type_3_total:0,//类型3总定投
 	                type_4_total:0,//类型4总定投
-	                iscalculte:0
+	                iscalculte:0,
+	                nick_name:'hello'
 	                
 		  		})
 	             let data = {

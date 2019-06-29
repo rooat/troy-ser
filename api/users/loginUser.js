@@ -16,12 +16,10 @@ loginUser = async (req, res, next) => {
 			let user = await config.etzAdmin.findOne({where:{email:email,login_pwd_origin:pwd}})
 			if(user){
 				
-				await config.etzAdmin.update({last_login_time:config.utils.getFullTime()},{where:{e_id:user.e_id}})
+				await config.etzAdmin.update({last_login_time:new Date().getTime()},{where:{e_id:user.e_id}})
 				let rand = parseInt(Math.random()*100000);
 				let key = config.utils.md5(email+pwd+rand+user.role)
-				console.log("cookie:",JSON.stringify(req.cookies));
 				let sessionId = config.utils.md5(JSON.stringify(req.cookies))
-				console.log("sessionId:",sessionId)
 				config.setAsync(sessionId,email+","+pwd+","+rand+","+user.role)
 				config.expireAsync(sessionId,3110400)
 

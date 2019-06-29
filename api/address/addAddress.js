@@ -26,7 +26,7 @@ addAddress = async (req, res, next) => {
                                         comment:comment,
                                         state:0,
                                         user_id:user_id,
-                                        timestamps:config.utils.getFullTime()
+                                        timestamps:new Date().getTime()
                                 })
                                 return res.send(config.utils.result_req(0,"10010","success"))
                         }

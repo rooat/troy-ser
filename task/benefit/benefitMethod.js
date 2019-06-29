@@ -71,8 +71,9 @@ var invetTeamArr = new Array();//记录名下各团队总投资
       await config.nodeBenefitData.create({
         b_value:comm_node_per,
         b_value_f:types,
-        timestamps:new Date(timeUtil.getTimeDate()).getTime(),
-        user_id:adminArr[af].dataValues.e_id
+        timestamps:new Date(config.utils.getTimeDate()).getTime(),
+        user_id:adminArr[af].dataValues.e_id,
+        operate:0
       })
     }
   }
@@ -88,7 +89,7 @@ var invetTeamArr = new Array();//记录名下各团队总投资
       let type_4_total=0;
       let personalTotal =0 //个人当天所有总定存量
       for(var ae=0;ae<datas.length;ae++){
-        let end_time = new Date(datas[ae].dataValues.f_finance_time).getTime();
+        let end_time = Number(datas[ae].dataValues.f_finance_time);
         if(end_time<currentTime){
           let benefit_one=0;
           personalTotal += datas[ae].dataValues.f_value;//累加当天个人定存
@@ -118,9 +119,11 @@ var invetTeamArr = new Array();//记录名下各团队总投资
           await config.benefitData.create({
                 b_type:ff_type,
                 b_value:benefit_one,
-                b_value_f:0,
-                timestamps:new Date(timeUtil.getTimeDate()).getTime(),
-                user_id:userid
+                b_type_f:0,
+                timestamps:new Date(config.utils.getTimeDate()).getTime(),
+                user_id:userid,
+                f_id:datas[ae].dataValues.e_id,
+                operate:0
           })
         }else{//合约时间到期，本金返还
           timeIsStopFun(datas[ae].dataValues.f_value,userid,datas[ae].dataValues.e_id);
@@ -143,9 +146,10 @@ var invetTeamArr = new Array();//记录名下各团队总投资
         await config.benefitData.create({
             b_type:ff_type,
             b_value:invit_benefit_day,
-            b_value_f:1,
-            timestamps:new Date(timeUtil.getTimeDate()).getTime(),
-            user_id:invitor_id
+            b_type_f:1,
+            timestamps:new Date(config.utils.getTimeDate()).getTime(),
+            user_id:invitor_id,
+            operate:0
         })
         //计算50%；
         refferr_benefit_50(ff_type,invit_benefit_day,invite_code)
@@ -161,9 +165,10 @@ var invetTeamArr = new Array();//记录名下各团队总投资
         await config.benefitData.create({
           b_type:b_type,
           b_value:ref_benefit,
-          b_value_f:2,
-          timestamps:new Date(timeUtil.getTimeDate()).getTime(),
-          user_id:reffer.e_id
+          b_type_f:2,
+          timestamps:new Date(config.utils.getTimeDate()).getTime(),
+          user_id:reffer.e_id,
+          operate:0
         })
 
         node_count++

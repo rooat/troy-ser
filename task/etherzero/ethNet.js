@@ -105,7 +105,7 @@ class ETHEventListener {
                             if(hashSet.size==3){
                               hashSet = new Set();
                             }
-                              let times = config.utils.getFullTime();
+                              let times = new Date().getTime();
                                 await config.etzData.create({
                                   txhash:txhash,
                                   blocknumber:String(i-COMFIRM),
