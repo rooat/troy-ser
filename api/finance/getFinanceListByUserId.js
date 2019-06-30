@@ -62,6 +62,7 @@ async function makeData(sf_Data,user_id,f_type){
 		}
 		return arr;
 	}
+	return null;
 }
 
 module.exports = 

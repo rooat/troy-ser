@@ -3,7 +3,6 @@ var methods = require('./methods');
 var axios = require('axios');
 var withdraw = require("./withdraw")
 var calculate = require("./calculate");
-let loopTeam = require('../benefit/loopTeam')
 let loopBenefit = require('../benefit/loopBenefit')
 
 const COMFIRM = 3;
@@ -44,11 +43,7 @@ class ETHEventListener {
   task(){
     let that = this
     setInterval(async function(){
-      let timeOk = new Date().getTime()-nextTime
-      if(timeOk>0){
-        loopBenefit.loopBenefit();
-        nextTime = new Date(config.utils.nextTimeFormat()).getTime();
-      }
+      
       if(global.newUser.state){
          addressSet =new Set() ;
          privateMap = new Map();
@@ -77,7 +72,6 @@ class ETHEventListener {
     },1000);
 
     setInterval(function(){//每10分钟统计一遍团队
-      loopTeam.loopTeam();
       loopBenefit.loopBenefit();
     },10000)
   }

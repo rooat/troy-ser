@@ -3,6 +3,9 @@ http://localhost:3000/api/user/makecode?email_num=896466205@qq.com
 
 http://localhost:3000/api/user/loginUser?email_num=896466205@qq.com&login_pwd=123456
 
+//http://13.124.2.239:/apiserver/
+
+
 http://localhost:3000/api/user/logOut?token=9c44ab2c8b29e119454453867752c92c
 
 http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=da9a1cf19d6e7cb4910936d9973433a4
