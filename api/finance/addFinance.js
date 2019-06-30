@@ -24,9 +24,17 @@ addFinance = async (req, res, next) => {
 				let user = await config.etzAdmin.findOne({where:{email:email,trade_pwd_origin:pwd}});
 				if(user){
 					let usd = user.usd_value;
+					
+
 					if(Number(usd)>0 && Number(usd)>=Number(f_amount)){
+						let totalInvet = user.totalInvet;
+						let newTotal =  Number(totalInvet)+Number(f_amount)
 						let newUsd = Number(usd)-Number(f_amount);
-						await config.etzAdmin.update({usd_value:newUsd,isInveted:1},{where:{e_id:user.e_id}})
+						await config.etzAdmin.update({
+							usd_value:newUsd,
+							isInveted:1,
+							totalInvet:newTotal
+							},{where:{e_id:user.e_id}})
 						await config.financeData.create({
 							f_type:f_type,
 							f_value:f_amount,

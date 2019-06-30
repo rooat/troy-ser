@@ -226,6 +226,7 @@ var addressData = sequelize.define('addressdata',{
                         address:Sequelize.STRING(50),
                         isInveted:Sequelize.INTEGER(1),//1已投，2，在结算，3，结束
                         node_member:Sequelize.BIGINT(8),
+                        state:Sequelize.INTEGER(1),
                         isNew:Sequelize.INTEGER(1),
                         totalInvetDay:Sequelize.DECIMAL(12,2),//当天个人总定投
                         benefitBalance:Sequelize.DECIMAL(12,2),//当前有效总收益余额（静态动态）
@@ -240,6 +241,7 @@ var addressData = sequelize.define('addressdata',{
                         type_2_total:Sequelize.DECIMAL(12,2),//类型2总定投
                         type_3_total:Sequelize.DECIMAL(12,2),//类型3总定投
                         type_4_total:Sequelize.DECIMAL(12,2),//类型4总定投
+                        totalInvet:Sequelize.DECIMAL(12,2),//个人总定投
                         iscalculte:Sequelize.INTEGER(1),
 
                     },{

@@ -57,7 +57,8 @@ register = async (req, res, next) => {
 					                type_3_total:0,//类型3总定投
 					                type_4_total:0,//类型4总定投
 					                iscalculte:0,
-					                nick_name:'hello'
+					                nick_name:'hello',
+					                state:0
 					                
 						  		})
 							let data = {
