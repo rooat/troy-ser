@@ -48,8 +48,9 @@ register = async (req, res, next) => {
 					                totalStaticBenefit:0,//当前有效静态收益
 					                staticBenefitBalance:0,//累计静态收益
 					                staticBenefitDay:0,//当天个人总静态收益
-					                teamMember:0,
-					                teamInvet:0,
+					                teamMember:0,//团队总人数
+					                directMember,//直推人数
+					                teamInvet:0,//团队总投资
 					                type_1_total:0,//类型1总定投
 					                type_2_total:0,//类型2总定投
 					                type_3_total:0,//类型3总定投
