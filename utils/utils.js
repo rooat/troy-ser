@@ -24,7 +24,7 @@ function createAccount(){
 	
 }
 
-async function isExistEmail(email){
+async function isExistEmail(config,email){
 	let user = await config.etzAdmin.findOne({where:{email:email}})
 	if(user){
 		return true;
@@ -33,8 +33,12 @@ async function isExistEmail(email){
 }
 
 async function sendCode(email,config){
-	var emailCode = parseInt(Math.random()*1000000);
-  try{
+	//var emailCode = parseInt(Math.random()*1000000);
+	var emailCode="";
+	for(var i=0;i<6;i++){
+		emailCode+=parseInt(Math.random()*10)
+	}  
+try{
       let expire = await config.getAsync(email)
       if(!expire){
          config.transport.sendMail({
@@ -58,7 +62,9 @@ async function sendCode(email,config){
   }
 }
 
-function getObjParams(req,keys){
+function getObjParams(req){
+	console.log("query:===",req.query)
+	console.log("body:===",req.body)
 	if(JSON.stringify(req.query)==="{}"){
 		return req.body;
 	}else if(JSON.stringify(req.body)==="{}"){

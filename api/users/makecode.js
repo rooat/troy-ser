@@ -4,6 +4,7 @@ var config = require('../../config');
 makecode = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
+		console.log("obj====",obj);
 		if(obj==null){
 			return res.send({"resp":{"state":-1,"datas":"params is null"}});
 		}

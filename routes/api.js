@@ -99,7 +99,7 @@ router.post('/notice/update_notice',updateNotice.updateNotice)
 
 //user
 router.post('/user/getuser',getUser.getUser);
-router.post('/user/isExistUser',isExistUser.isExistUser);
+router.get('/user/isExistUser',isExistUser.isExistUser);
 router.post('/user/loginUser',loginUser.loginUser)
 router.post("/user/logOut",logOut.logOut)
 router.post('/user/makecode',makecode.makecode);
@@ -112,7 +112,7 @@ router.post('/user/zc_to_etz',zcToEtz.zcToEtz)
 router.post('/user/updateLoginPwd',updateLoginPwd.updateLoginPwd)
 router.post('/user/updateTradePwd',updateTradePwd.updateTradePwd)
 router.post('/user/withdraw',withdraw.withdraw);
-router.post('/user/transfer_istory',transferHistory.transferHistory)
+router.post('/user/transfer_history',transferHistory.transferHistory)
 
 
 

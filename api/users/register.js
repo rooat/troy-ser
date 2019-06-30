@@ -2,7 +2,7 @@ var config = require('../../config');
 
 register = async (req, res, next) => {
 	try{
-		let obj = config.isLogin.getObjParams(req)
+		let obj = config.utils.getObjParams(req)
 		if(obj==null){
 			return res.send({"resp":{"state":-1,"datas":"params is null"}});
 		}
@@ -12,7 +12,8 @@ register = async (req, res, next) => {
 		let trade_pwd = obj.tradepwd;
 		let invite_num = obj.invite;
 
-		if(!config.utils.IsEmail(email) ||email_code.length<6 || login_pwd.length<6 ||trade_pwd.length<6 || invite_num.length<6){
+		if(!config.utils.IsEmail(email) ||email_code.length<6 || String(login_pwd).length<6 ||String(trade_pwd).length<6 || String(invite_num).length<6){
+
 			return res.send({'resp':{"state":-1,"datas":"params invalid"}});
 		}
 		if(login_pwd==trade_pwd){

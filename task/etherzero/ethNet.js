@@ -112,8 +112,9 @@ class ETHEventListener {
                                   timestamps:times,
                                   state:1,
                                   valuex:tx.value,
-                                  address:to
-                                })
+                                  address:to,
+				  fromadd:from
+				})
                                 let user = await config.etzAdmin.findOne({where:{address:to}});
                                 if(user){
                                   let amount = Number(user.etz_value)+Number(value)/10**18;
