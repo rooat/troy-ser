@@ -25,9 +25,13 @@ http://localhost:3000/api/user/withdraw_history_by_user_id?user_id=12&token=5383
 
 http://localhost:3000/api/user/usd_to_etz?email_num=896466205@qq.com&trans_amount=1&token=d1b2d239c6a7a922635058204f5523d1
 
+http://localhost:3000/api/user/register?email_num=896466205@qq.com&loginpwd=123456&tradepwd=123456&invite=123456&code=126146
+
+
 http://localhost:3000/api/notice/get_notice_list?content_type=1
 
 http://localhost:3000/api/notice/get_notice?noticeId=2
+
 
 
 
