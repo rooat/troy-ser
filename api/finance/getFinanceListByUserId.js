@@ -42,11 +42,10 @@ async function makeData(sf_Data,user_id,f_type){
 		let lastdays = year+"-"+month+"-"+datex;
 
 		let arr = new Array();
-		let detail;
-		if(f_type!=0){
-			 detail= await config.financeDetail.findOne({where:{f_type_id:f_type}})
-		}
+		
 		for(var i=0;i<sf_Data.length;i++){
+			let detail= await config.financeDetail.findOne({where:{f_type_id:sf_Data[i].dataValues.f_type}});
+			
 			let f_id = sf_Data[i].dataValues.e_id;
 			let params={
 				user_id:user_id,
