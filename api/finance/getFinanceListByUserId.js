@@ -16,7 +16,7 @@ getFinanceListByUserId = async (req, res, next) => {
 			if(f_type==0){
 				sf_Data = await config.financeData.findAll({where:{user_id:user_id},order:[['timestamps','DESC']]})
 			}else{
-				sf_Data = await config.financeData.findAll({where:{state:{$in:[1,2]},user_id:user_id,f_type:f_type}})
+				sf_Data = await config.financeData.findAll({where:{user_id:user_id,f_type:f_type}})
 			}
 			let f_Data = await makeData(sf_Data,user_id,f_type);
 			
