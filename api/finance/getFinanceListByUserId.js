@@ -42,6 +42,10 @@ async function makeData(sf_Data,user_id,f_type){
 		let lastdays = year+"-"+month+"-"+datex;
 
 		let arr = new Array();
+		let detail;
+		if(f_type!=0){
+			 detail= await config.financeDetail.findOne({where:{f_type_id:f_type}})
+		}
 		for(var i=0;i<sf_Data.length;i++){
 			let f_id = sf_Data[i].dataValues.e_id;
 			let params={
@@ -50,14 +54,50 @@ async function makeData(sf_Data,user_id,f_type){
 				f_id:f_id,
 				b_type_f:0}
 
+				
+
 			if(f_type==0){
 				params = {
 					user_id:user_id,
 					f_id:f_id,
 					b_type_f:0}
 			}
-			let dataBenefit = await config.benefitData.findAll({where:params,order:[['timestamps','DESC']]})						
-			arr.push({"finance":sf_Data[i],"benefit":dataBenefit})
+			
+			
+			let benefitDatas = await config.benefitData.findAll({where:params,order:[['timestamps','DESC']]})
+			let benefitValue=0;
+			let lastBenefit=0;
+			if(benefitDatas && benefitDatas.length>0){
+						
+				let date = new Date();
+				let year = date.getFullYear();
+				let month = date.getMonth()+1;
+				let datex = date.getDate()-1;
+				let lastdays = year+"-"+month+"-"+datex;
+				for(var ik=0;ik<benefitDatas.length;ik++){
+					benefitValue +=Number(benefitDatas[ik].dataValues.b_value);
+					if(lastdays==Number(benefitDatas[ik].dataValues.timestamps)){
+						lastBenefit = Number(benefitDatas[ik].dataValues.b_value);
+					}
+				}
+			}
+			
+			let obj ={
+				"e_id":sf_Data[i].dataValues.e_id,
+	            "f_type":sf_Data[i].dataValues.f_type,
+	            "f_value":sf_Data[i].dataValues.f_value,
+	            "get_value":sf_Data[i].dataValues.get_value,
+	            "timestamps":sf_Data[i].dataValues.timestamps,
+	            "f_benefit_time":sf_Data[i].dataValues.f_benefit_time,
+	            "f_finance_time":sf_Data[i].dataValues.f_finance_time,
+	            "end_time":sf_Data[i].dataValues.end_time,
+	            "user_id":sf_Data[i].dataValues.user_id,
+	            "state":sf_Data[i].dataValues.state,
+	            "totalBenefit":benefitValue,
+				"lastBenefit":lastBenefit,
+				"rate":detail.day_benefit
+			}
+			arr.push({"finance":obj,"benefit":benefitDatas})
 		}
 		return arr;
 	}
