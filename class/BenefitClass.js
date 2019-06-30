@@ -2,16 +2,21 @@ var config = require('../config');
       
 class BenefitClass{
 	constructor(){
+		this.totalStaticBenefitDay =0;
 		this.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
+		this.zcprice_usd =0;
 	}
-	start(){
+	async start(){
+		let zc = await config.priceData.findOne({where:{symbol:"ZC"}})
+		this.zcprice = zc.price_usd
 		let that = this;
 		setInterval(function(){
-		      if(new Date().getTime()-that.nextTime){
+			console.log("=========benefit-------")
+		      if(new Date().getTime()>that.nextTime){
 		        that.loopBenefit();
 		        that.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		      }
-		},1000)
+		},5000)
 		
 	}
 
@@ -23,7 +28,29 @@ class BenefitClass{
 			await this.updateState(userData[i])
 			//静态收益
 			await this.staticBenefit(userData[i]);
+
 		}
+
+		let nodeData = await config.etzAdmin.findAll({where:{user_type:{$in:[1,2]}}})
+		let benefitss = this.totalStaticBenefitDay*7.5/100;
+		if(nodeData && nodeData.length>0){
+			let benefitss_per = benefitss/nodeData.length;
+			for(var ia=0;ia<nodeData.length;ia++){
+				//节点平分所有静态收益的7.5%
+				//更新动态收益
+			    let lock_values = Number(nodeData[ia].dataValues.lock_value)+(benefitss_per*Number(this.zcprice)*30/100);
+
+			    let newBlances = benefitss_per + Number(nodeData[ia].dataValues.benefitBalance)
+		        let totals = benefitss_per +Number(nodeData[ia].dataValues.totalBenefit)
+			    await config.etzAdmin.update({
+		        	benefitBalance :newBlances,
+		        	totalBenefit :totals,
+		        	lock_values:lock_values
+		        },{where:{e_id:nodeData[ia].dataValues.e_id}})
+
+			}
+		}
+		
 	}
 
 	async  updateState(user){
@@ -81,6 +108,7 @@ class BenefitClass{
 	                operate:0
 	          })
 	          benefitStaticDay += benefit_one
+	          this.totalStaticBenefitDay+=benefit_one;
 			}
 			//新的收益
 
@@ -88,6 +116,7 @@ class BenefitClass{
 			let newTotalStaticBenefit =benefitStaticDay+Number(user.totalStaticBenefit);
 			let newBenefitBalance =benefitStaticDay+Number(user.benefitBalance);
 			let newTotalBenefit =benefitStaticDay+Number(user.totalBenefit);
+			
 			let new_type_1_total = type_1_total +Number(user.type_1_total);
 			let new_type_2_total = type_2_total +Number(user.type_2_total);
 			let new_type_3_total = type_3_total +Number(user.type_3_total);
@@ -116,12 +145,18 @@ class BenefitClass{
 		            user_id:invitor.e_id,
 		            operate:0
 		        })
+		        let lock_values = Number(invitor.lock_value)+(invit_benefit_day*Number(this.zcprice)*30/100);
+		        invit_benefit_day = invit_benefit_day*70/100;
+
 		        let newBlance = invit_benefit_day + Number(invitor.benefitBalance)
 		        let total = invit_benefit_day +Number(invitor.totalBenefit)
+		        
+
 		        //更新动态收益
 		        await config.etzAdmin.update({
 		        	benefitBalance :newBlance,
-		        	totalBenefit :total
+		        	totalBenefit :total,
+		        	lock_values:lock_values
 		        },{where:{e_id:invitor.e_id}})
 
 		        let invite_invite_code = invitor.invite_code;//推荐人的推荐人
@@ -148,11 +183,15 @@ class BenefitClass{
 			      user_id:invitor_invite.e_id,
 			      operate:0
 			    })
+			    //更新动态收益
+			    let lock_values = Number(invitor_invite.lock_value)+(invite_invite_benefit*Number(this.zcprice)*30/100);
+
 			    let newBlances = invite_invite_benefit + Number(invitor_invite.benefitBalance)
 		        let totals = invite_invite_benefit +Number(invitor_invite.totalBenefit)
 			    await config.etzAdmin.update({
 		        	benefitBalance :newBlances,
-		        	totalBenefit :totals
+		        	totalBenefit :totals,
+		        	lock_values:lock_values
 		        },{where:{e_id:invitor_invite.e_id}})
 		    }
 		}

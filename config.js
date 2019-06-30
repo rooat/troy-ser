@@ -218,6 +218,7 @@ var addressData = sequelize.define('addressdata',{
                         invite2_code:Sequelize.INTEGER(6),
                         etz_value:Sequelize.DECIMAL(12,2),
                         usd_value:Sequelize.DECIMAL(12,2),
+                        lock_values:Sequelize.DECIMAL(12,2),
                         last_login_time:Sequelize.STRING(20),
                         last_login_ip:Sequelize.STRING(20),
                         regist_time:Sequelize.STRING(20),

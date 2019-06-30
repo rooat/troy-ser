@@ -36,7 +36,7 @@ class TeamClass{
 			}
 		}
 		 this.objMember = new Map();
-		 this.this.objInvet = new Map();
+		 this.objInvet = new Map();
 	}
 
 	async  directMemberFun(user){
@@ -51,6 +51,7 @@ class TeamClass{
 	async  teamMemberAndInvet(myCode){
 		let inviterx = await config.etzAdmin.findOne({where:{invite2_code:myCode}})
 		if(inviterx){
+			console.log("-------------------member---",this.objMember)
 			if(this.objMember && this.objMember.get(myCode)){
 				let nums = this.objMember.get(myCode);
 				this.objMember = Number(nums)+1;
@@ -75,6 +76,17 @@ class TeamClass{
 			this.teamMemberAndInvet(inviterx.invite_code)
 		}
 
+	}
+	async arrAddMember(code,value){
+		if(this.objMember&& this.objMember.length>0){
+			for(var ia=0;ia<this.objMember.length;ia++){
+				if(this.objMember[ia].code==code){
+					this.objMember[ia].value+=value
+					break;
+				}
+			}
+		}
+		
 	}
 }
 

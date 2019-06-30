@@ -34,6 +34,7 @@ register = async (req, res, next) => {
 						  			invite2_code:parseInt(Math.random()*1000000),
 						            etz_value:0,
 						            usd_value:0,
+						            lock_values:0,
 						            last_login_time:"0",
 						            last_login_ip:"0.0.0.0",
 						            regist_time:new Date().getTime(),
