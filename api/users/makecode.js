@@ -4,18 +4,17 @@ var config = require('../../config');
 makecode = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
-		console.log("obj====",obj);
 		if(obj==null){
 			return res.send({"resp":{"state":-1,"datas":"params is null"}});
 		}
 		let email = obj.email_num;
 		if(config.utils.IsEmail(email)){
-			let resCode = await config.getAsync(email);
+			let resCode = await config.getAsync(email+"emailcode");
 			if(!resCode){
 				await config.utils.sendCode(email,config);
 				return res.send({"resp":{"state":0,"datas":"check your email"}});
 			}
-			return res.send({"resp":{"state":-1,"datas":"try a again after 60 seconds !"}})
+			return res.send({"resp":{"state":-1,"datas":"try a again after 120 seconds !"}})
 		}
 		return res.send({"resp":{"state":-1,"datas":"email invalid"}});
 	}catch(e){

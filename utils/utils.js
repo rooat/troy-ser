@@ -33,27 +33,24 @@ async function isExistEmail(config,email){
 }
 
 async function sendCode(email,config){
-	//var emailCode = parseInt(Math.random()*1000000);
+try{
 	var emailCode="";
 	for(var i=0;i<6;i++){
 		emailCode+=parseInt(Math.random()*10)
-	}  
-try{
+	} 
       let expire = await config.getAsync(email)
       if(!expire){
-         config.transport.sendMail({
+          await config.transport.sendMail({
           from : "test email code 205263298@qq.com",
           to : email,
           subject : "Troy Email Valid Code",
           text : "Troy Email Valid Code",
           html : "<b>"+emailCode+"</b>",
-        }).then(async function(){
-        	let code = md5(String(emailCode))
-	          await config.setAsync(email,code)
-	          await config.expireAsync(email,120)
-	          
-	      })
-        return 0;
+        })
+    	  let code = md5(String(emailCode))
+          await config.setAsync(email+"emailcode",code)
+          await config.expireAsync(email+"emailcode",120)
+          return 0;
      }
      return -1;
   }catch(e){
@@ -63,8 +60,6 @@ try{
 }
 
 function getObjParams(req){
-	console.log("query:===",req.query)
-	console.log("body:===",req.body)
 	if(JSON.stringify(req.query)==="{}"){
 		return req.body;
 	}else if(JSON.stringify(req.body)==="{}"){

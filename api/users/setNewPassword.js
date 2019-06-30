@@ -12,7 +12,7 @@ setNewPassword = async (req, res, next) => {
 		let new_password = obj.password;
 		let email_code = obj.code;
 
-		let newCode = await config.getAsync(email);
+		let newCode = await config.getAsync(email+"emailcode");
 		let currentCode = config.utils.md5(String(email_code));
 		if(currentCode!=newCode){
 			return res.send({"resp":{"state":-1,"datas":"code invalid"}})
