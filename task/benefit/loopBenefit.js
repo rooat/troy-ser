@@ -1,6 +1,6 @@
-var obj = new Map();
+var config = require('../../config');
 
-function loopUser(){
+async function loopBenefit(){
 	let userData = await config.etzAdmin.findAll();
 	
 	for(var i=0;i<userData.length;i++){
@@ -8,75 +8,8 @@ function loopUser(){
 		await updateState(userData[i])
 		//静态收益
 		await staticBenefit(userData[i]);
-		//汇总团队人数
-		await teamMemberAndInvet(userData[i].dataValues.invite_code);
-	}
-	for(var ic=0;ic<userData.length;ic++){
-		if(obj.get(userData[ic].dataValues.invite2_code)){
-			let teamMember = obj.get(userData[ic].dataValues.invite2_code);
-		}
 	}
 }
-
-async function directMemberFun(mycode){
-	let counts = await config.etzAdmin.findAll({where:{invite2_code}})
-}
-
-async function teamMemberAndInvet(myCode){
-	let inviterx = await config.etzAdmin.findOne({where:{invite2_code:myCode}})
-	if(inviterx){
-		if(obj.get(myCode)){
-			let nums = obj.get(myCode);
-			nums = Number(nums)+1;
-			obj.set(myCode,nums);
-		}else{
-			obj.set(myCode,1)
-		}
-		teamMemberAndInvet(inviterx.invite_code)
-	}
-	// let directMember =0;//直推人数
-	// let directInvetMember =0;//直推投资总额
-	// if(teamsArr && teamsArr.length>0){
-	// 	 directMember= teamsArr.length;
-	// 	for(var ik=0;ik<teamsArr.length;ik++){
-	// 		let financeDatasx = await config.financeData.findAll({where:{user_id:teamsArr[ik].dataValues.e_id,state:1}});
-	// 		if(financeDatasx && financeDatasx.length>0){
-	// 			for(var jk;jk<financeDatasx.length;jk++){
-	// 				directInvetMember+=Number(financeDatasx[jk].dataValues.f_value);
-	// 			}
-	// 		}
-	// 	}
-	// }
-}
-
-
-
-async function calTotalInvetMember(invite2_code){
-    let adminsx = await config.etzAdmin.findAll({where:{invite_code:invite2_code}})
-    if(adminsx && adminsx.length>0){
-      for(var ah;ah<adminsx.length;ah++){
-        members++;
-        totalTeamInvet+=Number(adminsx[ah].dataValues.totalInvetDay);
-        let invite2_codes = adminsx.invite2_code;
-        calTotalInvet(invite2_codes);
-      }
-    }
-  }
-
-  async function node_benefit(benefit,adminArr,types){
-    let comm_node_per = Number(benefit)/adminArr.length;
-    for(var af;af<adminArr.length;af++){
-      await config.nodeBenefitData.create({
-        b_value:comm_node_per,
-        b_value_f:types,
-        timestamps:new Date(config.utils.getTimeDate()).getTime(),
-        user_id:adminArr[af].dataValues.e_id,
-        operate:0
-      })
-    }
-  }
-
-
 
 async function updateState(user){
 	let financeDatas = await config.financeData.findAll({where:{user_id:user.e_id,state:1}});
@@ -98,6 +31,11 @@ async function staticBenefit(user){
 	let currentTime = new Date().getTime();
 	let financeData = await config.financeData.findAll({where:{user_id:user.e_id,state:1,f_finance_time:{$gt:currentTime}}});
 	if(financeData && financeData.length>0){
+		let type_1_total =0; //当日类型1 总投资额；
+		let type_2_total =0; //当日类型2 总投资额；
+		let type_3_total =0; //当日类型3 总投资额；
+		let type_4_total =0; //当日类型4 总投资额；
+
 		let benefitStaticDay =0;//当日静态收益总和
 		for(var j=0;j<financeData.length;j++){
 			let ff_type = dataValues.f_type
@@ -130,16 +68,25 @@ async function staticBenefit(user){
           benefitStaticDay += benefit_one
 		}
 		//新的收益
+
 		let newStaticBenefitBalance = benefitStaticDay+Number(user.staticBenefitBalance);
 		let newTotalStaticBenefit =benefitStaticDay+Number(user.totalStaticBenefit);
 		let newBenefitBalance =benefitStaticDay+Number(user.benefitBalance);
 		let newTotalBenefit =benefitStaticDay+Number(user.totalBenefit);
+		let new_type_1_total = type_1_total +Number(user.type_1_total);
+		let new_type_2_total = type_2_total +Number(user.type_2_total);
+		let new_type_3_total = type_3_total +Number(user.type_3_total);
+		let new_type_4_total = type_4_total +Number(user.type_4_total);
 		//更新收益
 		await config.etzAdmin.update({
 			staticBenefitBalance:newStaticBenefitBalance,
 			totalStaticBenefit: newTotalStaticBenefit,
 			benefitBalance : newBenefitBalance,
-			totalBenefit : newTotalBenefit
+			totalBenefit : newTotalBenefit,
+			type_1_total: new_type_1_total,
+			type_2_total: new_type_1_total,
+			type_3_total: new_type_1_total,
+			type_4_total: new_type_1_total
 		},{where:{e_id:user.e_id}});
 
 		let invite_code = user.invite_code;//推荐人
@@ -194,6 +141,10 @@ async function refferr_benefit_50(invit_benefit_day,invite_invite_code){
 	        },{where:{e_id:invitor_invite.e_id}})
 	    }
 	}
+}
+
+module.exports={
+	loopBenefit
 }
 
 

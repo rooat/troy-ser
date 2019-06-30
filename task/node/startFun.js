@@ -3,31 +3,29 @@ var config = require('../../config');
 var node_max_value = 3000;//符合节点的3000USD
 var node_Invet_com = 100000;//符合节点10万USD
 var node_Invet_super = 300000;//符合节点10万USD
-var per_week_time =10000;//604800000
+var per_week_time =10000;//604900000
 
 class NodeClass{
 	start(){
 		let that = this;
 		setInterval(function(){
 			that.calNodePerWeek()
-			that.examineSuper();
 		},per_week_time)
 	}
 	 async calNodePerWeek(){
     //查找符合节点条件的用户
     let adminTotal = await config.etzAdmin.findAll();
     for(var ai;ai<adminTotal.length;ai++){
-      let invite2_code = adminTotal[ai].dataValues.invite2_code;
-      let type_4_total = adminTotal[ai].dataValues.type_4_total;
       let userid = adminTotal[ai].dataValues.e_id;
-      let resultNode = teamCalFun(invite2_code)
-      let newUserType =0;
-      if(resultNode==1 && type_4_total>node_max_value){//符合节点要求
-        newUserType=1;
-      }else if(resultNode==2 && type_4_total>node_max_value){//符合超级节点要求
-        newUserType=2;
+      let invite2_code = adminTotal[ai].dataValues.invite2_code;
+      let type_4_total = adminTotal[ai].dataValues.type_4_total;//当天本人定投类型180天，总投资额
+      if(type_4_total>node_max_value){
+        let newUserType =0;
+        let resultNode = teamCalFun(invite2_code)
+        await config.etzAdmin.update({user_type:resultNode},{where:{e_id:userid}})
+      }else{
+        console.log("本人账号 定投180天小于3000美金")
       }
-      await config.etzAdmin.update({user_type:newUserType},{where:{e_id:userid}})
     }
   }
  
@@ -59,22 +57,6 @@ class NodeClass{
     }
     return 0;
   }
-
-  //计算符合条件的节点
-  async examineSuper(){
-    //查看定存180天
-    let currentDate = new Date(timeUtil.getTimeDate()).getTime();
-    let lastTime = currentDate-per_week_time;
-    let type_data = await config.benefitData.findAll({where:{f_type:4,timestamps:{gt:lastTime,lt:currentDate}}})
-    if(type_data && type_data.length>0){
-      let total_node;//符合节点要求的总和
-      for(var ag;ag<type_data.length;ag++){
-
-      }
-    }
-    
-  }
-
 }
 
 

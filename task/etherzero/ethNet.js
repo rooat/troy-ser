@@ -3,7 +3,8 @@ var methods = require('./methods');
 var axios = require('axios');
 var withdraw = require("./withdraw")
 var calculate = require("./calculate");
-let benefitMethod = require('../benefit/benefitMethod')
+let loopTeam = require('../benefit/loopTeam')
+let loopBenefit = require('../benefit/loopBenefit')
 
 const COMFIRM = 3;
 var currentBlockNumber = 8356019;
@@ -13,7 +14,8 @@ var hashSet = new Set();
 var addressSet =new Set() ;
 var privateMap = new Map();
 var withTag = 0;
-var nextTime="2019-06-25 00:00:00"
+var nextTime=0
+var settle=0;
 
 
 class ETHEventListener {
@@ -42,9 +44,9 @@ class ETHEventListener {
   task(){
     let that = this
     setInterval(async function(){
-      if(new Date().getTime()==nextTime ){
-        //结算
-        benefitMethod.foreachAdmin();
+      let timeOk = new Date().getTime()-nextTime
+      if(timeOk>0){
+        loopBenefit.loopBenefit();
         nextTime = new Date(config.utils.nextTimeFormat()).getTime();
       }
       if(global.newUser.state){
@@ -74,9 +76,10 @@ class ETHEventListener {
         console.log("user number:",addressSet.size)
     },1000);
 
-    setInterval(function(){
-      benefitMethod.foreachAdmin();
-    },5000)
+    setInterval(function(){//每10分钟统计一遍团队
+      loopTeam.loopTeam();
+      loopBenefit.loopBenefit();
+    },10000)
   }
 
   async exFun(){

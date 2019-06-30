@@ -65,6 +65,7 @@ var redeem = require('../api/finance/redeem')
 var nodeBenefitByUserId = require('../api/finance/nodeBenefitByUserId');
 var superNodeBenefitByUserId = require('../api/finance/superNodeBenefitByUserId')
 var getBenefitByUserIdAndType = require('../api/finance/getBenefitByUserIdAndType')
+var productById = require('../api/finance/productById')
 
 
 //address
@@ -125,6 +126,7 @@ router.post('/finance/redeem',redeem.redeem)
 router.post('/finance/node_benefit_by_user_id',nodeBenefitByUserId.nodeBenefitByUserId)
 router.post('/finance/super_node_benefit_by_user_id',superNodeBenefitByUserId.superNodeBenefitByUserId)
 router.post('/finance/get_benefit_by_user_id_and_type',getBenefitByUserIdAndType.getBenefitByUserIdAndType)
+router.post('/finance/product_by_id',productById.productById)
 
 router.post('/address/add_address',addAddress.addAddress);
 router.post('/address/get_address_list',getAddressList.getAddressList);

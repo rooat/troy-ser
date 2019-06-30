@@ -52,6 +52,7 @@ http://localhost:3000/api/finance/add_finance?email_num=896466205@qq.com&trade_p
 http://localhost:3000/api/finance/redeem?f_id=2066&email_num=896466205@qq.com&trade_pwd=12345678&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
 
+http://localhost:3000/api/finance/product_by_id?f_id=2066&token=c51c7e34a60164092f8e0250af6181ed
 
 
 http://localhost:3000/api/price/price_data_by_symbol?symbol=ETZ

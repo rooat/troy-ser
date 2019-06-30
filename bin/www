@@ -19,8 +19,9 @@ app.set('port', port);
  * Create HTTP server.
  */
 var config = require("../config")
-//require('../task/etherzero/ethNet');
-//var priceStart = require("../task/price/startFun")
+require('../task/etherzero/ethNet');
+//require("../task/price/startFun")
+//require("../task/node/startFun")
 
 
 //require('../task/eth/checktx');
