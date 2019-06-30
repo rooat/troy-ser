@@ -27,7 +27,7 @@ getUser = async (req, res, next) => {
 					"address":user.address,
 					"isNew":user.isNew,
 					"totalInvetDay":user.totalInvetDay,
-					"totalStaticBenefit":user.totalStaticBenefit,
+					"totalStaticBenefit":user.benefitBalance,
 					"staticBenefitDay":user.staticBenefitDay,
 					"teamMember":user.teamMember,
 					"teamInvet":user.teamInvet,
