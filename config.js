@@ -33,8 +33,7 @@ const config = {
    password: 'Qb3lPxSEYmrbt116',
    host: 'localhost',
    port: 3306
-};
-
+}
 
 var sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
