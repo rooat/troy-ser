@@ -18,8 +18,11 @@ getFinanceListByUserId = async (req, res, next) => {
 			}else{
 				sf_Data = await config.financeData.findAll({where:{state:1,user_id:user_id,f_type:f_type}})
 			}
+			console.log("sf_Data----",sf_Data)
+			console.log("user_id----",user_id)
+			console.log("f_type----",f_type)
 			let f_Data = await makeData(sf_Data,user_id,f_type);
-				
+				console.log("f_Data======",f_Data)
 			
 			if(f_Data && f_Data.length>0){
 				return res.send(config.utils.result_req(0,"10010",f_Data));
