@@ -10,7 +10,6 @@ updateTradePwd = async (req, res, next) => {
 		
 		let email = obj.email_num;
 		let email_code = obj.code;
-		let login_pwd = obj.login_pwd;
 		let old_trade_pwd = obj.old_trade_pwd;
 		let new_trade_pwd = obj.new_trade_pwd;
 
@@ -19,15 +18,14 @@ updateTradePwd = async (req, res, next) => {
 			return res.send({"resp":{"state":0,"datas":"code invalid"}})
 		}
 
-		if(login_pwd.length<6 || old_trade_pwd.length<6 || new_trade_pwd.length<6){
+		if( old_trade_pwd.length<6 || new_trade_pwd.length<6){
 			return res.send({"resp":{"state":-1,"datas":"params invalid"}})
 		}
 		if(config.utils.IsEmail(email) ){
-			let login = config.utils.md5(login_pwd)
 			let old_trade = config.utils.md5(old_trade_pwd)
 			let new_trade = config.utils.md5(new_trade_pwd)
 
-			let user = await config.etzAdmin.findOne({where:{email:email,login_pwd_origin:login,trade_pwd_origin:old_trade}})
+			let user = await config.etzAdmin.findOne({where:{email:email,trade_pwd_origin:old_trade}})
 			console.log(user)
 			if(user){
 	  			await config.etzAdmin.update({

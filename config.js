@@ -60,11 +60,11 @@ var exchangeData = sequelize.define('exchangedata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        e_type:Sequelize.BIGINT(3),//1,2,3,4
+                        e_type:Sequelize.INTEGER(3),//1,2,3,4
                         e_value:Sequelize.DECIMAL(12,2),
-                        timestamps:Sequelize.STRING(20),
+                        timestamps:Sequelize.BIGINT(20),
                         user_id:Sequelize.BIGINT(11),
-                        operate:Sequelize.BIGINT(1)
+                        operate:Sequelize.INTEGER(1)
 
                     },{
                         freezeTableName:true,
@@ -77,7 +77,7 @@ var coinTypeData = sequelize.define('cointypedata',{
                         },
                         coinname:Sequelize.STRING(10),
                         comment:Sequelize.STRING(30),
-                        state:Sequelize.BIGINT(1),
+                        state:Sequelize.INTEGER(1),
 
                     },{
                         freezeTableName:true,
@@ -92,7 +92,7 @@ var addressData = sequelize.define('addressdata',{
                         a_type:Sequelize.STRING(10),//1,2,3,4
                         address:Sequelize.STRING(50),
                         comment:Sequelize.STRING(50),
-                        state:Sequelize.BIGINT(1),
+                        state:Sequelize.INTEGER(1),
                         user_id:Sequelize.BIGINT(11),
                         timestamps:Sequelize.STRING(20)
 
@@ -106,13 +106,13 @@ var addressData = sequelize.define('addressdata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        b_type:Sequelize.BIGINT(3),//1,2,3,4
+                        b_type:Sequelize.INTEGER(3),//1,2,3,4
                         b_value:Sequelize.DECIMAL(12,2),
-                        b_type_f:Sequelize.BIGINT(1),//0 静态收益，1 直推奖，2，间点奖
+                        b_type_f:Sequelize.INTEGER(1),//0 静态收益，1 直推奖，2，间点奖
                         timestamps:Sequelize.STRING(20),
                         user_id:Sequelize.BIGINT(11),
                         f_id:Sequelize.BIGINT(11),
-                        operate:Sequelize.BIGINT(1)
+                        operate:Sequelize.INTEGER(1)
 
                     },{
                         freezeTableName:true,
@@ -126,10 +126,10 @@ var addressData = sequelize.define('addressdata',{
                             primaryKey:true
                         },
                         b_value:Sequelize.DECIMAL(12,2),
-                        b_type_f:Sequelize.BIGINT(1),//0,节点奖励，1 超级节点奖励
+                        b_type_f:Sequelize.INTEGER(1),//0,节点奖励，1 超级节点奖励
                         timestamps:Sequelize.STRING(20),
                         user_id:Sequelize.BIGINT(11),
-                        operate:Sequelize.BIGINT(1)
+                        operate:Sequelize.INTEGER(1)
                         
                     },{
                         freezeTableName:true,
@@ -140,8 +140,8 @@ var addressData = sequelize.define('addressdata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        f_type_id:Sequelize.BIGINT(3),//1 为7天,2 为30天,3为60天,4为180天。11为美元兑换zc 22为zc兑换etz
-                        time_limit:Sequelize.BIGINT(5),
+                        f_type_id:Sequelize.INTEGER(3),//1 为7天,2 为30天,3为60天,4为180天。11为美元兑换zc 22为zc兑换etz
+                        time_limit:Sequelize.INTEGER(5),
                         day_benefit:Sequelize.DECIMAL(3,2)
                         
                     },{
@@ -155,7 +155,7 @@ var addressData = sequelize.define('addressdata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        f_type:Sequelize.BIGINT(1),//1,2,3,4
+                        f_type:Sequelize.INTEGER(1),//1,2,3,4
                         f_value:Sequelize.DECIMAL(12,2),
                         get_value:Sequelize.DECIMAL(12,2),
                         timestamps:Sequelize.STRING(20),
@@ -163,7 +163,7 @@ var addressData = sequelize.define('addressdata',{
                         f_finance_time:Sequelize.STRING(40),
                         end_time:Sequelize.STRING(20),
                         user_id:Sequelize.BIGINT(11),
-                        state:Sequelize.BIGINT(1),//1投资中，2，结束
+                        state:Sequelize.INTEGER(1),//1投资中，2，结束
                         
                     },{
                         freezeTableName:true,
@@ -178,7 +178,7 @@ var addressData = sequelize.define('addressdata',{
                         code:Sequelize.STRING(60),
                         email:Sequelize.BIGINT(50),
                         timestamps:Sequelize.STRING(20),
-                        state:Sequelize.BIGINT(1)
+                        state:Sequelize.INTEGER(1)
                         
                     },{
                         freezeTableName:true,
@@ -196,7 +196,7 @@ var addressData = sequelize.define('addressdata',{
                         mnemonic:Sequelize.STRING(150),
                         timestamps:Sequelize.STRING(20),
                         endtime:Sequelize.STRING(20),
-                        state:Sequelize.BIGINT(1),
+                        state:Sequelize.INTEGER(1),
                         valuex:Sequelize.DECIMAL(10,4),
                         
                     },{
@@ -209,13 +209,13 @@ var addressData = sequelize.define('addressdata',{
                             primaryKey:true
                         },
                         nick_name:Sequelize.STRING(30),
-                        role:Sequelize.BIGINT(1),//0普通会员，1，管理员，
-                        user_type:Sequelize.BIGINT(1),//0默认用户，1节点用户，2，超级节点用户
+                        role:Sequelize.INTEGER(1),//0普通会员，1，管理员，
+                        user_type:Sequelize.INTEGER(1),//0默认用户，1节点用户，2，超级节点用户
                         email:Sequelize.STRING(50),
                         trade_pwd_origin:Sequelize.STRING(60),
                         login_pwd_origin:Sequelize.STRING(60),
-                        invite_code:Sequelize.BIGINT(6),
-                        invite2_code:Sequelize.BIGINT(6),
+                        invite_code:Sequelize.INTEGER(6),
+                        invite2_code:Sequelize.INTEGER(6),
                         etz_value:Sequelize.DECIMAL(12,2),
                         usd_value:Sequelize.DECIMAL(12,2),
                         last_login_time:Sequelize.STRING(20),
@@ -223,22 +223,23 @@ var addressData = sequelize.define('addressdata',{
                         regist_time:Sequelize.STRING(20),
                         update_time:Sequelize.STRING(20),
                         address:Sequelize.STRING(50),
-                        isInveted:Sequelize.BIGINT(1),//1已投，2，在结算，3，结束
+                        isInveted:Sequelize.INTEGER(1),//1已投，2，在结算，3，结束
                         node_member:Sequelize.BIGINT(8),
-                        isNew:Sequelize.BIGINT(1),
+                        isNew:Sequelize.INTEGER(1),
                         totalInvetDay:Sequelize.DECIMAL(12,2),//当天个人总定投
                         benefitBalance:Sequelize.DECIMAL(12,2),//当前有效总收益余额（静态动态）
                         totalBenefit:Sequelize.DECIMAL(12,2),//累计收益包含已经提现和未提现
                         staticBenefitBalance:Sequelize.DECIMAL(12,2),//当前有效静态收益
                         totalStaticBenefit:Sequelize.DECIMAL(12,2),//累计静态收益
                         staticBenefitDay:Sequelize.DECIMAL(12,2),//当天个人总静态收益
-                        teamMember:Sequelize.BIGINT(8),
-                        teamInvet:Sequelize.DECIMAL(12,2),
+                        teamMember:Sequelize.INTEGER(8),//团队总人数
+                        directMember:Sequelize.INTEGER(8),//直推人数
+                        teamInvet:Sequelize.DECIMAL(12,2),//团队总投资
                         type_1_total:Sequelize.DECIMAL(12,2),//类型1总定投
                         type_2_total:Sequelize.DECIMAL(12,2),//类型2总定投
                         type_3_total:Sequelize.DECIMAL(12,2),//类型3总定投
                         type_4_total:Sequelize.DECIMAL(12,2),//类型4总定投
-                        iscalculte:Sequelize.BIGINT(1),
+                        iscalculte:Sequelize.INTEGER(1),
 
                     },{
                         freezeTableName:true,
@@ -254,7 +255,7 @@ var addressData = sequelize.define('addressdata',{
                         timestamps:Sequelize.STRING(20),
                         txhash:Sequelize.STRING(150),
                         blocknumber:Sequelize.STRING(20),
-                        state:Sequelize.BIGINT(1),
+                        state:Sequelize.INTEGER(1),
                         valuex:Sequelize.STRING(30),
                         address:Sequelize.STRING(50),
 	 		fromadd:Sequelize.STRING(50),
@@ -273,7 +274,7 @@ var addressData = sequelize.define('addressdata',{
                         timestamps:Sequelize.STRING(20),
                         txhash:Sequelize.STRING(150),
                         endtime:Sequelize.STRING(20),
-                        state:Sequelize.BIGINT(1),
+                        state:Sequelize.INTEGER(1),
                         valuex:Sequelize.DECIMAL(10,4),
                         address:Sequelize.STRING(50),
 	 		user_id:Sequelize.BIGINT(11),
@@ -302,7 +303,7 @@ var addressData = sequelize.define('addressdata',{
                         },
                         name:Sequelize.STRING(50),
                         symbol:Sequelize.STRING(20),
-                        rank:Sequelize.BIGINT(5),
+                        rank:Sequelize.INTEGER(5),
                         price_usd:Sequelize.STRING(30),
                         price_btc:Sequelize.STRING(30),
                         market_cap_usd:Sequelize.STRING(30),
@@ -314,7 +315,7 @@ var addressData = sequelize.define('addressdata',{
                         percent_change_7d:Sequelize.DECIMAL(8,2),
                         last_updated:Sequelize.STRING(15),
                         market_cap_btc:Sequelize.STRING(20),
-                        version:Sequelize.BIGINT(3)
+                        version:Sequelize.INTEGER(3)
                     },{
                         freezeTableName:true,
                         timestamps: false
