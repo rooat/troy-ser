@@ -16,7 +16,10 @@ var invetTeamArr = new Array();//记录名下各团队总投资
         let invite2_code = adminData[ad].dataValues.invite2_code;
         let isNew = adminData[ad].dataValues.isNew;
         let userid = adminData[ad].dataValues.e_id;
-        let totalStaticBenefit = adminData[ad].dataValues.totalStaticBenefit;
+        let totalStaticBenefit = adminData[ad].dataValues.totalStaticBenefit;//当前有效静态收益
+        let totalStaticBenefit = adminData[ad].dataValues.totalStaticBenefit;//当前总静态收益
+        let totalStaticBenefit = adminData[ad].dataValues.totalStaticBenefit;//当前有效总收益
+        let totalStaticBenefit = adminData[ad].dataValues.totalStaticBenefit;//累计总收益
         let invitor_id =0;
         let invitor_invite=0;
         //推荐人

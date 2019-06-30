@@ -229,7 +229,8 @@ var addressData = sequelize.define('addressdata',{
                         totalInvetDay:Sequelize.DECIMAL(12,2),//当天个人总定投
                         benefitBalance:Sequelize.DECIMAL(12,2),//当前有效总收益余额（静态动态）
                         totalBenefit:Sequelize.DECIMAL(12,2),//累计收益包含已经提现和未提现
-                        totalStaticBenefit:Sequelize.DECIMAL(12,2),//当前有效静态收益
+                        staticBenefitBalance:Sequelize.DECIMAL(12,2),//当前有效静态收益
+                        totalStaticBenefit:Sequelize.DECIMAL(12,2),//累计静态收益
                         staticBenefitDay:Sequelize.DECIMAL(12,2),//当天个人总静态收益
                         teamMember:Sequelize.BIGINT(8),
                         teamInvet:Sequelize.DECIMAL(12,2),
