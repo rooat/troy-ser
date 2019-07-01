@@ -350,6 +350,18 @@ var noticeData = sequelize.define('noticedata',{
                         freezeTableName:true,
                         timestamps: false
                     });
+var testM = sequelize.define('testm',{
+                        e_id:{
+                            type:Sequelize.STRING(10),
+                            primaryKey:true
+                        },
+                        invite_code:Sequelize.STRING(6),
+                        invite2_code:Sequelize.STRING(6)
+                    },{
+                        freezeTableName:true,
+                        timestamps: false
+                    });
+
 
 
 
@@ -397,7 +409,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
 var utils = require('./utils/utils')
 
 module.exports = {
-    utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync
+    utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM
 }
 
 // insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205s1s@qq.com","dddd","dddddd",22222,123456,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
