@@ -10,6 +10,9 @@ http://localhost:3000/api/user/logOut?token=9c44ab2c8b29e119454453867752c92c
 
 http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=da9a1cf19d6e7cb4910936d9973433a4
 
+http://localhost:3000/api/user/friend_data?mycode=123456&token=a825a92f54bd3019483d8577aaa71c72
+
+
 http://localhost:3000/api/user/zc_to_etz?email_num=896466205@qq.com&trans_amount=1000&token=0f6d8e4b2cc01b2e8819913b238c9bc4
 
 http://localhost:3000/api/user/usd_to_zc?email_num=896466205@qq.com&trans_amount=10&token=a41a4a0b7b7a5cd29c5a30713a80629a

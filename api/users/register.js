@@ -24,6 +24,7 @@ register = async (req, res, next) => {
 				  		let trade_pwds = config.utils.md5(trade_pwd);
 						let account =await config.utils.createAccount();
 						if(account){
+							let invit_code = await config.utils.makeInviteCode(config.email)
 							await config.etzAdmin.create({
 						  			role:0,
 						  			user_type:0,
@@ -31,7 +32,7 @@ register = async (req, res, next) => {
 						  			trade_pwd_origin:trade_pwds,
 						  			login_pwd_origin:login_pwds,
 						  			invite_code:invite_num,
-						  			invite2_code:parseInt(Math.random()*1000000),
+						  			invite2_code:invit_code,
 						            etz_value:0,
 						            usd_value:0,
 						            lock_values:0,

@@ -162,6 +162,17 @@ async function getObj(req,config){
 	return {"type":0,"data":objs,"role":datax.role};
 }
 
+async function makeInviteCode(config,email){
+	let rand = config.utils.md5(email+Math.random()*100)
+	rand = rand.substring(26,rand.length)
+	let user = await config.etzAdmin.findOne({where:{invite2_code:rand}});
+	if(!user){
+		return rand;
+	}else{
+		makeInviteCode(config,email)
+	}
+}
+
 module.exports={
-	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,validToken,result_req,getObj
+	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

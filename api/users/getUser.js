@@ -22,6 +22,7 @@ getUser = async (req, res, next) => {
 					"my_code":user.invite2_code,
 					"etz_value":user.etz_value,
 					"usd_value":user.usd_value,
+					"lock_values":user.lock_values,
 					"login_time":user.last_login_time,
 					"regist_time":user.regist_time,
 					"address":user.address,
