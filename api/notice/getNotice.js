@@ -15,6 +15,9 @@ getNotice = async (req, res, next) => {
 		}
 		return res.send(config.utils.result_req(-1,"10011","params invalid"));
 	}catch(e){
+
+				config.logger.error("getNotice",config.utils.getFullTime(),e)
+
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 }

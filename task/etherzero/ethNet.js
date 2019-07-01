@@ -3,7 +3,6 @@ var methods = require('./methods');
 var axios = require('axios');
 var withdraw = require("./withdraw")
 var calculate = require("./calculate");
-let loopBenefit = require('../benefit/loopBenefit')
 
 const COMFIRM = 3;
 var currentBlockNumber = 8356019;
@@ -71,9 +70,6 @@ class ETHEventListener {
         console.log("user number:",addressSet.size)
     },1000);
 
-    setInterval(function(){//每10分钟统计一遍团队
-      loopBenefit.loopBenefit();
-    },10000)
   }
 
   async exFun(){

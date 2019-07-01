@@ -1,0 +1,11 @@
+2019-07-01 06:18:40: end
+2019-07-01 06:18:40: 将在：[91m2019年07月01日18时18分50秒 [39m开始切割。
+2019-07-01 06:18:41: 将在：[91m2019年07月01日19时59分00秒 [39m开始切割。
+2019-07-01 06:18:41: Executing (default): SELECT 1+1 AS result
+2019-07-01 06:18:41: Connection has been established successfully.
+2019-07-01 06:18:46: 将在：[91m2019年07月01日19时59分00秒 [39m开始切割。
+2019-07-01 06:18:46: Executing (default): SELECT 1+1 AS result
+2019-07-01 06:18:46: Connection has been established successfully.
+2019-07-01 06:18:49: 将在：[91m2019年07月01日19时59分00秒 [39m开始切割。
+2019-07-01 06:18:49: Executing (default): SELECT 1+1 AS result
+2019-07-01 06:18:49: Connection has been established successfully.

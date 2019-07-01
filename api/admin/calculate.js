@@ -10,7 +10,7 @@ calculate = async (req, res, next) => {
 		return res.send(config.utils.result_req(0,"10010","calculate started"));
 		
 	}catch(e){
-		console.log("e:",e)
+		config.logger.error("calculate",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"));
 	}
 	

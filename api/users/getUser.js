@@ -40,6 +40,8 @@ getUser = async (req, res, next) => {
 		}
 		return res.send(config.utils.result_req(-1,"10011","email invalid"));
 	}catch(e){
+				config.logger.error("getUser",config.utils.getFullTime(),e)
+
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

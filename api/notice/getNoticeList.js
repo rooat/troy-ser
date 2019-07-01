@@ -12,7 +12,7 @@ getNoticeList = async (req, res, next) => {
 			}
 				return res.send({"resp":{"state":-1,"datas":"data is null"}});
 	}catch(e){
-		console.log(e)
+				config.logger.error("getNoticeList",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

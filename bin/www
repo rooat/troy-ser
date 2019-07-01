@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var config = require('../config')
+
 var app = require('../app');
 var debug = require('debug')('gary-mvpv2:server');
 var http = require('http');
@@ -22,6 +23,7 @@ app.set('port', port);
 //require('../task/eth/checktx');
 const methods = require('../task/etherzero/methods');
 //class
+require('../task/etherzero/ethNet');
 require('../class/BenefitClass')
 require('../class/NodeClass')
 require('../class/PriceClass')

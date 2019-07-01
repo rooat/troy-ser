@@ -16,7 +16,7 @@ rateDataBySymbol = async (req, res, next) => {
 		return res.send(config.utils.result_req(-1,"10011","data is null"));
 		
 	}catch(e){
-		console.log("e:",e)
+				config.logger.error("rateDataBySymbol",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

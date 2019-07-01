@@ -18,7 +18,7 @@ getAddressList = async (req, res, next) => {
 		}
 		return res.send(config.utils.result_req(-1,"10011","params invalid"));
 	}catch(e){
-		console.log("e:",e)
+		config.logger.error("getAddressList",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"));
 	}
 	

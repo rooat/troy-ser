@@ -23,7 +23,7 @@ deleteNotice = async (req, res, next) => {
 		}
 		return res.send(config.utils.result_req(-1,"10011","params invalid"))
 	}catch(e){
-		console.log(e)
+		config.logger.error("deleteNotice",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

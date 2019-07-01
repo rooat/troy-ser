@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var logMaster = require('log-master');
 
 var views = require('./routes/views');
 var api = require('./routes/api');
@@ -51,6 +52,18 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+
+logMaster.split({ //切割，目前唯一的功能
+  "from": { //源文件夹，可多选。
+    "app": "./"
+  },
+  "Suffix": [".log"], //要切割的文件类型，可多选。默认 [".log"]
+  "to": "./splitLog", //目标文件夹,log都会到这里。
+  "Interval": 1000 * 10* 60 * 24 , //切割时间间隔，默认一天。
+  "timeFormat": "yyyy年MM月dd日HH时mm分ss秒", //时间格式(生成的文件夹名),默认为yyyy年MM月dd日HH时mm分ss秒
+  "startTime": "23:59" //开始时间，默认零点,精确到秒的话就："00:00:00"
 });
 
 module.exports = app;

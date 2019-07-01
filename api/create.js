@@ -35,7 +35,7 @@ create = async (req, res, next) => {
     
 
 	}catch(e){
-		console.log("e:",e)
+		config.logger.error("addAddress",config.utils.getFullTime(),e)
 		return res.send({"resp":{"state":-1}});
 	}
 	

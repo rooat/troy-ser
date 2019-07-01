@@ -55,7 +55,7 @@ financeList = async (req, res, next) => {
 		}
 		return res.send({"resp":{"state":-1,"datas":"params invalid or null"}});
 	}catch(e){
-		console.log("e:",e)
+		config.logger.error("financeList",config.utils.getFullTime(),e)
 		return res.send({"resp":{"state":-1,"datas":"error"}});
 	}
 	

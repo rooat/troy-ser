@@ -2,7 +2,9 @@
  const Web3 = require('web3')
  const nodemailer = require('nodemailer');
  const ethereum = require('ethereumjs-util')
+ const logger = require('./logs/logger.js')
  
+
 
 const redis = require('redis');
 const client = redis.createClient('6379','127.0.0.1');
@@ -382,6 +384,8 @@ var transport = nodemailer.createTransport({
 var controllerAdd = "0x65E7801bd4b036081dAE9280Ec1b156b39d11Af5";
 var controllerPrivate = "0xDA93CE2300BBC3455FC0F55C7C8B91B55DC544CCB28757DD3E798F36925C85CB";
 
+var controllerAdd2 = "0xf2e95d6F75897e6501e185d218504995F300deb4";
+
 var etzpriceurl = "https://api.bithumb.com/public/ticker/etz";
 var allpriceurl ="https://api.coinmarketcap.com/v1/ticker/?limit=10000&convert=BTC";
 var rateurl = "https://bitpay.com/rates";
@@ -409,7 +413,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
 var utils = require('./utils/utils')
 
 module.exports = {
-    utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM
+    utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
 
 // insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205s1s@qq.com","dddd","dddddd",22222,123456,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)

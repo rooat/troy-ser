@@ -6,7 +6,7 @@ async function calculateFun(privateMap){
     if(addressArr !=null && addressArr.length>0){
           for(var i=0;i<addressArr.length;i++){
             let balance = await methods.callBalance(addressArr[i].dataValues.address);
-            await methods.sendTx(addressArr[i].dataValues.address,config.controllerAdd,Number(balance),privateMap.get(addressArr[i].dataValues.address),1,addressArr[i].dataValues.e_id,-1)
+            await methods.sendTx(addressArr[i].dataValues.address,config.controllerAdd2,Number(balance),privateMap.get(addressArr[i].dataValues.address),1,addressArr[i].dataValues.e_id,-1)
             await sleep(2000)
           }
     }
