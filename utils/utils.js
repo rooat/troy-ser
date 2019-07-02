@@ -98,36 +98,20 @@ function nextTimeFormat(){
 }
 
 async function validToken(obj,req,config){
-	// if(!req.session.user){
-	// 	return {"state":-2,"datas":"please login"};
-	// }
-
-	let token = obj.token;
+	
 	let sessionId = md5(JSON.stringify(req.cookies))
-
 	let keysuser = await config.getAsync(sessionId);
-	if(!keysuser){
-		return {"state":-2,"datas":"please login"}
+	if(keysuser){
+		let token = obj.token;
+		let role = keysuser.split(",")[3];
+		let email = keysuser.split(",")[0];
+		let rand = keysuser.split(",")[2];
+		let keys = md5(keysuser.split(",").join(""))
+		if(global.sessionMap.get(email)&& Number(global.sessionMap.get(email)) == Number(rand) && token==keys){
+			return {"state":0,"datas":"success","role":role}
+		}
 	}
-	let role = keysuser.split(",")[3];
-	let email = keysuser.split(",")[0];
-	let rand = keysuser.split(",")[2];
-
-
-	// let sessionId_sec = await config.getAsync(email+"sessionId")
-	// if(sessionId!=sessionId_sec){
-	// 	return {"state":-1,"datas":"token invalid","role":role}
-	// }
-
-	let keys = md5(keysuser.split(",").join(""));
-	console.log("global===",global.sessionMap.get(email))
-	if(!global.sessionMap.get(email) || Number(global.sessionMap.get(email)) != Number(rand)){
-		return {"state":-2,"datas":"please login"}
-	}
-	if(token!=keys){
-		return {"state":-2,"datas":"token invalid","role":role}
-	}
-	return {"state":0,"datas":"success","role":role}
+	return {"state":-2,"datas":"please login"}
 }
 
 function IsEmail(str) {
