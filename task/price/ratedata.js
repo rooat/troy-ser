@@ -6,16 +6,20 @@ async function initRateFun(){
 	if(rate){
 		updateRateFun();
 	}else{
-		request(config.rateurl,async function(err,res,data){
-	      let datas = JSON.parse(data).data;
-	      for(var d=0;d<datas.length;d++){
-	        await config.rateData.create({
-	          code:datas[d].code,
-	          name:datas[d].name,
-	          rate:datas[d].rate
-	        })
-	      }
-	    })
+		try{
+			request(config.rateurl,async function(err,res,data){
+		      let datas = JSON.parse(data).data;
+		      for(var d=0;d<datas.length;d++){
+		        await config.rateData.create({
+		          code:datas[d].code,
+		          name:datas[d].name,
+		          rate:datas[d].rate
+		        })
+		      }
+		    })
+	    }catch(e){
+			config.logger.error("initRateFun error",config.utils.getFullTime(),e)
+		}
 	}
 }
 

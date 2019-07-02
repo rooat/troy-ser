@@ -21,35 +21,39 @@ class BenefitClass{
 	}
 
 	async  loopBenefit(){
-		let userData = await config.etzAdmin.findAll();
-		
-		for(var i=0;i<userData.length;i++){
-			//将上一个周期到期的产品状态改为2；
-			await this.updateState(userData[i])
-			//静态收益
-			await this.staticBenefit(userData[i]);
-
-		}
-
-		let nodeData = await config.etzAdmin.findAll({where:{user_type:{$in:[1,2]}}})
-		let benefitss = this.totalStaticBenefitDay*7.5/100;
-		if(nodeData && nodeData.length>0){
-			let benefitss_per = benefitss/nodeData.length;
-			for(var ia=0;ia<nodeData.length;ia++){
-				//节点平分所有静态收益的7.5%
-				//更新动态收益
-			    let lock_values = Number(nodeData[ia].dataValues.lock_value)+(benefitss_per*Number(this.zcprice)*30/100);
-
-			    let newBlances = benefitss_per + Number(nodeData[ia].dataValues.benefitBalance)
-		        let totals = benefitss_per +Number(nodeData[ia].dataValues.totalBenefit)
-			    await config.etzAdmin.update({
-		        	benefitBalance :newBlances,
-		        	totalBenefit :totals,
-		        	lock_values:lock_values
-		        },{where:{e_id:nodeData[ia].dataValues.e_id}})
+		try{
+			let userData = await config.etzAdmin.findAll();
+			
+			for(var i=0;i<userData.length;i++){
+				//将上一个周期到期的产品状态改为2；
+				await this.updateState(userData[i])
+				//静态收益
+				await this.staticBenefit(userData[i]);
 
 			}
-		}
+
+			let nodeData = await config.etzAdmin.findAll({where:{user_type:{$in:[1,2]}}})
+			let benefitss = this.totalStaticBenefitDay*7.5/100;
+			if(nodeData && nodeData.length>0){
+				let benefitss_per = benefitss/nodeData.length;
+				for(var ia=0;ia<nodeData.length;ia++){
+					//节点平分所有静态收益的7.5%
+					//更新动态收益
+				    let lock_values = Number(nodeData[ia].dataValues.lock_value)+(benefitss_per*Number(this.zcprice)*30/100);
+
+				    let newBlances = benefitss_per + Number(nodeData[ia].dataValues.benefitBalance)
+			        let totals = benefitss_per +Number(nodeData[ia].dataValues.totalBenefit)
+				    await config.etzAdmin.update({
+			        	benefitBalance :newBlances,
+			        	totalBenefit :totals,
+			        	lock_values:lock_values
+			        },{where:{e_id:nodeData[ia].dataValues.e_id}})
+
+				}
+			}
+		}catch(e){
+	        config.logger.error("BenefitClass error",config.utils.getFullTime(),e)
+	    }
 		
 	}
 

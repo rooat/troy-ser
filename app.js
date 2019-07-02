@@ -54,6 +54,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.use(session({
+    secret :  'secret', // 对session id 相关的cookie 进行签名
+    resave : true,
+    saveUninitialized: false, // 是否保存未初始化的会话
+    cookie : {
+        maxAge : 1000 * 60 * 3, // 设置 session 的有效时间，单位毫秒
+    },
+}));
+
 
 logMaster.split({ //切割，目前唯一的功能
   "from": { //源文件夹，可多选。

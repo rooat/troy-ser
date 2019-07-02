@@ -1,0 +1,22 @@
+[2019-07-02T15:22:27.446] [ERROR] default - TeamClass error 2019-7-2 15:22:27 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:22:37.448] [ERROR] default - TeamClass error 2019-7-2 15:22:37 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:22:47.453] [ERROR] default - TeamClass error 2019-7-2 15:22:47 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:22:57.455] [ERROR] default - TeamClass error 2019-7-2 15:22:57 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:07.466] [ERROR] default - TeamClass error 2019-7-2 15:23:7 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:17.463] [ERROR] default - TeamClass error 2019-7-2 15:23:17 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:27.464] [ERROR] default - TeamClass error 2019-7-2 15:23:27 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:37.466] [ERROR] default - TeamClass error 2019-7-2 15:23:37 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:47.469] [ERROR] default - TeamClass error 2019-7-2 15:23:47 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:23:57.472] [ERROR] default - TeamClass error 2019-7-2 15:23:57 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)
+[2019-07-02T15:24:07.472] [ERROR] default - TeamClass error 2019-7-2 15:24:7 ReferenceError: ic is not defined
+    at TeamClass.loopTeam (/Users/admin/project/webExample/troy-ser/class/TeamClass.js:22:30)

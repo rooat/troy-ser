@@ -17,18 +17,22 @@ class NodeClass{
 	}
 	 async calNodePerWeek(){
     //查找符合节点条件的用户
-    let adminTotal = await config.etzAdmin.findAll();
-    for(var ai=0;ai<adminTotal.length;ai++){
-      let userid = adminTotal[ai].dataValues.e_id;
-      let invite2_code = adminTotal[ai].dataValues.invite2_code;
-      let type_4_total = adminTotal[ai].dataValues.type_4_total;//当天本人定投类型180天，总投资额
-      if(type_4_total>this.node_max_value){
-        let newUserType =0;
-        let resultNode = this.teamCalFun(invite2_code)
-        await config.etzAdmin.update({user_type:resultNode},{where:{e_id:userid}})
-      }else{
-        console.log("本人账号 定投180天小于3000美金")
+    try{
+      let adminTotal = await config.etzAdmin.findAll();
+      for(var ai=0;ai<adminTotal.length;ai++){
+        let userid = adminTotal[ai].dataValues.e_id;
+        let invite2_code = adminTotal[ai].dataValues.invite2_code;
+        let type_4_total = adminTotal[ai].dataValues.type_4_total;//当天本人定投类型180天，总投资额
+        if(type_4_total>this.node_max_value){
+          let newUserType =0;
+          let resultNode = this.teamCalFun(invite2_code)
+          await config.etzAdmin.update({user_type:resultNode},{where:{e_id:userid}})
+        }else{
+          console.log("本人账号 定投180天小于3000美金")
+        }
       }
+    }catch(e){
+        config.logger.error("nodeclass error",config.utils.getFullTime(),e)
     }
   }
  

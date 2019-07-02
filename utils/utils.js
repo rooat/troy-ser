@@ -98,9 +98,9 @@ function nextTimeFormat(){
 }
 
 async function validToken(obj,req,config){
-	if(!req.session.user){
-		return {"state":-2,"datas":"please login"};
-	}
+	// if(!req.session.user){
+	// 	return {"state":-2,"datas":"please login"};
+	// }
 	let token = obj.token;
 	let sessionId = md5(JSON.stringify(req.cookies))
 

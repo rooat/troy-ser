@@ -9,7 +9,7 @@ class TeamClass{
 		let that = this
 		setInterval(function(){
 			that.loopTeam()
-		},1000000)
+		},10000)
 	}
 	async  loopTeam(){
 		try{
@@ -25,7 +25,7 @@ class TeamClass{
 			}
 
 		}catch(e){
-			console.log("e====",e)
+			config.logger.error("TeamClass error",config.utils.getFullTime(),e)
 		}
 	}
 
