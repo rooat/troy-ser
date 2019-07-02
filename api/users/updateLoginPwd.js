@@ -39,7 +39,6 @@ updateLoginPwd = async (req, res, next) => {
 	  			await config.etzAdmin.update({
 	  				login_pwd_origin:login_pwds,
 	  			},{where:{e_id:user.e_id}})
-	  			delete req.session.user;
 				return res.send({"resp":{"state":0,"datas":"success"}});
 			}
 		}

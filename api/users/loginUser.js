@@ -20,8 +20,8 @@ loginUser = async (req, res, next) => {
 				let key = config.utils.md5(email+pwd+rand+user.role)
 				let sessionId = config.utils.md5(JSON.stringify(req.cookies))
 				console.log("sessionId===",sessionId)
-				req.session.user = email+Math.random()*1000;
-
+				resetEmailMap(email,rand)
+				sessionMap.set("email",rand);//维持当前在线状态
 				config.setAsync(sessionId,email+","+pwd+","+rand+","+user.role)
 				config.setAsync(email+"sessionId",sessionId)
 				config.expireAsync(email+"sessionId",3110400)
@@ -36,7 +36,10 @@ loginUser = async (req, res, next) => {
 		config.logger.error("addAddress",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
-	
+}
+
+function resetEmailMap(email,rand){
+	global.sessionMap.set(email,rand)
 }
 
 module.exports = 

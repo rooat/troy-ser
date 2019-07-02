@@ -410,6 +410,8 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
  };
  global.checkWithdraw = false;
 
+ global.sessionMap = new Map();
+
 var utils = require('./utils/utils')
 
 module.exports = {

@@ -101,6 +101,7 @@ async function validToken(obj,req,config){
 	// if(!req.session.user){
 	// 	return {"state":-2,"datas":"please login"};
 	// }
+
 	let token = obj.token;
 	let sessionId = md5(JSON.stringify(req.cookies))
 
@@ -110,6 +111,8 @@ async function validToken(obj,req,config){
 	}
 	let role = keysuser.split(",")[3];
 	let email = keysuser.split(",")[0];
+	let rand = keysuser.split(",")[2];
+
 
 	// let sessionId_sec = await config.getAsync(email+"sessionId")
 	// if(sessionId!=sessionId_sec){
@@ -117,6 +120,10 @@ async function validToken(obj,req,config){
 	// }
 
 	let keys = md5(keysuser.split(",").join(""));
+	console.log("global===",global.sessionMap.get(email))
+	if(!global.sessionMap.get(email) || Number(global.sessionMap.get(email)) != Number(rand)){
+		return {"state":-2,"datas":"please login"}
+	}
 	if(token!=keys){
 		return {"state":-2,"datas":"token invalid","role":role}
 	}
