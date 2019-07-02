@@ -27,7 +27,7 @@ function createAccount(){
 async function isExistEmail(config,email){
 	let user = await config.etzAdmin.findOne({where:{email:email}})
 	if(user){
-		return true;
+		return true
 	}
 	return false;
 }
@@ -98,13 +98,24 @@ function nextTimeFormat(){
 }
 
 async function validToken(obj,req,config){
+	if(!req.session.user){
+		return {"state":-1,"datas":"please login"};
+	}
 	let token = obj.token;
 	let sessionId = md5(JSON.stringify(req.cookies))
+
 	let keysuser = await config.getAsync(sessionId);
 	if(!keysuser){
 		return {"state":-1,"datas":"please login"}
 	}
 	let role = keysuser.split(",")[3];
+	let email = keysuser.split(",")[0];
+
+	// let sessionId_sec = await config.getAsync(email+"sessionId")
+	// if(sessionId!=sessionId_sec){
+	// 	return {"state":-1,"datas":"token invalid","role":role}
+	// }
+
 	let keys = md5(keysuser.split(",").join(""));
 	if(token!=keys){
 		return {"state":-2,"datas":"token invalid","role":role}
