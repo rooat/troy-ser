@@ -99,14 +99,14 @@ function nextTimeFormat(){
 
 async function validToken(obj,req,config){
 	if(!req.session.user){
-		return {"state":-1,"datas":"please login"};
+		return {"state":-2,"datas":"please login"};
 	}
 	let token = obj.token;
 	let sessionId = md5(JSON.stringify(req.cookies))
 
 	let keysuser = await config.getAsync(sessionId);
 	if(!keysuser){
-		return {"state":-1,"datas":"please login"}
+		return {"state":-2,"datas":"please login"}
 	}
 	let role = keysuser.split(",")[3];
 	let email = keysuser.split(",")[0];
