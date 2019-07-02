@@ -51,7 +51,7 @@ register = async (req, res, next) => {
 					                staticBenefitBalance:0,//累计静态收益
 					                staticBenefitDay:0,//当天个人总静态收益
 					                teamMember:0,//团队总人数
-					                directMember,//直推人数
+					                directMember:0,//直推人数
 					                teamInvet:0,//团队总投资
 					                type_1_total:0,//类型1总定投
 					                type_2_total:0,//类型2总定投
@@ -59,7 +59,8 @@ register = async (req, res, next) => {
 					                type_4_total:0,//类型4总定投
 					                iscalculte:0,
 					                nick_name:'hello',
-					                state:0
+					                state:0,
+					                totalInvet:0//个人累计总定投
 					                
 						  		})
 							let data = {
@@ -87,6 +88,7 @@ register = async (req, res, next) => {
 		}
 		return res.send({'resp':{"state":-1,"datas":"params invalid"}});
 	}catch(e){
+		console.log(e)
 		config.logger.error("register",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
