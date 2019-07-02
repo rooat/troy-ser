@@ -24,7 +24,7 @@ class NodeClass{
       let type_4_total = adminTotal[ai].dataValues.type_4_total;//当天本人定投类型180天，总投资额
       if(type_4_total>this.node_max_value){
         let newUserType =0;
-        let resultNode = teamCalFun(invite2_code)
+        let resultNode = this.teamCalFun(invite2_code)
         await config.etzAdmin.update({user_type:resultNode},{where:{e_id:userid}})
       }else{
         console.log("本人账号 定投180天小于3000美金")
@@ -44,7 +44,7 @@ class NodeClass{
          let teamInvets = Number(adminsx[aj].dataValues.teamInvet);
          arr.push(teamInvets)
          total += Number(teamInvets)
-         let currentUserType = adminsuper[aj].dataValues.user_type;
+         let currentUserType = adminsx[aj].dataValues.user_type;
           if(currentUserType==1){
             countNode++;
           }
