@@ -62,7 +62,7 @@ var exchangeData = sequelize.define('exchangedata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        e_type:Sequelize.INTEGER(3),//1,2,3,4
+                        e_type:Sequelize.INTEGER(3),//11，etz=>usd 22,usd==>etz 333,usd=>zc 44,zc=>etz 55,zc=>usd
                         e_value:Sequelize.DECIMAL(12,2),
                         timestamps:Sequelize.BIGINT(20),
                         user_id:Sequelize.BIGINT(11),

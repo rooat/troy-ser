@@ -49,6 +49,7 @@ var etzToUsd = require('../api/users/etzToUsd');
 var usdToEtz = require('../api/users/usdToEtz');
 var usdToZc = require('../api/users/usdToZc')
 var zcToEtz = require('../api/users/zcToEtz');
+var zcToUsd = require('../api/users/zcToUsd')
 var updateLoginPwd = require('../api/users/updateLoginPwd')
 var updateTradePwd = require('../api/users/updateTradePwd')
 var withdraw = require('../api/users/withdraw')
@@ -116,6 +117,7 @@ router.post('/user/updateTradePwd',updateTradePwd.updateTradePwd)
 router.post('/user/withdraw',withdraw.withdraw);
 router.post('/user/transfer_history',transferHistory.transferHistory)
 router.post('/user/friend_data',friendData.friendData)
+router.post('/user/zc_to_usd',zcToUsd.zcToUsd)
 
 
 

@@ -18,7 +18,7 @@ class NodeClass{
 	 async calNodePerWeek(){
     //查找符合节点条件的用户
     let adminTotal = await config.etzAdmin.findAll();
-    for(var ai;ai<adminTotal.length;ai++){
+    for(var ai=0;ai<adminTotal.length;ai++){
       let userid = adminTotal[ai].dataValues.e_id;
       let invite2_code = adminTotal[ai].dataValues.invite2_code;
       let type_4_total = adminTotal[ai].dataValues.type_4_total;//当天本人定投类型180天，总投资额
@@ -40,7 +40,7 @@ class NodeClass{
       let arr = new Array();
       let countNode = 0;
       let total =0;
-      for(var aj;aj<adminsx.length;aj++){
+      for(var aj=0;aj<adminsx.length;aj++){
          let teamInvets = Number(adminsx[aj].dataValues.teamInvet);
          arr.push(teamInvets)
          total += Number(teamInvets)

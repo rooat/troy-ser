@@ -21,6 +21,13 @@ etzToUsd = async (req, res, next) => {
 					let newUsd_value = Number(user.usd_value)+Number(trans_value);
 					let newEtz_value = Number(user.etz_value)-Number(amount);
 					await config.etzAdmin.update({etz_value:newEtz_value,usd_value:newUsd_value},{where:{e_id:user.e_id}})
+					await config.exchangeData.create({
+						e_type:11,//11为usd兑换zc ，22为zc兑换etz ，33 usd兑换etz ， 44 zc兑换usd ,55,etz兑换usd
+                        e_value:amount,
+                        timestamps:new Date().getTime(),
+                        user_id:user.e_id,
+                        operate:1
+					})
 					return res.send(config.utils.result_req(0,"10010","success"))
 				}
 				return res.send(config.utils.result_req(-1,"10011","balance invalid"))

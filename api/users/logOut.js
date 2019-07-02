@@ -19,7 +19,7 @@ logOut = async (req, res, next) => {
 			await config.expireAsync(sessionId,0);
 			return res.send({"resp":{"state":0,"datas":"success"}})
 		}
-		return res.send({"resp":{"state":-1,"datas":"token invalid"}});
+		return res.send({"resp":{"state":-2,"datas":"token invalid"}});
 			
 	}catch(e){
 		config.logger.error("addAddress",config.utils.getFullTime(),e)

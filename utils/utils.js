@@ -107,7 +107,7 @@ async function validToken(obj,req,config){
 	let role = keysuser.split(",")[3];
 	let keys = md5(keysuser.split(",").join(""));
 	if(token!=keys){
-		return {"state":-1,"datas":"token invalid","role":role}
+		return {"state":-2,"datas":"token invalid","role":role}
 	}
 	return {"state":0,"datas":"success","role":role}
 }

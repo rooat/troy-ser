@@ -25,6 +25,7 @@ loginUser = async (req, res, next) => {
 
 				return res.send({"resp":{"state":0,"datas":{"token":key}}});
 			}
+			return res.send(config.utils.result_req(-1,"10011","email or password invalid"))
 		}
 		return res.send({"resp":{"state":-1,"datas":"failure"}});
 	}catch(e){
