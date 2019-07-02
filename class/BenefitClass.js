@@ -16,7 +16,7 @@ class BenefitClass{
 		        that.loopBenefit();
 		        that.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		      }
-		},5000)
+		},50000)
 		
 	}
 

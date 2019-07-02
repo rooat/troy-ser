@@ -24,7 +24,7 @@ register = async (req, res, next) => {
 				  		let trade_pwds = config.utils.md5(trade_pwd);
 						let account =await config.utils.createAccount();
 						if(account){
-							let invit_code = await config.utils.makeInviteCode(config.email)
+							let invit_code = await config.utils.makeInviteCode(config,email)
 							await config.etzAdmin.create({
 						  			role:0,
 						  			user_type:0,
@@ -87,7 +87,7 @@ register = async (req, res, next) => {
 		}
 		return res.send({'resp':{"state":-1,"datas":"params invalid"}});
 	}catch(e){
-		config.logger.error("addAddress",config.utils.getFullTime(),e)
+		config.logger.error("register",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

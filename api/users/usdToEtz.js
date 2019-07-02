@@ -36,7 +36,7 @@ usdToEtz = async (req, res, next) => {
 		}
 		return res.send({"resp":config.utils.result_req(-1,"10011","params invalid")})
 	}catch(e){
-		config.logger.error("addAddress",config.utils.getFullTime(),e)
+		config.logger.error("usdToEtz",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

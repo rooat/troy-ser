@@ -69,7 +69,7 @@ transferHistory = async (req, res, next) => {
 		return res.send({"resp":{"state":0,"datas":"params invalid or null"}})
 		
 	}catch(e){
-		config.logger.error("addAddress",config.utils.getFullTime(),e)
+		config.logger.error("transferHistory",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

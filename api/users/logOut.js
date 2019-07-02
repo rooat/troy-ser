@@ -22,7 +22,7 @@ logOut = async (req, res, next) => {
 		return res.send(config.utils.result_req(-2,"10011","token invalid"));
 			
 	}catch(e){
-		config.logger.error("addAddress",config.utils.getFullTime(),e)
+		config.logger.error("logOut",config.utils.getFullTime(),e)
 		return res.send(config.utils.result_req(-1,"10012","error"))		
 	}
 	

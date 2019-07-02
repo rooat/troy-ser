@@ -97,6 +97,7 @@ function nextTimeFormat(){
 	return year+"-"+month+"-"+datex+" 00:00:00";
 }
 
+//验证token
 async function validToken(obj,req,config){
 	
 	let sessionId = md5(JSON.stringify(req.cookies))
