@@ -19,7 +19,7 @@ class TeamClass{
 				 	await config.etzAdmin.update({
 						teamMember:this.countMember,
 						teamInvet:this.countInvet
-					},{where:{e_id:userData[ic].dataValues.e_id}});
+					},{where:{e_id:userData[i].dataValues.e_id}});
 					this.countMember =0;
 					this.countInvet=0;
 			}
