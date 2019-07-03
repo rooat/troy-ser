@@ -10,13 +10,13 @@ class BenefitClass{
 		let that = this;
 		setInterval(async function(){
 			console.log("=========benefit-------")
-		      if(new Date().getTime()<that.nextTime){
+		      if(new Date().getTime()>that.nextTime){
 		      	let zc = await config.priceData.findOne({where:{symbol:"ZC"}})
 				that.zcprice = zc.price_usd
 		        that.loopBenefit();
 		        that.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		      }
-		},4000)
+		},40000000)
 		
 	}
 

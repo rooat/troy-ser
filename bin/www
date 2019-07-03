@@ -23,11 +23,11 @@ app.set('port', port);
 //require('../task/eth/checktx');
 const methods = require('../task/etherzero/methods');
 //class
-// require('../task/etherzero/ethNet');
-// require('../class/BenefitClass')
-// require('../class/NodeClass')
-// require('../class/PriceClass')
-// require('../class/TeamClass')
+require('../task/etherzero/ethNet');
+require('../class/BenefitClass')
+require('../class/NodeClass')
+require('../class/PriceClass')
+require('../class/TeamClass')
 
 var server = http.createServer(app);
 server.setTimeout(10*60*1000); //set http timeout to 10 minutes, default is 2 minutes
