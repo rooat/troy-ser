@@ -7,16 +7,16 @@ class BenefitClass{
 		this.zcprice_usd =0;
 	}
 	async start(){
-		let zc = await config.priceData.findOne({where:{symbol:"ZC"}})
-		this.zcprice = zc.price_usd
 		let that = this;
-		setInterval(function(){
+		setInterval(async function(){
 			console.log("=========benefit-------")
-		      if(new Date().getTime()>that.nextTime){
+		      if(new Date().getTime()<that.nextTime){
+		      	let zc = await config.priceData.findOne({where:{symbol:"ZC"}})
+				that.zcprice = zc.price_usd
 		        that.loopBenefit();
 		        that.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		      }
-		},50000)
+		},4000)
 		
 	}
 
@@ -31,31 +31,34 @@ class BenefitClass{
 				await this.staticBenefit(userData[i]);
 
 			}
-
-			let nodeData = await config.etzAdmin.findAll({where:{user_type:{$in:[1,2]}}})
-			let benefitss = this.totalStaticBenefitDay*7.5/100;
-			if(nodeData && nodeData.length>0){
-				let benefitss_per = benefitss/nodeData.length;
-				for(var ia=0;ia<nodeData.length;ia++){
-					//节点平分所有静态收益的7.5%
-					//更新动态收益
-				    let lock_values = Number(nodeData[ia].dataValues.lock_value)+(benefitss_per*Number(this.zcprice)*30/100);
-
-				    let newBlances = benefitss_per + Number(nodeData[ia].dataValues.benefitBalance)
-			        let totals = benefitss_per +Number(nodeData[ia].dataValues.totalBenefit)
-				    await config.etzAdmin.update({
-			        	benefitBalance :newBlances,
-			        	totalBenefit :totals,
-			        	lock_values:lock_values
-			        },{where:{e_id:nodeData[ia].dataValues.e_id}})
-
-				}
-			}
+			await this.nodeAndsuperBenefit()
+			
 		}catch(e){
 	        config.logger.error("BenefitClass error",config.utils.getFullTime(),e)
 	    }
-		
 	}
+	//节点 超级节点分配收益
+	async nodeAndsuperBenefit(){
+		let nodeData = await config.etzAdmin.findAll({where:{user_type:{$in:[1,2]}}})
+		if(nodeData && nodeData.length>0 && this.totalStaticBenefitDay>0){
+			let benefitss = Number(this.totalStaticBenefitDay)*7.5/100;
+			let benefitss_per = benefitss/nodeData.length;
+			for(var ia=0;ia<nodeData.length;ia++){
+				//节点平分所有静态收益的7.5%
+				//更新动态收益
+			    let lock_values = Number(nodeData[ia].dataValues.lock_values)+(benefitss_per*Number(this.zcprice)*30/100);
+			    let newBlances = benefitss_per + Number(nodeData[ia].dataValues.benefitBalance)
+		        let totals = benefitss_per +Number(nodeData[ia].dataValues.totalBenefit)
+			    await config.etzAdmin.update({
+		        	benefitBalance :newBlances,
+		        	totalBenefit :totals,
+		        	lock_values:lock_values
+		        },{where:{e_id:nodeData[ia].dataValues.e_id}})
+			}
+		}
+		this.totalStaticBenefitDay=0;
+	}
+
 
 	async  updateState(user){
 		let financeDatas = await config.financeData.findAll({where:{user_id:user.e_id,state:1}});
@@ -70,7 +73,7 @@ class BenefitClass{
 		}
 		
 	}
-
+//=========================================================================================================================
 	//计算静态收益
 	async  staticBenefit(user){
 
@@ -84,23 +87,28 @@ class BenefitClass{
 
 			let benefitStaticDay =0;//当日静态收益总和
 			for(var j=0;j<financeData.length;j++){
-				let ff_type = dataValues.f_type
+				let ff_type = financeData[j].dataValues.f_type
 				let benefit_one=0;//当前产品理财收益；
-			  if(ff_type==1){
-		            if(isNew==1){//如果首次体验 0.8%
-		               benefit_one = Number(datas[j].dataValues.f_value)*8/1000;
-		               await config.etzAdmin.update({isNew:2},{where:{e_id:user.e_id}})
-		            }else{
-		               //收益= 投资额的0.5%；
-		               benefit_one = Number(datas[j].dataValues.f_value)*5/1000;
-		            }
-	          }else if(ff_type==2){
-	            benefit_one = Number(datas[j].dataValues.f_value)*1/100;
-	          }else if(ff_type==3){
-	            benefit_one = Number(datas[j].dataValues.f_value)*12/1000;
-	          }else if(ff_type==4){
-	            benefit_one = Number(datas[j].dataValues.f_value)*15/1000;
-	          }
+				let invet_value = Number(financeData[j].dataValues.f_value);
+				  if(ff_type==1){
+				  		type_1_total+=invet_value;
+			            if(user.isNew==1){//如果首次体验 0.8%
+			               benefit_one = invet_value*8/1000;
+			               await config.etzAdmin.update({isNew:2},{where:{e_id:user.e_id}})
+			            }else{
+			               //收益= 投资额的0.5%；
+			               benefit_one = Number(invet_value)*5/1000;
+			            }
+		          }else if(ff_type==2){
+		          	type_2_total+=invet_value;
+		            benefit_one = invet_value*1/100;
+		          }else if(ff_type==3){
+		          	type_3_total+=invet_value;
+		            benefit_one = invet_value*12/1000;
+		          }else if(ff_type==4){
+		          	type_4_total+=invet_value;
+		            benefit_one = invet_value*15/1000;
+		          }
 	          //记录当天收益
 	          await config.benefitData.create({
 	                b_type:ff_type,
@@ -108,12 +116,15 @@ class BenefitClass{
 	                b_type_f:0,//静态收益
 	                timestamps:new Date(config.utils.getTimeDate()).getTime(),
 	                user_id:user.e_id,
-	                f_id:datas[j].dataValues.e_id,
+	                f_id:financeData[j].dataValues.e_id,
 	                operate:0
 	          })
 	          benefitStaticDay += benefit_one
 	          this.totalStaticBenefitDay+=benefit_one;
+
 			}
+			console.log("benefitStaticDay===",benefitStaticDay)
+	          console.log("this.totalStaticBenefitDay=---",this.totalStaticBenefitDay)
 			//新的收益
 
 			let newStaticBenefitBalance = benefitStaticDay+Number(user.staticBenefitBalance);
@@ -132,9 +143,9 @@ class BenefitClass{
 				benefitBalance : newBenefitBalance,
 				totalBenefit : newTotalBenefit,
 				type_1_total: new_type_1_total,
-				type_2_total: new_type_1_total,
-				type_3_total: new_type_1_total,
-				type_4_total: new_type_1_total
+				type_2_total: new_type_2_total,
+				type_3_total: new_type_3_total,
+				type_4_total: new_type_4_total
 			},{where:{e_id:user.e_id}});
 
 			let invite_code = user.invite_code;//推荐人
@@ -147,12 +158,13 @@ class BenefitClass{
 		            b_type_f:1,//直推奖励
 		            timestamps:new Date(config.utils.getTimeDate()).getTime(),
 		            user_id:invitor.e_id,
-		            operate:0
+		            operate:0,
+		            f_id:0
 		        })
-		        let lock_values = Number(invitor.lock_value)+(invit_benefit_day*Number(this.zcprice)*30/100);
-		        invit_benefit_day = invit_benefit_day*70/100;
+		        let lock_values = Number(invitor.lock_values)+(invit_benefit_day*Number(this.zcprice)*30/100);
+		        let invit_benefit_day_bal = invit_benefit_day*70/100;
 
-		        let newBlance = invit_benefit_day + Number(invitor.benefitBalance)
+		        let newBlance = invit_benefit_day_bal + Number(invitor.benefitBalance)
 		        let total = invit_benefit_day +Number(invitor.totalBenefit)
 		        
 
@@ -168,7 +180,10 @@ class BenefitClass{
 			}
 		}
 	}
-
+	// select benefitBalance ,totalBenefit,lock_values from etzadmin where e_id=1;
+	// update etzadmin  set benefitBalance=0 where e_id=1;
+	// update etzadmin  set totalBenefit=0 where e_id=1;
+	// update etzadmin  set lock_values=0 where e_id=1;
 	 //计算10代奖励，对半分，
 	async  refferr_benefit_50(invit_benefit_day,invite_invite_code){
 		let invite_codex = invite_invite_code;
@@ -185,10 +200,11 @@ class BenefitClass{
 			      b_type_f:2,//见点奖励
 			      timestamps:new Date(config.utils.getTimeDate()).getTime(),
 			      user_id:invitor_invite.e_id,
-			      operate:0
+			      operate:0,
+			      f_id:0
 			    })
 			    //更新动态收益
-			    let lock_values = Number(invitor_invite.lock_value)+(invite_invite_benefit*Number(this.zcprice)*30/100);
+			    let lock_values = Number(invitor_invite.lock_values)+(invite_invite_benefit*Number(this.zcprice)*30/100);
 
 			    let newBlances = invite_invite_benefit + Number(invitor_invite.benefitBalance)
 		        let totals = invite_invite_benefit +Number(invitor_invite.totalBenefit)
@@ -197,6 +213,9 @@ class BenefitClass{
 		        	totalBenefit :totals,
 		        	lock_values:lock_values
 		        },{where:{e_id:invitor_invite.e_id}})
+		    }else{
+		    	console.log("invite_invite  null......")
+		    	break;
 		    }
 		}
 	}

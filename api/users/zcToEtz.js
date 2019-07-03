@@ -22,7 +22,9 @@ zcToEtz = async (req, res, next) => {
 					console.log("trans_amount_etz=====",trans_amount_etz)
 					let newEtz_value = Number(user.etz_value)+Number(trans_amount_etz);
 					let newZc_value = Number(user.benefitBalance)-Number(amount)
-					await config.etzAdmin.update({etz_value:newEtz_value,benefitBalance:newZc_value},{where:{e_id:user.e_id}})
+					await config.etzAdmin.update({
+						etz_value:newEtz_value,
+						benefitBalance:newZc_value},{where:{e_id:user.e_id}})
 					await config.exchangeData.create({
 						e_type:22,//11为usd兑换zc ，22为zc兑换etz ，33 usd兑换etz ， 44 zc兑换usd ,55,etz兑换usd
                         e_value:amount,

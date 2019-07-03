@@ -63,7 +63,7 @@ var exchangeData = sequelize.define('exchangedata',{
                             primaryKey:true
                         },
                         e_type:Sequelize.INTEGER(3),//11，etz=>usd 22,usd==>etz 333,usd=>zc 44,zc=>etz 55,zc=>usd
-                        e_value:Sequelize.DECIMAL(12,2),
+                        e_value:Sequelize.DECIMAL(12,7),
                         timestamps:Sequelize.BIGINT(20),
                         user_id:Sequelize.BIGINT(11),
                         operate:Sequelize.INTEGER(1)
@@ -109,7 +109,7 @@ var addressData = sequelize.define('addressdata',{
                             primaryKey:true
                         },
                         b_type:Sequelize.INTEGER(3),//1,2,3,4
-                        b_value:Sequelize.DECIMAL(12,2),
+                        b_value:Sequelize.DECIMAL(12,7),
                         b_type_f:Sequelize.INTEGER(1),//0 静态收益，1 直推奖，2，间点奖
                         timestamps:Sequelize.STRING(20),
                         user_id:Sequelize.BIGINT(11),
@@ -127,7 +127,7 @@ var addressData = sequelize.define('addressdata',{
                             type:Sequelize.BIGINT(11),
                             primaryKey:true
                         },
-                        b_value:Sequelize.DECIMAL(12,2),
+                        b_value:Sequelize.DECIMAL(12,7),
                         b_type_f:Sequelize.INTEGER(1),//0,节点奖励，1 超级节点奖励
                         timestamps:Sequelize.STRING(20),
                         user_id:Sequelize.BIGINT(11),
@@ -158,8 +158,8 @@ var addressData = sequelize.define('addressdata',{
                             primaryKey:true
                         },
                         f_type:Sequelize.INTEGER(1),//1,2,3,4
-                        f_value:Sequelize.DECIMAL(12,2),
-                        get_value:Sequelize.DECIMAL(12,2),
+                        f_value:Sequelize.DECIMAL(12,7),
+                        get_value:Sequelize.DECIMAL(12,7),
                         timestamps:Sequelize.STRING(20),
                         f_benefit_time:Sequelize.STRING(40),
                         f_finance_time:Sequelize.STRING(40),
@@ -199,7 +199,7 @@ var addressData = sequelize.define('addressdata',{
                         timestamps:Sequelize.STRING(20),
                         endtime:Sequelize.STRING(20),
                         state:Sequelize.INTEGER(1),
-                        valuex:Sequelize.DECIMAL(10,4),
+                        valuex:Sequelize.DECIMAL(12,7),
                         
                     },{
                         freezeTableName:true,
@@ -218,9 +218,9 @@ var addressData = sequelize.define('addressdata',{
                         login_pwd_origin:Sequelize.STRING(60),
                         invite_code:Sequelize.STRING(6),
                         invite2_code:Sequelize.STRING(6),
-                        etz_value:Sequelize.DECIMAL(12,2),
-                        usd_value:Sequelize.DECIMAL(12,2),
-                        lock_values:Sequelize.DECIMAL(12,2),
+                        etz_value:Sequelize.DECIMAL(12,7),
+                        usd_value:Sequelize.DECIMAL(12,7),
+                        lock_values:Sequelize.DECIMAL(12,7),
                         last_login_time:Sequelize.STRING(20),
                         last_login_ip:Sequelize.STRING(20),
                         regist_time:Sequelize.STRING(20),
@@ -230,20 +230,20 @@ var addressData = sequelize.define('addressdata',{
                         node_member:Sequelize.BIGINT(8),
                         state:Sequelize.INTEGER(1),
                         isNew:Sequelize.INTEGER(1),
-                        totalInvetDay:Sequelize.DECIMAL(12,2),//当天个人总定投
-                        benefitBalance:Sequelize.DECIMAL(12,2),//当前有效总收益余额（静态动态）
-                        totalBenefit:Sequelize.DECIMAL(12,2),//累计收益包含已经提现和未提现
-                        staticBenefitBalance:Sequelize.DECIMAL(12,2),//当前有效静态收益
-                        totalStaticBenefit:Sequelize.DECIMAL(12,2),//累计静态收益
-                        staticBenefitDay:Sequelize.DECIMAL(12,2),//当天个人总静态收益
+                        totalInvetDay:Sequelize.DECIMAL(12,7),//当天个人总定投
+                        benefitBalance:Sequelize.DECIMAL(12,7),//当前有效总收益余额（静态动态）
+                        totalBenefit:Sequelize.DECIMAL(12,7),//累计收益包含已经提现和未提现
+                        staticBenefitBalance:Sequelize.DECIMAL(12,7),//当前有效静态收益
+                        totalStaticBenefit:Sequelize.DECIMAL(12,7),//累计静态收益
+                        staticBenefitDay:Sequelize.DECIMAL(12,7),//当天个人总静态收益
                         teamMember:Sequelize.INTEGER(8),//团队总人数
                         directMember:Sequelize.INTEGER(8),//直推人数
-                        teamInvet:Sequelize.DECIMAL(12,2),//团队总投资
-                        type_1_total:Sequelize.DECIMAL(12,2),//类型1总定投
-                        type_2_total:Sequelize.DECIMAL(12,2),//类型2总定投
-                        type_3_total:Sequelize.DECIMAL(12,2),//类型3总定投
-                        type_4_total:Sequelize.DECIMAL(12,2),//类型4总定投
-                        totalInvet:Sequelize.DECIMAL(12,2),//个人总定投
+                        teamInvet:Sequelize.DECIMAL(12,7),//团队总投资
+                        type_1_total:Sequelize.DECIMAL(12,7),//类型1总定投
+                        type_2_total:Sequelize.DECIMAL(12,7),//类型2总定投
+                        type_3_total:Sequelize.DECIMAL(12,7),//类型3总定投
+                        type_4_total:Sequelize.DECIMAL(12,7),//类型4总定投
+                        totalInvet:Sequelize.DECIMAL(12,7),//个人总定投
                         iscalculte:Sequelize.INTEGER(1),
 
                     },{
@@ -280,7 +280,7 @@ var addressData = sequelize.define('addressdata',{
                         txhash:Sequelize.STRING(150),
                         endtime:Sequelize.STRING(20),
                         state:Sequelize.INTEGER(1),
-                        valuex:Sequelize.DECIMAL(10,4),
+                        valuex:Sequelize.DECIMAL(10,7),
                         address:Sequelize.STRING(50),
 	 		user_id:Sequelize.BIGINT(11),
                     },{
@@ -315,9 +315,9 @@ var addressData = sequelize.define('addressdata',{
                         available_supply:Sequelize.STRING(0),
                         total_supply:Sequelize.STRING(30),
                         max_supply:Sequelize.STRING(30),
-                        percent_change_1h:Sequelize.DECIMAL(8,2),
-                        percent_change_24h:Sequelize.DECIMAL(8,2),
-                        percent_change_7d:Sequelize.DECIMAL(8,2),
+                        percent_change_1h:Sequelize.DECIMAL(12,7),
+                        percent_change_24h:Sequelize.DECIMAL(12,7),
+                        percent_change_7d:Sequelize.DECIMAL(12,7),
                         last_updated:Sequelize.STRING(15),
                         market_cap_btc:Sequelize.STRING(20),
                         version:Sequelize.INTEGER(3)
@@ -417,24 +417,24 @@ var utils = require('./utils/utils')
 module.exports = {
     utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
-
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205s1s@qq.com","dddd","dddddd",22222,123456,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss2@qq.com","dddd","dddddd",123456,1234,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss3@qq.com","dddd","dddddd",123456,1235,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss4@qq.com","dddd","dddddd",123456,1236,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss5@qq.com","dddd","dddddd",123456,1237,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss6@qq.com","dddd","dddddd",123456,1238,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss7@qq.com","dddd","dddddd",123456,1239,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss8@qq.com","dddd","dddddd",123456,1240,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss9@qq.com","dddd","dddddd",123456,1241,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss10@qq.com","dddd","dddddd",123456,1242,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss11@qq.com","dddd","dddddd",123456,1243,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss12@qq.com","dddd","dddddd",123456,1244,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss13@qq.com","dddd","dddddd",123456,1245,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss14@qq.com","dddd","dddddd",123456,1246,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss15@qq.com","dddd","dddddd",123456,1247,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss16@qq.com","dddd","dddddd",123456,1248,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
-// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss17@qq.com","dddd","dddddd",123456,1249,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+                   
+//insert into etzadmin (state,directMember,nick_name,lock_values,role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay, benefitBalance ,totalBenefit,staticBenefitBalance ,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,totalInvet,iscalculte)values(0,0,"hello",0,0,0,"896466205s11s@qq.com","dddd","dddddd",804535,804510,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,0,0,0,0,0,0,0,0,0,0,0);
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,0,"896466205ss2@qq.com","dddd","dddddd",804535,123411,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,0,"896466205ss3@qq.com","dddd","dddddd",804535,123512,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,0,"896466205ss4@qq.com","dddd","dddddd",804535,123613,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,0,"896466205ss5@qq.com","dddd","dddddd",804535,123714,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,0,"896466205ss6@qq.com","dddd","dddddd",804535,123815,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss7@qq.com","dddd","dddddd",804535,123916,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss8@qq.com","dddd","dddddd",804535,124017,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss9@qq.com","dddd","dddddd",804535,124118,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss10@qq.com","dddd","dddddd",804535,12420,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss11@qq.com","dddd","dddddd",804535,12431,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss12@qq.com","dddd","dddddd",804535,12442,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss13@qq.com","dddd","dddddd",804535,12453,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss14@qq.com","dddd","dddddd",804535,12464,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss15@qq.com","dddd","dddddd",804535,12475,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss16@qq.com","dddd","dddddd",804535,12486,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
+// insert into etzadmin (role,user_type,email,trade_pwd_origin,login_pwd_origin,invite_code,invite2_code,etz_value,usd_value,last_login_time,last_login_ip,regist_time,update_time,address,isInveted,node_member,isNew,totalInvetDay,totalStaticBenefit,staticBenefitDay,teamMember,teamInvet,type_1_total,type_2_total,type_3_total,type_4_total,iscalculte)values(0,0,"896466205ss17@qq.com","dddd","dddddd",804535,12497,233,233,232323,232323,2323,23232,"0xddgdg",0,233,0,2323,2323,2323,2323,323,2333,2323,233333,3333,0)
 
 
 

@@ -1,0 +1,478 @@
+[2019-07-03T10:13:09.969] [ERROR] default - BenefitClass error 2019-7-3 10:13:9 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:13.970] [ERROR] default - BenefitClass error 2019-7-3 10:13:13 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:17.972] [ERROR] default - BenefitClass error 2019-7-3 10:13:17 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:21.970] [ERROR] default - BenefitClass error 2019-7-3 10:13:21 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:25.976] [ERROR] default - BenefitClass error 2019-7-3 10:13:25 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:29.978] [ERROR] default - BenefitClass error 2019-7-3 10:13:29 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:33.978] [ERROR] default - BenefitClass error 2019-7-3 10:13:33 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:37.982] [ERROR] default - BenefitClass error 2019-7-3 10:13:37 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:41.982] [ERROR] default - BenefitClass error 2019-7-3 10:13:41 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:45.989] [ERROR] default - BenefitClass error 2019-7-3 10:13:45 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:49.991] [ERROR] default - BenefitClass error 2019-7-3 10:13:49 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:53.992] [ERROR] default - BenefitClass error 2019-7-3 10:13:53 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:13:57.992] [ERROR] default - BenefitClass error 2019-7-3 10:13:57 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:01.994] [ERROR] default - BenefitClass error 2019-7-3 10:14:1 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:06.000] [ERROR] default - BenefitClass error 2019-7-3 10:14:6 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:09.996] [ERROR] default - BenefitClass error 2019-7-3 10:14:9 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:13.998] [ERROR] default - BenefitClass error 2019-7-3 10:14:13 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:18.002] [ERROR] default - BenefitClass error 2019-7-3 10:14:18 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:22.003] [ERROR] default - BenefitClass error 2019-7-3 10:14:22 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:26.009] [ERROR] default - BenefitClass error 2019-7-3 10:14:26 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:14:30.010] [ERROR] default - BenefitClass error 2019-7-3 10:14:30 ReferenceError: dataValues is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:87:19)
+[2019-07-03T10:44:43.178] [ERROR] default - BenefitClass error 2019-7-3 10:44:43 { DatabaseError [SequelizeDatabaseError]: Unknown column 'NaN' in 'field list'
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  original:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  sql:
+   'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' }
+[2019-07-03T10:45:30.374] [ERROR] default - BenefitClass error 2019-7-3 10:45:30 { DatabaseError [SequelizeDatabaseError]: Unknown column 'NaN' in 'field list'
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  original:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  sql:
+   'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' }
+[2019-07-03T10:46:31.331] [ERROR] default - BenefitClass error 2019-7-3 10:46:31 { DatabaseError [SequelizeDatabaseError]: Unknown column 'NaN' in 'field list'
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  original:
+   { Error: Unknown column 'NaN' in 'field list'
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_BAD_FIELD_ERROR',
+     errno: 1054,
+     sqlState: '42S22',
+     sqlMessage: "Unknown column 'NaN' in 'field list'",
+     sql:
+      'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' },
+  sql:
+   'UPDATE `etzadmin` SET `benefitBalance`=7.5,`totalBenefit`=7.5,`lock_values`=NaN WHERE `e_id` = 12' }
+[2019-07-03T10:58:54.876] [ERROR] default - BenefitClass error 2019-7-3 10:58:54 ReferenceError: isNew is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:93:15)
+[2019-07-03T10:58:58.865] [ERROR] default - BenefitClass error 2019-7-3 10:58:58 ReferenceError: isNew is not defined
+    at BenefitClass.staticBenefit (/Users/admin/project/webExample/troy-ser/class/BenefitClass.js:93:15)
+[2019-07-03T10:59:48.475] [ERROR] default - BenefitClass error 2019-7-3 10:59:48 { DatabaseError [SequelizeDatabaseError]: Field 'f_id' doesn't have a default value
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  original:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  sql:
+   'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' }
+[2019-07-03T10:59:52.463] [ERROR] default - BenefitClass error 2019-7-3 10:59:52 { DatabaseError [SequelizeDatabaseError]: Field 'f_id' doesn't have a default value
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  original:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  sql:
+   'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' }
+[2019-07-03T10:59:56.471] [ERROR] default - BenefitClass error 2019-7-3 10:59:56 { DatabaseError [SequelizeDatabaseError]: Field 'f_id' doesn't have a default value
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  original:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  sql:
+   'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' }
+[2019-07-03T11:00:00.471] [ERROR] default - BenefitClass error 2019-7-3 11:0:0 { DatabaseError [SequelizeDatabaseError]: Field 'f_id' doesn't have a default value
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  original:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  sql:
+   'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' }
+[2019-07-03T11:01:19.769] [ERROR] default - BenefitClass error 2019-7-3 11:1:19 { DatabaseError [SequelizeDatabaseError]: Field 'f_id' doesn't have a default value
+    at Query.formatError (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:247:16)
+    at Query.handler [as onResult] (/Users/admin/project/webExample/troy-ser/node_modules/sequelize/lib/dialects/mysql/query.js:68:23)
+    at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:30:14)
+    at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+    at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+    at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+    at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+    at Socket.emit (events.js:193:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:231:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+  name: 'SequelizeDatabaseError',
+  parent:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  original:
+   { Error: Field 'f_id' doesn't have a default value
+       at Packet.asError (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packets/packet.js:684:17)
+       at Query.execute (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/commands/command.js:28:26)
+       at Connection.handlePacket (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:449:32)
+       at PacketParser.Connection.packetParser.p [as onPacket] (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:72:12)
+       at PacketParser.executeStart (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/packet_parser.js:75:16)
+       at Socket.Connection.stream.on.data (/Users/admin/project/webExample/troy-ser/node_modules/mysql2/lib/connection.js:79:25)
+       at Socket.emit (events.js:193:13)
+       at addChunk (_stream_readable.js:295:12)
+       at readableAddChunk (_stream_readable.js:276:11)
+       at Socket.Readable.push (_stream_readable.js:231:10)
+       at TCP.onStreamRead (internal/stream_base_commons.js:150:17)
+     code: 'ER_NO_DEFAULT_FOR_FIELD',
+     errno: 1364,
+     sqlState: 'HY000',
+     sqlMessage: "Field 'f_id' doesn't have a default value",
+     sql:
+      'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' },
+  sql:
+   'INSERT INTO `benefitdata` (`e_id`,`b_type`,`b_value`,`b_type_f`,`timestamps`,`user_id`,`operate`) VALUES (NULL,0,0.01225,1,1562083200000,1,0);' }
