@@ -25,7 +25,6 @@ financeList = async (req, res, next) => {
 					for(var i=0;i<b_Data.length;i++){
 						benefit +=Number(b_Data[i].dataValues.b_value);
 						if(Number(b_Data[i].dataValues.timestamps)==new Date(lastdays).getTime()){
-							console.log("----laste data yyll....")
 							lastbenefit += Number(b_Data[i].dataValues.b_value);
 						}
 					}
