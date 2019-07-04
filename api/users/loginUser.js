@@ -21,7 +21,6 @@ loginUser = async (req, res, next) => {
 				let sessionId = config.utils.md5(JSON.stringify(req.cookies))
 				console.log("sessionId===",sessionId)
 				resetEmailMap(email,rand)
-				sessionMap.set("email",rand);//维持当前在线状态
 				config.setAsync(sessionId,email+","+pwd+","+rand+","+user.role)
 				config.setAsync(email+"sessionId",sessionId)
 				config.expireAsync(email+"sessionId",3110400)
