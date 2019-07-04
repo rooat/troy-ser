@@ -12,11 +12,7 @@ financeList = async (req, res, next) => {
 		let financeDetail = await config.financeDetail.findAll();
 
 		if(userId &&financeDetail && financeDetail.length>0){
-			let date = new Date();
-			let year = date.getFullYear();
-			let month = date.getMonth()+1;
-			let datex = date.getDate()-1;
-			let lastdays = year+"-"+month+"-"+datex;
+			let lastdays = config.utils.lastTimeFormat;
 
 			let arr =new Array();
 			for(var k=0;k<financeDetail.length;k++){

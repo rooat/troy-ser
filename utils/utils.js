@@ -96,6 +96,13 @@ function nextTimeFormat(){
 	let datex = date.getDate()+1;
 	return year+"-"+month+"-"+datex+" 00:00:00";
 }
+function lastTimeFormat(){
+	let date = new Date();
+	let year = date.getFullYear();
+	let month = date.getMonth()+1;
+	let datex = date.getDate()-1;
+	return year+"-"+month+"-"+datex+" 00:00:00";
+}
 
 //验证token
 async function validToken(obj,req,config){
@@ -177,5 +184,5 @@ async function makeInviteCode(config,email){
 }
 
 module.exports={
-	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,validToken,result_req,getObj,makeInviteCode
+	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

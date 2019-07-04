@@ -35,12 +35,6 @@ getFinanceListByUserId = async (req, res, next) => {
 
 async function makeData(sf_Data,user_id,f_type){
 	if(sf_Data&& sf_Data.length>0){
-		let date = new Date();
-		let year = date.getFullYear();
-		let month = date.getMonth()+1;
-		let datex = date.getDate()-1;
-		let lastdays = year+"-"+month+"-"+datex;
-
 		let arr = new Array();
 		
 		for(var i=0;i<sf_Data.length;i++){
@@ -68,11 +62,7 @@ async function makeData(sf_Data,user_id,f_type){
 			let lastBenefit=0;
 			if(benefitDatas && benefitDatas.length>0){
 						
-				let date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth()+1;
-				let datex = date.getDate()-1;
-				let lastdays = year+"-"+month+"-"+datex;
+				let lastdays = config.utils.lastTimeFormat();
 				for(var ik=0;ik<benefitDatas.length;ik++){
 					benefitValue +=Number(benefitDatas[ik].dataValues.b_value);
 					if(new Date(lastdays).getTime()==Number(benefitDatas[ik].dataValues.timestamps)){
