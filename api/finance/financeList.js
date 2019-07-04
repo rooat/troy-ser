@@ -12,7 +12,7 @@ financeList = async (req, res, next) => {
 		let financeDetail = await config.financeDetail.findAll();
 
 		if(userId &&financeDetail && financeDetail.length>0){
-			let lastdays = config.utils.lastTimeFormat;
+			let lastdays = config.utils.lastTimeFormat();
 
 			let arr =new Array();
 			for(var k=0;k<financeDetail.length;k++){
