@@ -29,8 +29,8 @@ financeList = async (req, res, next) => {
 					for(var i=0;i<b_Data.length;i++){
 						console.log("b_Data[i].dataValues.b_value:::",b_Data[i].dataValues.b_value)
 						benefit +=Number(b_Data[i].dataValues.b_value);
-						if(b_Data[i].dataValues.timestamps==lastdays){
-							lastbenefit += b_Data[i].dataValues.b_value;
+						if(b_Data[i].dataValues.timestamps==new Date(lastdays).getTime()){
+							lastbenefit += Number(b_Data[i].dataValues.b_value);
 						}
 					}
 					
@@ -43,9 +43,9 @@ financeList = async (req, res, next) => {
 				}
 				let obj ={
 					"id":financeDetail[k].dataValues.f_type_id,
-					"benefit":benefit,
-					"balance":balance,
-					"lastbenefit":lastbenefit,
+					"benefit":benefit.toFixed(2),
+					"balance":balance.toFixed(2),
+					"lastbenefit":lastbenefit.toFixed(2),
 					"time_limit":financeDetail[k].dataValues.time_limit,
 					"day_benefit":financeDetail[k].dataValues.day_benefit
 				}

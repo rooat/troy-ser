@@ -26,7 +26,7 @@ productById = async (req, res, next) => {
 						let lastdays = year+"-"+month+"-"+datex;
 						for(var i=0;i<benefitDatas.length;i++){
 							benefitValue +=Number(benefitDatas[i].dataValues.b_value);
-							if(lastdays==Number(benefitDatas[i].dataValues.timestamps)){
+							if(new Date(lastdays).getTime()==Number(benefitDatas[i].dataValues.timestamps)){
 								lastBenefit = Number(benefitDatas[i].dataValues.b_value);
 							}
 						}

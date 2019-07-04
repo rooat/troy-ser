@@ -1,0 +1,4 @@
+[2019-07-04T11:48:46.892] [ERROR] default - financeList 2019-7-4 11:48:46 TypeError: benefit.fixed is not a function
+    at financeList (/Users/admin/project/webExample/troy-ser/api/finance/financeList.js:46:24)
+[2019-07-04T11:50:07.216] [ERROR] default - financeList 2019-7-4 11:50:7 TypeError: lastbenefit.toFixed is not a function
+    at financeList (/Users/admin/project/webExample/troy-ser/api/finance/financeList.js:48:32)

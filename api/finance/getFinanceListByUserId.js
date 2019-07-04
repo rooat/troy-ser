@@ -75,7 +75,7 @@ async function makeData(sf_Data,user_id,f_type){
 				let lastdays = year+"-"+month+"-"+datex;
 				for(var ik=0;ik<benefitDatas.length;ik++){
 					benefitValue +=Number(benefitDatas[ik].dataValues.b_value);
-					if(lastdays==Number(benefitDatas[ik].dataValues.timestamps)){
+					if(new Date(lastdays).getTime()==Number(benefitDatas[ik].dataValues.timestamps)){
 						lastBenefit = Number(benefitDatas[ik].dataValues.b_value);
 					}
 				}

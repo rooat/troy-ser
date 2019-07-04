@@ -53,7 +53,7 @@ http://localhost:3000/api/finance/get_finance_by_id?f_id=2056&token=ad7bb5d7ec9d
 
 http://localhost:3000/api/finance/get_benefit_list_by_user_id?user_id=12&token=848b59e88d07429cdfa28f1548eb08cc
 
-http://localhost:3000/api/finance/product_ist?token=f7c5d4bd32c8a543d9dec5c770833133
+http://13.124.2.239:/apiserver/api/finance/product_ist?user_id=12&token=8edab629c3fe01b279d976364c04d84c
 
 http://localhost:3000/api/finance/add_finance?email_num=896466205@qq.com&trade_pad=12345678&type=1&value=1&benefit_time=2019-07-09 00:00:00&finance_time=2019-09-09 00:00:00&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
