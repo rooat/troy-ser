@@ -26,6 +26,8 @@ financeList = async (req, res, next) => {
 				let lastbenefit =0;
 				console.log("userId====",userId)
 				console.log("b_type_f====",b_type_f)
+				console.log("las ----",lastdays)
+				console.log("last----",new Date(lastdays).getTime())
 				let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:b_type_f,b_type_f:0}})
 				if(b_Data && b_Data.length>0){
 					for(var i=0;i<b_Data.length;i++){
