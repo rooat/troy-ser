@@ -16,7 +16,9 @@ logOut = async (req, res, next) => {
 
 		let keys = config.utils.md5(keysuser.split(",").join(""));
 		if(token==keys){
+			let sessionId = config.utils.md5(JSON.stringify(req.cookies))
 			await config.expireAsync(sessionId,0);
+			await config.expireAsync(sessionId,0)
 			return res.send(config.utils.result_req(0,"10010","success"))
 		}
 		return res.send(config.utils.result_req(-2,"10011","token invalid"));
