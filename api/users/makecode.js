@@ -9,6 +9,8 @@ makecode = async (req, res, next) => {
 		}
 		let email = obj.email_num;
 		let lan = obj.lan;
+		console.log("obj----",obj)
+		console.log("lan---",lan);
 		if(config.utils.IsEmail(email)){
 			let resCode = await config.getAsync(email+"emailcode");
 			if(!resCode){

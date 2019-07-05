@@ -433,6 +433,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
  global.checkWithdraw = false;
 
  global.sessionMap = new Map();
+ global.lan=1;
 
 var benefitTimeCal = 36000000;//收益结算周期
 var nodeTimeCal = 36000000;//节点结算周期
