@@ -54,7 +54,8 @@ var updateLoginPwd = require('../api/users/updateLoginPwd')
 var updateTradePwd = require('../api/users/updateTradePwd')
 var withdraw = require('../api/users/withdraw')
 var transferHistory = require('../api/users/transferHistory');
-var friendData = require('../api/users/friendData')
+var friendData = require('../api/users/friendData');
+var updateNickName = require('../api/users/updateNickName');
 
 
 //finance
@@ -118,6 +119,7 @@ router.post('/user/withdraw',withdraw.withdraw);
 router.post('/user/transfer_history',transferHistory.transferHistory)
 router.post('/user/friend_data',friendData.friendData)
 router.post('/user/zc_to_usd',zcToUsd.zcToUsd)
+router.post('/user/update_nick_name',updateNickName.updateNickName)
 
 
 

@@ -35,7 +35,8 @@ getUser = async (req, res, next) => {
 					"staticBenefitDay":user.staticBenefitDay,
 					"teamMember":user.teamMember,
 					"teamInvet":user.teamInvet,
-					"id":user.e_id
+					"id":user.e_id,
+					"username":user.nick_name
 				}
 				return res.send(config.utils.result_req(0,"10010",newUser));
 			}

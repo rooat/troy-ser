@@ -9,7 +9,7 @@ http://localhost:3000/api/user/loginUser?email_num=896466205@qq.com&login_pwd=12
 
 http://localhost:3000/api/user/logOut?token=9c44ab2c8b29e119454453867752c92c
 
-http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=da9a1cf19d6e7cb4910936d9973433a4
+http://13.124.2.239:/apiserver/api/user/getUser?email_num=896466205@qq.com&token=4f1eae4872fcc675530735bb4988a4ae&lan=0
 
 http://localhost:3000/api/user/friend_data?mycode=123456&token=a825a92f54bd3019483d8577aaa71c72
 
