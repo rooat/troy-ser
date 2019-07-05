@@ -12,7 +12,7 @@ logOut = async (req, res, next) => {
 			lan = global.lan;
 		}
 		console.log("token---",token)
-		let keysuser = config.getAsync(token);
+		let keysuser =await config.getAsync(token);
 		console.log("keysuser::::",keysuser)
 		if(keysuser){
 			let keys = config.utils.md5(keysuser);
