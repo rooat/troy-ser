@@ -3,7 +3,7 @@ const ethers = require('ethers');
 const ethereum = require('ethereumjs-util')
 
 function md5(pwd){
-	return crypto.createHash('md5').update(pwd).digest("hex")
+	return crypto.createHash('md5').update(String(pwd)).digest("hex")
 }
 
 function createAccount(){
