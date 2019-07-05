@@ -24,7 +24,7 @@ financeList = async (req, res, next) => {
 				let benefit=0;
 				let balance =0;
 				let lastbenefit =0;
-				let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:b_type_f,b_type_f:0}})
+				let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:b_type_f,b_type_f:0},})
 				if(b_Data && b_Data.length>0){
 					for(var i=0;i<b_Data.length;i++){
 						benefit +=Number(b_Data[i].dataValues.b_value);
