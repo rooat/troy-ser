@@ -11,9 +11,12 @@ logOut = async (req, res, next) => {
 		if(!lan){
 			lan = global.lan;
 		}
+		console.log("token---",token)
 		let keysuser = config.getAsync(token);
+		console.log("keysuser::::",keysuser)
 		if(keysuser){
 			let keys = config.utils.md5(keysuser);
+			console.log("keys----",keys)
 			if(token==keys){
 				//let sessionId = config.utils.md5(JSON.stringify(req.cookies))
 				await config.expireAsync(token,0);
