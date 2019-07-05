@@ -110,15 +110,14 @@ function lastTimeFormat(){
 
 //验证token
 async function validToken(obj,req,config){
-	
-	let sessionId = md5(JSON.stringify(req.cookies))
-	let keysuser = await config.getAsync(sessionId);
+	let token = obj.token;
+	let keysuser = await config.getAsync(token);
 	if(keysuser){
-		let token = obj.token;
+		//let sessionId = md5(JSON.stringify(req.cookies))
 		let role = keysuser.split(",")[3];
 		let email = keysuser.split(",")[0];
 		let rand = keysuser.split(",")[2];
-		let keys = md5(keysuser.split(",").join(""))
+		let keys = md5(keysuser)
 		if(global.sessionMap.get(email)&& Number(global.sessionMap.get(email)) == Number(rand) && token==keys){
 			return {"state":0,"datas":"success","role":role}
 		}
