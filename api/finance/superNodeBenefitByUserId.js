@@ -14,7 +14,7 @@ superNodeBenefitByUserId = async (req, res, next) => {
 			lan = global.lan;
 		}
 		if(user_id){
-			let datas = await config.nodeBenefitData.findAll({where:{user_id:user_id,b_type_f:2},limit:50})
+			let datas = await config.nodeBenefitData.findAll({where:{user_id:user_id,b_type_f:2},limit:50,order:[['timestamps','DESC']]})
 			if(datas && datas.length>0){
 				return res.send(config.utils.result_req(0,"10010",datas))
 			}

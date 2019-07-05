@@ -17,7 +17,7 @@ getBenefitByUserIdAndType = async (req, res, next) => {
 			lan = global.lan;
 		}
 		if(userId && type&&kind){
-			let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:type,b_type_f:kind}})
+			let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:type,b_type_f:kind},order:[['timestamps','DESC']]})
 			console.log("b_data===",b_Data)
 			if(b_Data && b_Data.length>0){
 				let value=0;

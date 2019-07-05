@@ -19,7 +19,7 @@ productById = async (req, res, next) => {
 				let f_type = financeData.f_type;
 				let detail = await config.financeDetail.findOne({where:{f_type_id:f_type}})
 				if(detail){
-					let benefitDatas = await config.benefitData.findAll({where:{f_id:f_id}})
+					let benefitDatas = await config.benefitData.findAll({where:{f_id:f_id},order:[['timestamps','DESC']]})
 					if(benefitDatas && benefitDatas.length>0){
 						let benefitValue=0;
 						let lastBenefit=0;

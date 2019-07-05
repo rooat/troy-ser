@@ -14,7 +14,7 @@ getBenefitListByUserId = async (req, res, next) => {
 			lan = global.lan;
 		}
 		if(userId){
-			let b_Data = await config.benefitData.findAll({where:{user_id:userId}})
+			let b_Data = await config.benefitData.findAll({where:{user_id:userId},order:[['timestamps','DESC']]})
 			if(b_Data && b_Data.length>0){
 				return res.send(config.utils.result_req(0,"10010",b_Data))
 			}
