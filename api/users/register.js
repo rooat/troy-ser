@@ -53,7 +53,7 @@ register = async (req, res, next) => {
 						            address:account.address,
 						            isInveted:0,
 						            node_member:0,
-						            isNew:0,
+						            isNew:1,//新用户
 						            totalInvetDay:0,//当天个人总定投
 					                benefitBalance:0,//当前总收益（包含静态和动态）
 					                totalBenefit:0,//累计收益，包含已经提现和未提现

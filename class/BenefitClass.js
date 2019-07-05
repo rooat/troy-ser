@@ -5,6 +5,7 @@ class BenefitClass{
 		this.totalStaticBenefitDay =0;
 		this.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		this.zcprice_usd =0;
+		this.isNewMap = new Map();
 	}
 	async start(){
 		let that = this;
@@ -93,8 +94,19 @@ class BenefitClass{
 				  if(ff_type==1){
 				  		type_1_total+=invet_value;
 			            if(user.isNew==1){//如果首次体验 0.8%
+			            	if(this.isNewMap.get(user.email)){
+			            		if(this.isNewMap.get(user.email)==6){
+			            			await config.etzAdmin.update({isNew:2},{where:{e_id:user.e_id}})
+			            		}else{
+			            			let count = Number(this.isNewMap.get(user.email))+1;
+			            			this.isNewMap.set(user.email,count);
+			            		}
+			            	}else{
+			            		this.isNewMap.set(user.email,1)
+			            	}
+			               
 			               benefit_one = invet_value*8/1000;
-			               await config.etzAdmin.update({isNew:2},{where:{e_id:user.e_id}})
+			               
 			            }else{
 			               //收益= 投资额的0.5%；
 			               benefit_one = Number(invet_value)*5/1000;
