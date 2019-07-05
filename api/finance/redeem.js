@@ -12,7 +12,8 @@ redeem = async (req, res, next) => {
 		let password = obj.trade_pwd;
 		let lan = obj.lan;
 
-		if(f_id && email && password&& config.utils.IsEmail(email)){
+		if(
+			f_id && email && password&& config.utils.IsEmail(email)){
 			let finance = await config.financeData.findOne({where:{e_id:f_id,state:{$in:[1,2]}}})
 			if(finance){
 				let current = new Date().getTime();

@@ -373,12 +373,24 @@ var testM = sequelize.define('testm',{
 //     host:    "smtp.naver.com",         // 主机，不改
 //     ssl:     true                   // 使用ssl
 // });
+
 var transport  = email.server.connect({
     user:    "qtum001@naver.com",      // 你的QQ用户
-    password:"Aa112233!!!",           // 注意，不是QQ密码，而是刚才生成的授权码
+    password:"Aa112233!!",           // 注意，不是QQ密码，而是刚才生成的授权码
     host:    "smtp.naver.com",         // 主机，不改
     ssl:     true                   // 使用ssl
 });
+
+
+// var transport = nodemailer.createTransport({
+//   host : "smtp.qq.com",
+//   secureConnection : true,
+//   port : 465,
+//   auth : {
+//     user : "205263298@qq.com",
+//     pass : "lhvhpdcldtbpcabi"
+//   }
+// })
 
 
 

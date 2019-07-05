@@ -11,7 +11,7 @@ loginUser = async (req, res, next) => {
 		let email = obj.email_num;
 		let login_pwd = obj.login_pwd;
 		let lan = obj.lan;
-
+		
 		if(config.utils.IsEmail(email)&& login_pwd.length>=6 && lan){
 			let pwd = config.utils.md5(login_pwd)
 			let user = await config.etzAdmin.findOne({where:{email:email,login_pwd_origin:pwd}})

@@ -8,7 +8,7 @@ superNodeBenefitByUserId = async (req, res, next) => {
 			return res.send(obj.data);
 		}
 		obj = obj.data;
-		
+		let lan = obj.lan;
 		let user_id = obj.user_id;
 		if(user_id){
 			let datas = await config.nodeBenefitData.findAll({where:{user_id:user_id,b_type_f:2},limit:50})
