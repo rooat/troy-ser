@@ -46,7 +46,7 @@ try{
 	    to:      email,       //发送给谁的
 	    subject: "测试",         //邮件主题
 	    text: "你的验证码是"+emailCode //内容
-	}, function(err, message) {
+	}, async function(err, message) {
 	    //回调函数
 	    console.log(err || message);
 	    let code = md5(String(emailCode))
