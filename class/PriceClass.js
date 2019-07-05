@@ -3,7 +3,7 @@ var rate = require("../task/price/ratedata");
 
 class PriceClass{
 	constructor(){
-		this.updatePriceTime = 180000;
+		this.updatePriceTime = 36000000;
 		this.version = 0;
 	}
 	async init(){

@@ -422,10 +422,14 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
 
  global.sessionMap = new Map();
 
+var benefitTimeCal = 36000000;//收益结算周期
+var nodeTimeCal = 36000000;//节点结算周期
+var teamTimeCal = 36000000;//团队汇总周期
+
 var utils = require('./utils/utils')
 
 module.exports = {
-    tips,utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 

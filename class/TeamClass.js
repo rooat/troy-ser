@@ -9,7 +9,7 @@ class TeamClass{
 		let that = this
 		setInterval(function(){
 			that.loopTeam()
-		},10000)
+		},config.teamTimeCal)
 	}
 	async  loopTeam(){
 		try{

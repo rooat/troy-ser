@@ -6,14 +6,13 @@ class NodeClass{
         this.node_max_value = 3000;//符合节点的3000USD
         this.node_Invet_com = 100000;//符合节点10万USD
         this.node_Invet_super = 300000;//符合节点10万USD
-        this.per_week_time =10000;//604900000
         this.maps = new Map();
   }
 	start(){
 		let that = this;
 		setInterval(function(){
 			that.calNodePerWeek()
-		},this.per_week_time)
+		},config.nodeTimeCal)
 	}
 	 async calNodePerWeek(){
     //查找符合节点条件的用户
