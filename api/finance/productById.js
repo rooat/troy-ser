@@ -9,6 +9,7 @@ productById = async (req, res, next) => {
 		obj = obj.data;
 		
 		let f_id = obj.f_id;
+		let lan = obj.lan;
 		if(f_id){
 			let financeData = await config.financeData.findOne({where:{e_id:f_id}});
 			if(financeData){
@@ -33,16 +34,13 @@ productById = async (req, res, next) => {
 						}
 						return res.send(config.utils.result_req(0,"10010",obj))
 					}
-					return res.send(config.utils.result_req(-1,"10011","benefit is null"));
 				}
-				return res.send(config.utils.result_req(-1,"10011","detail is null"));
 			}
-			return res.send(config.utils.result_req(-1,"10011"," finance data is null"));
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"));
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;
 	}catch(e){
 		config.logger.error("nodeBenefitByUserId",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

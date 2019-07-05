@@ -48,10 +48,10 @@ financeList = async (req, res, next) => {
 			}
 			return res.send({"resp":{"state":0,"datas":arr}});
 		}
-		return res.send({"resp":{"state":-1,"datas":"params invalid or null"}});
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 		config.logger.error("financeList",config.utils.getFullTime(),e)
-		return res.send({"resp":{"state":-1,"datas":"error"}});
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

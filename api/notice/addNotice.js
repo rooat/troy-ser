@@ -12,7 +12,7 @@ addNotice = async (req, res, next) => {
 		}
 		obj = obj.data;
 
-
+		let lan = obj.lan;
 		let content_type = obj.content_type;
 		let notice_comment = obj.notice_comment;
 		if(content_type && notice_comment ){
@@ -22,12 +22,12 @@ addNotice = async (req, res, next) => {
 				timestamps:new Date().getTime(),
 				state:0
 			});
-			return res.send(config.utils.result_req(0,"10010","success"));
+			return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS));
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"));
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;
 	}catch(e){
 		config.logger.error("addNotice",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

@@ -10,7 +10,7 @@ delCoinType = async (req, res, next) => {
 			return res.send(obj.data);
 		}
 		obj = obj.data;
-
+		let lan = obj.lan;
 		let id = obj.c_id;
 		if(id){
 			let coins = await config.coinTypeData.findOne({where:{e_id:id}})
@@ -18,14 +18,14 @@ delCoinType = async (req, res, next) => {
 				await config.coinTypeData.update({
 					state:1,
 				})
-				return res.send(config.utils.result_req(0,"10010","success"))
+				return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 			}
-			return res.send(config.utils.result_req(-1,"10011","not existed"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].OPERATE_FAILURE))
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"));
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;
 	}catch(e){
 		config.logger.error("delCoinType",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"));
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR));
 	}
 	
 }

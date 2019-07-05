@@ -9,6 +9,7 @@ withdraw = async (req, res, next) => {
 			return res.send(obj.data);
 		}
 		obj = obj.data;
+		let lan = obj.lan;
 		
 		let address = obj.address;
 		let withDrawVal = obj.inputVal;
@@ -26,12 +27,12 @@ withdraw = async (req, res, next) => {
 	        })
 	        global.withdrawIndex = true;
 
-			return res.send({"resp":{"state":0,"datas":"success"}})
+			return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 		}
-		return res.send({"resp":{"state":-1,"datas":"params invalid"}});
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 		config.logger.error("withdraw",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

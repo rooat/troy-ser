@@ -11,7 +11,7 @@ updateNotice = async (req, res, next) => {
 		}
 		obj = obj.data;
 
-		
+		let lan = obj.lan
 		let noticeId = obj.noticeId;
 		let noticeType = obj.noticeType;
 		let noticeComment = obj.noticeComment;
@@ -25,12 +25,12 @@ updateNotice = async (req, res, next) => {
 				timestamps:new Date().getTime(),
 				state:state
 			},{where:{e_id:noticeId}})
-			return res.send({"resp":{"state":0,"datas":"success"}})
+			return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 		}
-		return res.send({"resp":{"state":-1,"datas":"params invalid"}});
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR))
 	}catch(e){
 				config.logger.error("updateNotice",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

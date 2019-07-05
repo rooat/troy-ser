@@ -7,6 +7,7 @@ getAddressList = async (req, res, next) => {
 			return res.send(obj.data);
 		}
 		obj = obj.data;
+		let lan = obj.lan;
 		
 		let user_id = obj.user_id;
 		if(user_id){
@@ -14,12 +15,12 @@ getAddressList = async (req, res, next) => {
 			if(addressArr && addressArr.length>0){
 				return res.send(config.utils.result_req(0,"10010",addressArr));
 			}				
-			return res.send(config.utils.result_req(-1,"10011","address null"));
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].DATA_NULL));
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"));
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;
 	}catch(e){
 		config.logger.error("getAddressList",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"));
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR));
 	}
 	
 }

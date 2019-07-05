@@ -15,6 +15,7 @@ addFinance = async (req, res, next) => {
 		let f_amount = obj.value;
 		let f_benefit_time = obj.benefit_time;
 		let f_finance_time = obj.finance_time;
+		let lan = obj.lan
 
 
 		if(trade_pad && f_type &&config.utils.IsEmail(email) && config.utils.IsNumber(f_amount) && config.utils.IsDateSec(f_benefit_time) && config.utils.IsDateSec(f_finance_time)){
@@ -46,18 +47,18 @@ addFinance = async (req, res, next) => {
 							user_id:user.e_id,
 							state:1
 						})
-						return res.send(config.utils.result_req(0,"10010","success"))
+						return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 					}
-					return res.send(config.utils.result_req(-1,"10011","balance invalid"))
+					return res.send(config.utils.result_req(-1,"10011",config.tips[lan].BALANCE_INVALID))
 				}
-				return res.send(config.utils.result_req(-1,"10011","email or password invalid"))
+				return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_PASS_EMAIL_ERROR))
 			}
-			return res.send(config.utils.result_req(-1,"10011","time invalid"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].TIME_INVALID))
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"))
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 		config.logger.error("addFinance",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))
 	}
 	
 }

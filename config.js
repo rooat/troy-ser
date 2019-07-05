@@ -367,9 +367,15 @@ var testM = sequelize.define('testm',{
 
 
 
+// var transport  = email.server.connect({
+//     user:    "mmsmztchbmfx@naver.com",      // 你的QQ用户
+//     password:"ETZkr123!",           // 注意，不是QQ密码，而是刚才生成的授权码
+//     host:    "smtp.naver.com",         // 主机，不改
+//     ssl:     true                   // 使用ssl
+// });
 var transport  = email.server.connect({
-    user:    "mmsmztchbmfx@naver.com",      // 你的QQ用户
-    password:"ETZkr123!",           // 注意，不是QQ密码，而是刚才生成的授权码
+    user:    "qtum001@naver.com",      // 你的QQ用户
+    password:"Aa112233!!!",           // 注意，不是QQ密码，而是刚才生成的授权码
     host:    "smtp.naver.com",         // 主机，不改
     ssl:     true                   // 使用ssl
 });
@@ -379,10 +385,16 @@ var transport  = email.server.connect({
 // var controllerAdd = "0xCAAf10244E0F891a2C4f066F3d137914b47F1DCe";
 // var controllerPrivate = "B528B0421C8D11504560B23AB15B377A2F2CECF8A97DA98217B8D669D1DDB48C";
 
-var controllerAdd = "0x65E7801bd4b036081dAE9280Ec1b156b39d11Af5";
-var controllerPrivate = "0xDA93CE2300BBC3455FC0F55C7C8B91B55DC544CCB28757DD3E798F36925C85CB";
+// var controllerAdd = "0x65E7801bd4b036081dAE9280Ec1b156b39d11Af5";
+// var controllerPrivate = "0xDA93CE2300BBC3455FC0F55C7C8B91B55DC544CCB28757DD3E798F36925C85CB";
 
-var controllerAdd2 = "0xf2e95d6F75897e6501e185d218504995F300deb4";
+// var controllerAdd2 = "0xf2e95d6F75897e6501e185d218504995F300deb4";
+
+var controllerAdd = "0x0A2A23AA8088d683a4D6a9944ABC6a5aAC231Fc1";
+var controllerPrivate = "BD127712041FD5768A8D4FC9653668EE156BEAA6387C9C31853D81C913E4F6FE";
+
+var controllerAdd2 = "0x3166c8167d2DEcd8323896714AcE4bd2Af762920";
+
 
 var etzpriceurl = "https://api.bithumb.com/public/ticker/etz";
 var allpriceurl ="https://api.coinmarketcap.com/v1/ticker/?limit=10000&convert=BTC";

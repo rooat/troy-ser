@@ -5,9 +5,6 @@ addAddress = async (req, res, next) => {
 	try{
                 let obj = await config.utils.getObj(req,config);
                 if(obj.type==-1){
-                        if(obj.role<1){
-                                return res.send(config.utils.result_req(-1,"10011","Not an administrator"))
-                        }
                         return res.send(obj.data);
                 }
                 obj = obj.data;
@@ -16,6 +13,7 @@ addAddress = async (req, res, next) => {
                 let address = obj.address;
                 let comment = obj.comment;
                 let user_id = obj.user_id;
+                let lan = obj.lan;
 
                 if(a_type && address && comment && user_id &&config.ethereum.isValidAddress(address)){
                         let addr = await config.addressData.findOne({where:{address:address}});
@@ -28,15 +26,15 @@ addAddress = async (req, res, next) => {
                                         user_id:user_id,
                                         timestamps:new Date().getTime()
                                 })
-                                return res.send(config.utils.result_req(0,"10010","success"))
+                                return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
                         }
-                        return res.send(config.utils.result_req(-1,"10011","address existed"))
+                        return res.send(config.utils.result_req(-1,"10011",config.tips[lan].ADDRESS_EXISTED))
                 }
-                return res.send(config.utils.result_req(-1,"10011","params invalid"))
+                return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 		
 	}catch(e){
 		config.logger.error("addAddress",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"));
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR));
 	}
 	
 }

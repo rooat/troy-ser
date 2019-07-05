@@ -10,6 +10,7 @@ redeem = async (req, res, next) => {
 		let f_id = obj.f_id;
 		let email = obj.email_num;
 		let password = obj.trade_pwd;
+		let lan = obj.lan;
 
 		if(f_id && email && password&& config.utils.IsEmail(email)){
 			let finance = await config.financeData.findOne({where:{e_id:f_id,state:{$in:[1,2]}}})
@@ -29,16 +30,16 @@ redeem = async (req, res, next) => {
 						origin_value = Number(origin_value)+ Number(fin_value);
 						 await config.etzAdmin.update({usd_value:origin_value},{where:{e_id:user.e_id}})
 						 await config.financeData.update({state:3,end_time:new Date().getTime(),get_value:fin_value},{where:{e_id:finance.e_id}})
-						return res.send(config.utils.result_req(0,"10010","success"))
+						return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 					}
-					return res.send(config.utils.result_req(-1,"10011","email or password invalid")) 
+					return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_PASS_EMAIL_ERROR)) 
 			}
-			return res.send(config.utils.result_req(-1,"10011","f_id invalid"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR))
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"))
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 		config.logger.error("redeem",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

@@ -10,7 +10,7 @@ usdToZc = async (req, res, next) => {
 		
 		let email = obj.email_num;
 		let amount = obj.trans_amount;
-
+		let lan = obj.lan;
 		if(config.utils.IsEmail(email) && config.utils.IsNumber(amount)){
 			let  user = await config.etzAdmin.findOne({where:{email:email}})
 			let zcData = await config.priceData.findOne({where:{symbol:"ZC"}});
@@ -28,16 +28,16 @@ usdToZc = async (req, res, next) => {
                         user_id:user.e_id,
                         operate:1
 					})
-					return res.send(config.utils.result_req(0,"10010","success"))
+					return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS))
 				}
-				return res.send(config.utils.result_req(-1,"10011","balance invalid"))
+				return res.send(config.utils.result_req(-1,"10011",config.tips[lan].BALANCE_INVALID))
 			}
-			return res.send(config.utils.result_req(-1,"10011","email invalid"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_PASS_EMAIL_ERROR))
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"))
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 		config.logger.error("usdToZc",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

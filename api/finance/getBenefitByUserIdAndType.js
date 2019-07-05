@@ -12,6 +12,7 @@ getBenefitByUserIdAndType = async (req, res, next) => {
 		let userId = obj.user_id;
 		let type = obj.type;
 		let kind = obj.kind;
+		let lan = obj.lan;
 		if(userId && type&&kind){
 			let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:type,b_type_f:kind}})
 			console.log("b_data===",b_Data)
@@ -23,12 +24,12 @@ getBenefitByUserIdAndType = async (req, res, next) => {
 				}
 				return res.send(config.utils.result_req(0,"10010",value))
 			}
-			return res.send(config.utils.result_req(-1,"10011","data is null"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].DATA_NULL))
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"))		
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));		
 	}catch(e){
 		config.logger.error("getBenefitByUserIdAndType",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

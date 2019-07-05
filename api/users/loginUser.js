@@ -6,12 +6,13 @@ loginUser = async (req, res, next) => {
 		
 		let obj = config.utils.getObjParams(req);
 		if(!obj){
-			return res.send({"resp":{"state":-1,"datas":"params invalid"}});
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 		}
 		let email = obj.email_num;
 		let login_pwd = obj.login_pwd;
+		let lan = obj.lan;
 
-		if(config.utils.IsEmail(email)&& login_pwd.length>=6){
+		if(config.utils.IsEmail(email)&& login_pwd.length>=6 && lan){
 			let pwd = config.utils.md5(login_pwd)
 			let user = await config.etzAdmin.findOne({where:{email:email,login_pwd_origin:pwd}})
 			if(user){
@@ -24,12 +25,12 @@ loginUser = async (req, res, next) => {
 
 				return res.send({"resp":{"state":0,"datas":{"token":key}}});
 			}
-			return res.send(config.utils.result_req(-1,"10011","email or password invalid"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_PASS_EMAIL_ERROR))
 		}
-		return res.send({"resp":{"state":-1,"datas":"failure"}});
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_FAILURE));
 	}catch(e){
 		config.logger.error("loginUser",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 }
 

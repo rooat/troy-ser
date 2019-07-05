@@ -10,6 +10,7 @@ getUser = async (req, res, next) => {
 
 		
 		let email = obj.email_num;
+		let lan = obj.lan;
 		
 		if(email && config.utils.IsEmail(email)){
 			let user = await config.etzAdmin.findOne({where:{email:email}})
@@ -36,13 +37,13 @@ getUser = async (req, res, next) => {
 				}
 				return res.send(config.utils.result_req(0,"10010",newUser));
 			}
-			return res.send(config.utils.result_req(-1,"10011","email not existed"))
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].EMAIL_IS_NOTEXIST))
 		}
-		return res.send(config.utils.result_req(-1,"10011","email invalid"));
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));
 	}catch(e){
 				config.logger.error("getUser",config.utils.getFullTime(),e)
 
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

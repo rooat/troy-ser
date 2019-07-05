@@ -15,12 +15,12 @@ superNodeBenefitByUserId = async (req, res, next) => {
 			if(datas && datas.length>0){
 				return res.send(config.utils.result_req(0,"10010",datas))
 			}
-			return res.send(config.utils.result_req(-1,"10011","data is null"));
+			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].DATA_NULL));
 		}
-		return res.send(config.utils.result_req(-1,"10011","params invalid"));		
+		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;		
 	}catch(e){
 		config.logger.error("superNodeBenefitByUserId",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }

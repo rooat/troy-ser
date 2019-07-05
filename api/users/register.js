@@ -11,15 +11,22 @@ register = async (req, res, next) => {
 		let login_pwd = obj.loginpwd;
 		let trade_pwd = obj.tradepwd;
 		let invite_num = obj.invite;
+		let lan = obj.lan
 
 		if(email&&email_code&&login_pwd&&trade_pwd&&invite_num&&config.utils.IsEmail(email)){
-			if(login_pwd!=trade_pwd && String(login_pwd).length>=6 && String(trade_pwd).length>=6){
+			if(login_pwd==trade_pwd){
+				return res.send(config.utils.result_req(-1,"10011",config.tips[lan].LOGIN_TEADE_PASSWORD_ERROR))
+			}
+			if(String(login_pwd).length>=6 && String(trade_pwd).length>=6){
 				let coder = await config.getAsync(email+"emailcode")
 				let currentCode = config.utils.md5(email_code);
 				if(coder&&coder==currentCode){
 					let invitor = await config.etzAdmin.findOne({where:{"invite2_code":invite_num}});
 					let users = await config.etzAdmin.findOne({where:{email:email}});
-					if(!users&&invitor){
+					if(users){
+						return res.send(config.utils.result_req(-1,"10011",config.tips[lan].EMAIL_IS_EXIST))
+					}
+					if(invitor){
 						let login_pwds = config.utils.md5(login_pwd);
 				  		let trade_pwds = config.utils.md5(trade_pwd);
 						let account =await config.utils.createAccount();
@@ -76,21 +83,22 @@ register = async (req, res, next) => {
 					           await config.etzUser.create(data);
 					           global.newUser.state=true;
 					            
-					           return res.send({"resp":{"state":0,"datas":"success"}});
+					           return res.send(config.utils.result_req(0,"10010",config.tips[lan].REGIST_SUCCESS));
 						}
-						return res.send({"resp":{"state":-1,"datas":"create account failure"}})
+						return res.send(config.utils.result_req(-1,"10011",config.tips[lan].CREATE_ACCOUNT_ERROR))
 					}
-					return res.send({"resp":{"state":-1,"datas":"invite invalid or email existed"}})
+					return res.send(config.utils.result_req(-1,"10011",config.tips[lan].INVITE_ERROR))
 				}
-				return res.send(config.utils.result_req(-1,"10011","code invalid"));
+				return res.send(config.utils.result_req(-1,"10011",config.tips[lan].EMAIL_CODE_ERROR));
 			}
-			return res.send({"resp":{"state":-1,"datas":"password too low or Equal invalid"}})
+			return res.send(config.utils,result_req(-1,"10011",config.tips[lan].PASSWORD_LEN_ERROR))
 		}
-		return res.send({'resp':{"state":-1,"datas":"params invalid"}});
+		
+		
 	}catch(e){
 		console.log(e)
 		config.logger.error("register",config.utils.getFullTime(),e)
-		return res.send(config.utils.result_req(-1,"10012","error"))		
+		return res.send(config.utils.result_req(-1,"10012",config.tips[lan].SOMETHING_ERROR))		
 	}
 	
 }
