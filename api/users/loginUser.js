@@ -20,7 +20,7 @@ loginUser = async (req, res, next) => {
 				let key = config.utils.md5(email+pwd+rand+user.role)
 				await config.setAsync(key,email+","+pwd+","+rand+","+user.role)
 				await config.expireAsync(key,3110400);
-				resetEmailMap(email,rand)
+				//resetEmailMap(email,rand)
 
 				return res.send({"resp":{"state":0,"datas":{"token":key}}});
 			}
