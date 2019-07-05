@@ -2,7 +2,7 @@ var config = require("../../config")
 var methods = require("./methods");
 
 async function calculateFun(privateMap){
-    let addressArr = await config.etzAdmin.findAll({where:{iscalculte:1}});
+    let addressArr = await config.etzAdmin.findAll({where:{iscalculte:1}});//1 等待归集
     if(addressArr !=null && addressArr.length>0){
           for(var i=0;i<addressArr.length;i++){
             let balance = await methods.callBalance(addressArr[i].dataValues.address);

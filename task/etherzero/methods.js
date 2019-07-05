@@ -37,7 +37,7 @@ function onSuccess(value,index,e_id,ids){
  var dosucess =async (confNumber, receipt) => {
    let hash = receipt.transactionHash;
    console.log("success hash:",hash)
-   if(index==1){
+   if(index==1){//iscalculte 2 已经归集
    		await config.etzAdmin.update({iscalculte:2},{where:{e_id:e_id}});
    }else if(index==2 && ids>-1){
    		let user = await config.etzAdmin.findOne({where:{e_id:ids}});
@@ -57,7 +57,7 @@ function onSuccess(value,index,e_id,ids){
 function onSended(index,e_id){
  return async (hash) => {
    console.log("pendding hash:",hash)
-   if(index==1){
+   if(index==1){//iscalculte。4 归集中
    		await config.etzAdmin.update({iscalculte:4},{where:{e_id:e_id}});
    }else if(index==2){
    		await config.etzWithdraw.update({txhash:hash,state:4},{where:{e_id:e_id}});
@@ -67,8 +67,8 @@ function onSended(index,e_id){
 function onError(e_id){
  var doerror = async (error) => {
    console.log("error:",error)
-   if(index==1){
-   		await config.etzAdmin.update({iscalculte:3},{where:{e_id:e_id}});
+   if(index==1){//iscalculte。1 归集失败。下一周期归集
+   		await config.etzAdmin.update({iscalculte:1},{where:{e_id:e_id}});
    }else if(index==2){
    		await config.etzWithdraw.update({txhash:hash,state:3},{where:{e_id:e_id}});
    }

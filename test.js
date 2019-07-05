@@ -14,9 +14,11 @@ http://localhost:3000/api/user/getUser?email_num=896466205@qq.com&token=da9a1cf1
 http://localhost:3000/api/user/friend_data?mycode=123456&token=a825a92f54bd3019483d8577aaa71c72
 
 
-http://localhost:3000/api/user/zc_to_etz?email_num=896466205@qq.com&trans_amount=1000&token=0f6d8e4b2cc01b2e8819913b238c9bc4
+http://13.124.2.239/apiserver/api/user/zc_to_etz?email_num=896466205@qq.com&trans_amount=1000&token=421b0e31b54a81da2422690c2fb32ef8
 
-http://localhost:3000/api/user/usd_to_zc?email_num=896466205@qq.com&trans_amount=10&token=a41a4a0b7b7a5cd29c5a30713a80629a
+http://13.124.2.239/apiserver/api/user/usd_to_zc?email_num=896466205@qq.com&trans_amount=10&token=421b0e31b54a81da2422690c2fb32ef8
+
+http://13.124.2.239/apiserver/api/user/etz_to_usd?email_num=896466205@qq.com&trans_amount=1&token=421b0e31b54a81da2422690c2fb32ef8
 
 
 http://localhost:3000/api/user/findPassword/?email_num=896466205@qq.com&address=0xe5a253043be58a0233a41150c00f60fdeb25c443&token=944423269bae1e8fa4f086735dcf2b39
@@ -30,7 +32,6 @@ http://localhost:3000/api/user/transfer_istory?address=0xf2e95d6f75897e6501e185d
 
 http://localhost:3000/api/user/withdraw_history_by_user_id?user_id=12&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
-http://localhost:3000/api/user/usd_to_etz?email_num=896466205@qq.com&trans_amount=1&token=d1b2d239c6a7a922635058204f5523d1
 
 http://13.124.2.239:/apiserver/api/user/register?email_num=welling1234@gmail.com&loginpwd=123456&tradepwd=12345678&invite=123456&lan=0&code=106923
 

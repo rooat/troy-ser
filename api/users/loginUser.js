@@ -36,9 +36,6 @@ loginUser = async (req, res, next) => {
 	}
 }
 
-function resetEmailMap(email,rand){
-	global.sessionMap.set(email,rand)
-}
 
 module.exports = 
 {

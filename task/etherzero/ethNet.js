@@ -110,7 +110,7 @@ class ETHEventListener {
 				                        })
                                 let user = await config.etzAdmin.findOne({where:{address:to}});
                                 if(user){
-                                  let amount = Number(user.etz_value)+Number(value)/10**18;
+                                  let amount = Number(user.etz_value)+Number(value)/10**18;//iscalculte 1 等待归集
                                   config.etzAdmin.update({etz_value : amount,update_time:times,iscalculte:1},{where:{e_id:user.e_id}});
                                 }
                                 
