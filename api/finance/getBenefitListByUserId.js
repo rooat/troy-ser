@@ -10,6 +10,9 @@ getBenefitListByUserId = async (req, res, next) => {
 		let lan = obj.lan;
 		
 		let userId = obj.user_id;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(userId){
 			let b_Data = await config.benefitData.findAll({where:{user_id:userId}})
 			if(b_Data && b_Data.length>0){

@@ -6,7 +6,11 @@ priceDataBySymbol = async (req, res, next) => {
 		if(!obj){
 			return res.send(config.utils.result_req(-1,"10011","params error"));;
 		}
+		let lan = obj.lan;
 		let symbol = obj.symbol;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(symbol!=null&&symbol.length>0){
 			let priceDatas = await config.priceData.findOne({where:{symbol:symbol}});
 			if(priceDatas){

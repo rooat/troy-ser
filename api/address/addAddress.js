@@ -14,7 +14,9 @@ addAddress = async (req, res, next) => {
                 let comment = obj.comment;
                 let user_id = obj.user_id;
                 let lan = obj.lan;
-
+                if(!lan){
+                        lan = global.lan;
+                }
                 if(a_type && address && comment && user_id &&config.utils.invalidAddress(address)){
                         let addr = await config.addressData.findOne({where:{address:address}});
                         if(!addr){

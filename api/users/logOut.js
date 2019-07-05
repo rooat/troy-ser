@@ -8,6 +8,9 @@ logOut = async (req, res, next) => {
 		}
 		let token = obj.token;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		
 		//let sessionId = config.utils.md5(JSON.stringify(req.cookies))
 		let keysuser = await config.getAsync(token);

@@ -10,6 +10,9 @@ productById = async (req, res, next) => {
 		
 		let f_id = obj.f_id;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(f_id){
 			let financeData = await config.financeData.findOne({where:{e_id:f_id}});
 			if(financeData){

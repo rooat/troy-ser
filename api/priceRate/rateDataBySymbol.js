@@ -7,6 +7,9 @@ rateDataBySymbol = async (req, res, next) => {
 			return res.send(config.utils.result_req(-1,"10011","params error"));;
 		}
 		let symbol = obj.symbol;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(symbol!=null&&symbol.length>0){
 			let rateDatas = await config.rateData.findOne({where:{code:symbol}});
 			if(rateDatas){

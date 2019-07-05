@@ -13,7 +13,9 @@ updateAddress = async (req, res, next) => {
                 let address = obj.address;
                 let comment = obj.comment;
                 let id = obj.id;
-                
+                if(!lan){
+                        lan = global.lan;
+                }
                 if(a_type&&address&&comment&&id&&config.utils.invalidAddress(address)){
                         let details = await config.addressData.findOne({where:{e_id:id}})
                         if(details){

@@ -13,6 +13,9 @@ addNotice = async (req, res, next) => {
 		obj = obj.data;
 
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let content_type = obj.content_type;
 		let notice_comment = obj.notice_comment;
 		if(content_type && notice_comment ){

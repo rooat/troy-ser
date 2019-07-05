@@ -12,7 +12,9 @@ setNewPassword = async (req, res, next) => {
 		let new_password = obj.password;
 		let email_code = obj.code;
 		let lan = obj.lan;
-
+		if(!lan){
+			lan = global.lan;
+		}
 		if(email &&new_password &&email_code ){
 			let newCode = await config.getAsync(email+"emailcode");
 			let currentCode = config.utils.md5(String(email_code));

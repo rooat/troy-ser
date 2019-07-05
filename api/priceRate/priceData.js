@@ -4,6 +4,9 @@ priceData = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let priceArr = await config.priceData.findAll();
 		
 		if(priceArr && priceArr.length>0){

@@ -14,6 +14,9 @@ deleteNotice = async (req, res, next) => {
 		
 		let noticeId = obj.noticeId;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(noticeId){
 			let notice = await config.noticeData.findOne({where:{e_id:noticeId}});
 			if(notice){

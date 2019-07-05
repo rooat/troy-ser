@@ -13,6 +13,9 @@ updateTradePwd = async (req, res, next) => {
 		let old_trade_pwd = obj.old_trade_pwd;
 		let new_trade_pwd = obj.new_trade_pwd;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(email && email_code&&old_trade_pwd&&new_trade_pwd&&config.utils.IsEmail(email)){
 			let newCode = await config.getAsync(email);
 			let currentCode = config.utils.md5(String(email_code));

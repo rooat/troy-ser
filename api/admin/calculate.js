@@ -12,7 +12,9 @@ calculate = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
-		
+		if(!lan){
+			lan = global.lan;
+		}
 		global.calculateStart = true;
 		return res.send(config.utils.result_req(0,"10010",config.tips[lan].START_CALCULATE));
 		

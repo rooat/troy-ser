@@ -9,6 +9,9 @@ friendData = async (req, res, next) => {
 		obj = obj.data;
 		let lan = obj.lan;
 		let mycode = obj.mycode;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(mycode){
 			let datas = await config.etzAdmin.findOne({where:{invite2_code:mycode}})
 			if(datas){

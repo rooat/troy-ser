@@ -11,6 +11,9 @@ getFinanceListByUserId = async (req, res, next) => {
 		let user_id = obj.user_id;
 		let f_type = obj.type;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(user_id&&f_type){
 			let sf_Data;
 			if(f_type==0){

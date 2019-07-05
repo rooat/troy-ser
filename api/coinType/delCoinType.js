@@ -11,6 +11,9 @@ delCoinType = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let id = obj.c_id;
 		if(id){
 			let coins = await config.coinTypeData.findOne({where:{e_id:id}})

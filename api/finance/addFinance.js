@@ -16,7 +16,9 @@ addFinance = async (req, res, next) => {
 		let f_benefit_time = obj.benefit_time;
 		let f_finance_time = obj.finance_time;
 		let lan = obj.lan
-
+		if(!lan){
+			lan = global.lan;
+		}
 
 		if(trade_pad && f_type &&config.utils.IsEmail(email) && config.utils.IsNumber(f_amount) && config.utils.IsDateSec(f_benefit_time) && config.utils.IsDateSec(f_finance_time)){
 			let now = new Date().getTime()

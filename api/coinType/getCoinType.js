@@ -4,6 +4,9 @@ getCoinType = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let coinData = await config.coinTypeData.findAll({where:{state:0}});
 		if(coinData && coinData.length>0){
 			return res.send(config.utils.result_req(0,"10010",coinData));

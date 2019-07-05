@@ -8,7 +8,9 @@ delAddress = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
-		
+		if(!lan){
+			lan = global.lan;
+		}
 		let user_id = obj.user_id;
 		let address = obj.address;
 		if(user_id && address && config.utils.invalidAddress(address)){

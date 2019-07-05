@@ -12,6 +12,9 @@ updateNotice = async (req, res, next) => {
 		obj = obj.data;
 
 		let lan = obj.lan
+		if(!lan){
+			lan = global.lan;
+		}
 		let noticeId = obj.noticeId;
 		let noticeType = obj.noticeType;
 		let noticeComment = obj.noticeComment;

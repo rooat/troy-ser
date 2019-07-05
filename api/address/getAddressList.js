@@ -8,7 +8,9 @@ getAddressList = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
-		
+		if(!lan){
+			lan = global.lan;
+		}
 		let user_id = obj.user_id;
 		if(user_id){
 			let addressArr = await config.addressData.findAll({where:{user_id:user_id}});

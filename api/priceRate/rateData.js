@@ -4,6 +4,9 @@ rateData = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let rateArr = await config.rateData.findAll();
 		if(rateArr!=null && rateArr.length>0){
 			return res.send(config.utils.result_req(0,"10010",rateArr))

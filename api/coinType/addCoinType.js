@@ -14,6 +14,9 @@ addCoinType = async (req, res, next) => {
 		let coin_name = obj.coinname;
 		let comment = obj.comment;
 		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(coin_name&& comment){
 			let coins = await config.coinTypeData.findOne({where:{coinname:coin_name}})
 			if(!coins){

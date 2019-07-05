@@ -14,6 +14,9 @@ withdraw = async (req, res, next) => {
 		let address = obj.address;
 		let withDrawVal = obj.inputVal;
 		let user_id = obj.u_id;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(address&&user_id &&withDrawVal&& Number(withDrawVal)>0 && config.utils.invalidAddress(address)){
 	        await config.etzWithdraw.create({
 	          "timestamps":new Date().getTime(),

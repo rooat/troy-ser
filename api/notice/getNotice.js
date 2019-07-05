@@ -5,6 +5,9 @@ getNotice = async (req, res, next) => {
 		let obj =  config.utils.getObjParams(req)
 		let noticeId = obj.noticeId;
 		let lan = lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		if(noticeId){
 			let notice = await config.noticeData.findOne({
 				where:{e_id:noticeId,state:0}

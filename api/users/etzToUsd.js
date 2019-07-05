@@ -11,6 +11,9 @@ etzToUsd = async (req, res, next) => {
 		let email = obj.email_num;
 		let lan = obj.lan
 		let amount = obj.trans_amount;
+		if(!lan){
+			lan = global.lan;
+		}
 
 		if(config.utils.IsEmail(email) && config.utils.IsNumber(amount)){
 			let  user = await config.etzAdmin.findOne({where:{email:email}})

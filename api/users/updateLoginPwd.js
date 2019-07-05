@@ -13,7 +13,9 @@ updateLoginPwd = async (req, res, next) => {
 		let old_login_pwd = obj.old_login_pwd;
 		let new_login_pwd = obj.new_login_pwd;
 		let lan = obj.lan;
-
+		if(!lan){
+			lan = global.lan;
+		}
 		if(email && email_code&&old_login_pwd&&new_login_pwd&&config.utils.IsEmail(email)){
 			let newCode = await config.getAsync(email);
 			let currentCode = config.utils.md5(String(email_code));

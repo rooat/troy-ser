@@ -11,7 +11,9 @@ getUser = async (req, res, next) => {
 		
 		let email = obj.email_num;
 		let lan = obj.lan;
-		
+		if(!lan){
+			lan = global.lan;
+		}
 		if(email && config.utils.IsEmail(email)){
 			let user = await config.etzAdmin.findOne({where:{email:email}})
 			if(user){

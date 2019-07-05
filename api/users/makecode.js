@@ -12,8 +12,6 @@ makecode = async (req, res, next) => {
 		if(!lan){
 			lan = global.lan;
 		}
-		console.log("obj----",obj)
-		console.log("lan---",lan);
 		if(config.utils.IsEmail(email)){
 			let resCode = await config.getAsync(email+"emailcode");
 			if(!resCode){

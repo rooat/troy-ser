@@ -9,6 +9,10 @@ financeList = async (req, res, next) => {
 		obj = obj.data;
 
 		let userId =obj.user_id;
+		let lan = obj.lan;
+		if(!lan){
+			lan = global.lan;
+		}
 		let financeDetail = await config.financeDetail.findAll();
 
 		if(userId &&financeDetail && financeDetail.length>0){

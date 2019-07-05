@@ -4,6 +4,9 @@ getNoticeList = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
 		let lan = obj.lan
+		if(!lan){
+			lan = global.lan;
+		}
 		if(obj){
 			let lan = obj.lan;
 			let noticeArr = await config.noticeData.findAll({
