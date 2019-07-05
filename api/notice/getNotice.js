@@ -4,7 +4,7 @@ getNotice = async (req, res, next) => {
 	try{
 		let obj =  config.utils.getObjParams(req)
 		let noticeId = obj.noticeId;
-		let lan = lan;
+		let lan = obj.lan;
 		if(!lan){
 			lan = global.lan;
 		}
