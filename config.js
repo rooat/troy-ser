@@ -3,6 +3,7 @@
  var email   = require("emailjs");
  const ethereum = require('ethereumjs-util')
  const logger = require('./logs/logger.js')
+ const tips = require('./utils/tips')
  
 
 
@@ -412,7 +413,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
 var utils = require('./utils/utils')
 
 module.exports = {
-    utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    tips,utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 

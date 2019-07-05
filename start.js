@@ -1,3 +1,3 @@
 var config = require('./config');
 
-console.log(config.utils.nextTimeFormat())
+console.log(config.tips[0].lan)
