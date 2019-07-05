@@ -1,6 +1,6 @@
  const Sequelize = require('sequelize');
- const Web3 = require('web3')
- const nodemailer = require('nodemailer');
+ const Web3 = require('web3');
+ var email   = require("emailjs");
  const ethereum = require('ethereumjs-util')
  const logger = require('./logs/logger.js')
  
@@ -366,16 +366,13 @@ var testM = sequelize.define('testm',{
 
 
 
+var transport  = email.server.connect({
+    user:    "mmsmztchbmfx@naver.com",      // 你的QQ用户
+    password:"ETZkr123!",           // 注意，不是QQ密码，而是刚才生成的授权码
+    host:    "smtp.naver.com",         // 主机，不改
+    ssl:     true                   // 使用ssl
+});
 
-var transport = nodemailer.createTransport({
-  host : "smtp.qq.com",
-  secureConnection : true,
-  port : 465,
-  auth : {
-    user : "205263298@qq.com",
-    pass : "lhvhpdcldtbpcabi"
-  }
-})
 
 
 // var controllerAdd = "0xCAAf10244E0F891a2C4f066F3d137914b47F1DCe";
