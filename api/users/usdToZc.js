@@ -16,7 +16,7 @@ usdToZc = async (req, res, next) => {
 			let zcData = await config.priceData.findOne({where:{symbol:"ZC"}});
 			
 			if(user  &&zcData){ //etz ===> usd
-				if(Number(user.benefitBalance)>=amount){
+				if(Number(user.usd_value)>=amount){
 					let trans_amount_zc = Number(amount)/Number(zcData.price_usd);
 					let newUsd_value = Number(user.usd_value)-Number(amount);
 					let newZc_value = Number(user.benefitBalance)+Number(trans_amount_zc)
