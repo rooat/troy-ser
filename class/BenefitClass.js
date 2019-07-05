@@ -17,8 +17,8 @@ class BenefitClass{
 		        that.loopBenefit();
 		        that.nextTime = new Date(config.utils.nextTimeFormat()).getTime();
 		    //  }
-		},20000)
-		//config.benefitTimeCal
+		},config.benefitTimeCal)
+		
 	}
 
 	async  loopBenefit(){
@@ -125,8 +125,8 @@ class BenefitClass{
 	          await config.benefitData.create({
 	                b_type:ff_type,
 	                b_value:benefit_one,
-	                b_type_f:0,//静态收益. config.utils.getTimeDate()
-	                timestamps:new Date().getTime(),
+	                b_type_f:0,//静态收益
+	                timestamps:new Date(config.utils.getTimeDate()).getTime(),
 	                user_id:user.e_id,
 	                f_id:financeData[j].dataValues.e_id,
 	                operate:0
