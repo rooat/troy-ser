@@ -17,7 +17,7 @@ loginUser = async (req, res, next) => {
 			if(user){
 				await config.etzAdmin.update({last_login_time:new Date().getTime()},{where:{e_id:user.e_id}})
 				let rand = parseInt(Math.random()*100000);
-				let key = config.utils.md5(email+pwd+rand+user.role)
+				let key = config.utils.md5(email+","+pwd+","+rand+","+user.role)
 				await config.setAsync(key,email+","+pwd+","+rand+","+user.role)
 				await config.expireAsync(key,3110400);
 				//resetEmailMap(email,rand)
