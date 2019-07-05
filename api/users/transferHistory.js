@@ -21,7 +21,7 @@ transferHistory = async (req, res, next) => {
 					for(var i=0;i<depositHistory.length;i++){
 					let obj1 = {
 						"timestamps":depositHistory[i].dataValues.timestamps,
-						"value":depositHistory[i].dataValues.valuex,
+						"value":Number(depositHistory[i].dataValues.valuex)/10**18,
 						"type":1,
 						"id":depositHistory[i].dataValues.e_id,
 						"from":depositHistory[i].dataValues.fromadd,
@@ -35,7 +35,7 @@ transferHistory = async (req, res, next) => {
 					for(var j=0;j<withdrawHistory.length;j++){
 					let obj2 = {
 						"timestamps":withdrawHistory[j].dataValues.timestamps,
-						"value":withdrawHistory[j].dataValues.valuex,
+						"value":Number(withdrawHistory[j].dataValues.valuex)/10**18,
 						"type":2,
 						"id":withdrawHistory[j].dataValues.e_id,
 						"from":user.address,
