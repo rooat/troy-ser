@@ -42,7 +42,7 @@ try{
       if(!expire){
            config.transport.send({
 	      //邮件内容
-	    from:    "mmsmztchbmfx@naver.com",        //谁发送的
+	    from:    "qtum001@naver.com",        //谁发送的
 	    to:      email,       //发送给谁的
 	    subject: "测试",         //邮件主题
 	    text: "你的验证码是"+emailCode //内容
