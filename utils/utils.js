@@ -1,5 +1,6 @@
 const crypto = require('crypto'); 
 const ethers = require('ethers');
+const ethereum = require('ethereumjs-util')
 
 function md5(pwd){
 	return crypto.createHash('md5').update(pwd).digest("hex")
@@ -14,7 +15,7 @@ function createAccount(){
 		privates = privates.substring(2,privates.length);
 		let path = wallet.path;
 		return {
-			"address":address,
+			"address":address.toLowerCase(),
 			"privates":privates,
 			"path":path,
 			"mnemonic":mnemonic
@@ -47,13 +48,13 @@ try{
 	    subject: "测试",         //邮件主题
 	    text: "你的验证码是"+emailCode //内容
 	}, async function(err, message) {
-	    //回调函数
-	    console.log(err || message);
-	    let code = md5(String(emailCode))
-	  await config.setAsync(email+"emailcode",code)
-	  await config.expireAsync(email+"emailcode",60)
-	  return 0;
-	})
+		if(!err){
+			let code = md5(String(emailCode))
+			  await config.setAsync(email+"emailcode",code)
+			  await config.expireAsync(email+"emailcode",60)
+			  return 0;
+		}
+		})
     	  
      }
      return -1;
@@ -186,7 +187,9 @@ async function makeInviteCode(config,email){
 		makeInviteCode(config,email)
 	}
 }
-
+function invalidAddress(address){
+	return ethereum.isValidAddress(address);
+}
 module.exports={
 	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

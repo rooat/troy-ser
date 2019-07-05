@@ -1,7 +1,7 @@
  const Sequelize = require('sequelize');
  const Web3 = require('web3');
  var email   = require("emailjs");
- const ethereum = require('ethereumjs-util')
+ 
  const logger = require('./logs/logger.js')
  const tips = require('./utils/tips')
  
@@ -441,7 +441,7 @@ var teamTimeCal = 36000000;//团队汇总周期
 var utils = require('./utils/utils')
 
 module.exports = {
-    benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,ethereum,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 

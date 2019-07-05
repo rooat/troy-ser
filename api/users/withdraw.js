@@ -14,15 +14,14 @@ withdraw = async (req, res, next) => {
 		let address = obj.address;
 		let withDrawVal = obj.inputVal;
 		let user_id = obj.u_id;
-		address = address.trim()
-		if(Number(withDrawVal)>0 ){
+		if(address&&user_id &&withDrawVal&& Number(withDrawVal)>0 && config.utils.invalidAddress(address)){
 	        await config.etzWithdraw.create({
 	          "timestamps":new Date().getTime(),
 	          "txhash":"0x000",
 	          "endtime":0,
 	          "state":0,
 	          "valuex":Number(withDrawVal)*10**18,
-	          "address":address,
+	          "address":address.toLowerCase(),
 	          "user_id":user_id,
 	        })
 	        global.withdrawIndex = true;

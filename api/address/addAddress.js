@@ -15,12 +15,12 @@ addAddress = async (req, res, next) => {
                 let user_id = obj.user_id;
                 let lan = obj.lan;
 
-                if(a_type && address && comment && user_id &&config.ethereum.isValidAddress(address)){
+                if(a_type && address && comment && user_id &&config.utils.invalidAddress(address)){
                         let addr = await config.addressData.findOne({where:{address:address}});
                         if(!addr){
                                 await config.addressData.create({
                                         a_type:a_type,
-                                        address:address,
+                                        address:address.toLowerCase(),
                                         comment:comment,
                                         state:0,
                                         user_id:user_id,

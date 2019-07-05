@@ -3,8 +3,8 @@ var config = require('../../config');
 getNoticeList = async (req, res, next) => {
 	try{
 		let obj = config.utils.getObjParams(req)
-		
-		if(obj&&lan){
+		let lan = obj.lan
+		if(obj){
 			let lan = obj.lan;
 			let noticeArr = await config.noticeData.findAll({
 				where:{state:0},

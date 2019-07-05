@@ -11,7 +11,7 @@ delAddress = async (req, res, next) => {
 		
 		let user_id = obj.user_id;
 		let address = obj.address;
-		if(user_id && address && config.ethereum.isValidAddress(address)){
+		if(user_id && address && config.utils.invalidAddress(address)){
 			let addressDetail = await config.addressData.findOne({where:{address:address,user_id:user_id}})
 			if(addressDetail){
 				await config.addressData.update({state:1},{where:{e_id:addressDetail.e_id}});

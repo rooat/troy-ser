@@ -14,10 +14,10 @@ updateAddress = async (req, res, next) => {
                 let comment = obj.comment;
                 let id = obj.id;
                 
-                if(a_type&&address&&comment&&id&&config.ethereum.isValidAddress(address)){
+                if(a_type&&address&&comment&&id&&config.utils.invalidAddress(address)){
                         let details = await config.addressData.findOne({where:{e_id:id}})
                         if(details){
-                                await config.addressData.update({a_type:a_type,address:address,comment:comment},{where:{e_id:id}})
+                                await config.addressData.update({a_type:a_type,address:address.toLowerCase(),comment:comment},{where:{e_id:id}})
                                 return res.send(config.utils.result_req(0,"10010",config.tips[lan].OPERATE_SUCCESS));
                         }
                                 return res.send(config.utils.result_req(-1,"10011",config.tips[lan].OPERATE_FAILURE));

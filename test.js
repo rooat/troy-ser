@@ -1,4 +1,3 @@
-//http://13.124.2.239:/apiserver/api/user/register?email_num=welling1234@gmail.com&loginpwd=123456
 
 
 http://13.124.2.239:/apiserver/api/user/makecode?email_num=welling1234@gmail.com
@@ -33,8 +32,7 @@ http://localhost:3000/api/user/withdraw_history_by_user_id?user_id=12&token=5383
 
 http://localhost:3000/api/user/usd_to_etz?email_num=896466205@qq.com&trans_amount=1&token=d1b2d239c6a7a922635058204f5523d1
 
-http://13.124.2.239:/apiserver/api/user/register?email_num=welling1234@gmail.com&loginpwd=123456&tradepwd=12345678&invite=123456&code=841014
-
+http://13.124.2.239:/apiserver/api/user/register?email_num=welling1234@gmail.com&loginpwd=123456&tradepwd=12345678&invite=123456&lan=0&code=106923
 
 http://localhost:3000/api/notice/get_notice_list?content_type=1
 
@@ -72,6 +70,6 @@ http://localhost:3000/api/price/price_data?token=5383f88ecedc76c84df6cee2a1cfeb3
 
 
 
-http://localhost:3000/api/address/add_address?type=eth&address=0x23e48fd0f704309ED6D7c7A57CdF45625C09dF32&comment=hegkdk&user_id=12&token=1e7f357050b589b971e569689b891c78
+http://13.124.2.239/apiserver/api/address/add_address?type=eth&address=0x23e48fd0f704309ED6D7c7A57CdF45625309dF32&comment=hegkdk&user_id=12&lan=0&token=83e6d0420311296789e2069190084aa5
 
-http://13.124.2.239:/apiserver/api/address/get_address_list?user_id=12&token=647a772efd17d446778d25165ceddce8
+http://13.124.2.239/apiserver/api/address/get_address_list?user_id=12&token=647a772efd17d446778d25165ceddce8
