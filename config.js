@@ -21,21 +21,21 @@ const lpushAsync = promisify(client.lpush).bind(client);
 const rpopAsync = promisify(client.rpop).bind(client);
 const delAsync = promisify(client.del).bind(client);
 
-const config = {
-    database: 'troy_db',
-    username: 'root',
-    password: 'HWLhwl@#896',
-    host: 'localhost',
-    port: 3306
-};
-
 // const config = {
-//    database: 'troy_db',
-//    username: 'debian-sys-maint',
-//    password: 'Qb3lPxSEYmrbt116',
-//    host: 'localhost',
-//    port: 3306
-// }
+//     database: 'troy_db',
+//     username: 'root',
+//     password: 'HWLhwl@#896',
+//     host: 'localhost',
+//     port: 3306
+// };
+
+const config = {
+   database: 'troy_db',
+   username: 'debian-sys-maint',
+   password: 'Qb3lPxSEYmrbt116',
+   host: 'localhost',
+   port: 3306
+}
 
 var sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
