@@ -111,14 +111,18 @@ function lastTimeFormat(){
 //验证token
 async function validToken(obj,req,config){
 	let token = obj.token;
+	console.log("tokens===",token)
 	let keysuser = await config.getAsync(token);
+	console.log("keysuser---",keysuser)
 	if(keysuser){
 		//let sessionId = md5(JSON.stringify(req.cookies))
 		let role = keysuser.split(",")[3];
 		let email = keysuser.split(",")[0];
 		let rand = keysuser.split(",")[2];
 		let keys = md5(keysuser)
-		if(global.sessionMap.get(email)&& Number(global.sessionMap.get(email)) == Number(rand) && token==keys){
+		console.log("keys====",keys);
+
+		if(token==keys){
 			return {"state":0,"datas":"success","role":role}
 		}
 	}
