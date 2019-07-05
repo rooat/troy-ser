@@ -66,8 +66,10 @@ try{
 
 function getObjParams(req){
 	if(JSON.stringify(req.query)==="{}"){
+		req.body.lan=1;
 		return req.body;
 	}else if(JSON.stringify(req.body)==="{}"){
+		req.query.lan=1;
 		return req.query;
 	}
 	return null;
