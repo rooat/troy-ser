@@ -40,17 +40,21 @@ try{
 	} 
       let expire = await config.getAsync(email)
       if(!expire){
-          await config.transport.sendMail({
-          from : "test email code 205263298@qq.com",
-          to : email,
-          subject : "Troy Email Valid Code",
-          text : "Troy Email Valid Code",
-          html : "<b>"+emailCode+"</b>",
-        })
-    	  let code = md5(String(emailCode))
-          await config.setAsync(email+"emailcode",code)
-          await config.expireAsync(email+"emailcode",120)
-          return 0;
+           config.transport.send({
+	      //邮件内容
+	    from:    "mmsmztchbmfx@naver.com",        //谁发送的
+	    to:      email,       //发送给谁的
+	    subject: "测试",         //邮件主题
+	    text: "你的验证码是"+emailCode //内容
+	}, function(err, message) {
+	    //回调函数
+	    console.log(err || message);
+	    let code = md5(String(emailCode))
+	  await config.setAsync(email+"emailcode",code)
+	  await config.expireAsync(email+"emailcode",120)
+	  return 0;
+	})
+    	  
      }
      return -1;
   }catch(e){
