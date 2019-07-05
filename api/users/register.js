@@ -12,6 +12,9 @@ register = async (req, res, next) => {
 		let trade_pwd = obj.tradepwd;
 		let invite_num = obj.invite;
 		let lan = obj.lan
+		if(!lan){
+			lan = global.lan;
+		}
 
 		if(email&&email_code&&login_pwd&&trade_pwd&&invite_num&&config.utils.IsEmail(email)){
 			if(login_pwd==trade_pwd){
