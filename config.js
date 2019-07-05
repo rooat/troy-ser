@@ -1,6 +1,7 @@
  const Sequelize = require('sequelize');
  const Web3 = require('web3');
  var email   = require("emailjs");
+ const mysql = require('mysql');
  
  const logger = require('./logs/logger.js')
  const tips = require('./utils/tips')
@@ -29,10 +30,24 @@ const delAsync = promisify(client.del).bind(client);
 //     host: 'localhost',
 //     port: 3306
 // };
+// const config_mysql = {
+//     database: 'troy_db',
+//     user: 'root',
+//     password: 'HWLhwl@#896',
+//     host: 'localhost',
+//     port: 3306
+// };
 
 const config = {
    database: 'troy_db',
    username: 'debian-sys-maint',
+   password: 'Qb3lPxSEYmrbt116',
+   host: 'localhost',
+   port: 3306
+}
+const config_mysql = {
+   database: 'troy_db',
+   user: 'debian-sys-maint',
    password: 'Qb3lPxSEYmrbt116',
    host: 'localhost',
    port: 3306
@@ -48,6 +63,9 @@ var sequelize = new Sequelize(config.database, config.username, config.password,
     },
     timestamps: false
 });
+
+var connection = mysql.createConnection(config_mysql); 
+connection.connect();
 
 
 sequelize
@@ -441,7 +459,7 @@ var teamTimeCal = 60000;//团队汇总周期
 var utils = require('./utils/utils')
 
 module.exports = {
-    benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    connection,benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 

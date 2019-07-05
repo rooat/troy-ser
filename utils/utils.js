@@ -190,6 +190,22 @@ async function makeInviteCode(config,email){
 function invalidAddress(address){
 	return ethereum.isValidAddress(address);
 }
+
+function queryFromSql(config,sql,parmas) {
+    return new Promise((resolve, reject) => {
+      config.connection.query(sql,parmas,function(err,response){
+		  if(err){
+		    console.log('errr',err)
+		    return;
+		  }
+		  resolve({
+		  	result:response
+		  });
+		})
+        
+    })
+  }
+
 module.exports={
-	md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
+	queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }
