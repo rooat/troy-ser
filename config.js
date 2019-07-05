@@ -280,7 +280,7 @@ var addressData = sequelize.define('addressdata',{
                         txhash:Sequelize.STRING(150),
                         endtime:Sequelize.STRING(20),
                         state:Sequelize.INTEGER(1),
-                        valuex:Sequelize.DECIMAL(10,7),
+                        valuex:Sequelize.STRING(30),
                         address:Sequelize.STRING(50),
 	 		user_id:Sequelize.BIGINT(11),
                     },{
