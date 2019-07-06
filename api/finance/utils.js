@@ -39,10 +39,12 @@ async function list_benefit(userId,b_type,b_type_f){
 async function list_benefit_by_user_id(userId,page,pageSize,b_type_f){
 	let pg = (Number(page)-1)*pageSize;
     let params =[userId];
+    let sql2 = " where user_id=? "
     if(b_type_f>1){
         params.push(b_type_f);
+        sql2 += " and b_type_f=? "
     }
-	let sql = "select * from benefitdata where user_id=? and b_type_f=? order by timestamps desc limit "+pg+","+pageSize;
+	let sql = "select * from benefitdata "+sql2+" order by timestamps desc limit "+pg+","+pageSize;
 	
 	let list = await config.utils.queryFromSql(config,sql,params)
 	return list.result;
