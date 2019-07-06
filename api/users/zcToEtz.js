@@ -22,7 +22,6 @@ zcToEtz = async (req, res, next) => {
 			if(user && etzData &&zcData){ //etz ===> usd
 				if(Number(user.benefitBalance)>=amount){
 					let trans_amount_etz = Number(zcData.price_usd) * amount/Number(etzData.price_usd);
-					console.log("trans_amount_etz=====",trans_amount_etz)
 					let newEtz_value = Number(user.etz_value)+Number(trans_amount_etz);
 					let newZc_value = Number(user.benefitBalance)-Number(amount)
 					await config.etzAdmin.update({

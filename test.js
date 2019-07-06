@@ -46,7 +46,7 @@ http://localhost:3000/api/finance/super_node_benefit_by_user_id?user_id=12&token
 
 http://localhost:3000/api/finance/node_benefit_by_user_id?user_id=12&token=6db14600560f93b4d34f08a481c67cee
 
-http://13.124.2.239/apiserver/api/finance/get_finance_list_by_user_id?user_id=12&type=0&token=ec040fbc5e8ddcfc22c9ed9b84c8569d
+http://localhost:3000/api/finance/get_finance_list_by_user_id?user_id=12&type=0&token=2c8cd15ddba5db236f3507a5595ee408
 
 http://localhost:3000/api/finance/get_finance_by_id?f_id=2056&token=ad7bb5d7ec9d333dfea5012f27debfdf
 

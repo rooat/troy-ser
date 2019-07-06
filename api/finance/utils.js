@@ -80,7 +80,6 @@ async function benefitall_finace_by_f_id(f_id,f_type,index,timestamps){
 
 //获取f_id 下的收益列表
 async function benefitall_finace_list_by_id(userId,f_id,f_type,page,pageSize){
-    console.log("parerd===",userId+","+f_id+","+page+","+pageSize)
     let pg = (Number(page)-1)*pageSize;
 
     let sql2=" user_id=? and f_id=? and b_type_f=? "

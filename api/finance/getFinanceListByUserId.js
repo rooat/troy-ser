@@ -51,15 +51,9 @@ async function makeData(sf_Data,f_type,page,pageSize){
 			let f_id = sf_Data[i].e_id;
 
 			let lastdays = config.utils.lastTimeFormat();
-			console.log("page,",page)
-			console.log("pageSiz,",pageSize)
-			console.log(f_type)
-			console.log(f_id)
 
 			let benefitValue = await utils.benefitall_finace_by_f_id(f_id,f_type,0,new Date(lastdays).getTime())
-			console.log("benefitValue---",benefitValue)
 			let lastBenefit = await utils.benefitall_finace_by_f_id(f_id,f_type,-1,new Date(lastdays).getTime())
-				console.log("lastBenefit---",lastBenefit)
 			let benefitDatas = await utils.benefitall_finace_list_by_id(f_id,f_type,0,page,pageSize);
 			
 			let obj ={
