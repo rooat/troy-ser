@@ -60,9 +60,9 @@ async function list_finance(userId,page,pageSize,index){
 }
 
 //获取该理财产品的总收益  昨日收益
-async function benefitall_finace_by_f_id(userId,f_id,f_type,index,timestamps){
-    let sql2=" user_id=? and f_id=? and b_type_f=? "
-    let params = [userId,f_id,0]; 
+async function benefitall_finace_by_f_id(f_id,f_type,index,timestamps){
+    let sql2=" f_id=? and b_type_f=? "
+    let params = [f_id,0]; 
     if(f_type!=0){
         params.push(f_type)
         sql2 +=" and b_type=? "
