@@ -206,6 +206,26 @@ function queryFromSql(config,sql,parmas) {
     })
   }
 
+
+ function isLan(lan){
+	if(!lan){
+		return 1;
+	}
+	return lan;
+}
+function isPage(page){
+	if(!page){
+		return 1
+	}
+	return page;
+}
+function isPageSize(pageSize){
+	if(!pageSize){
+		return 30
+	}
+	return pageSize;
+}
+
 module.exports={
-	queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
+	isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

@@ -1,4 +1,5 @@
 var config = require('../../config');
+var utils = require('./utils')
 
 productById = async (req, res, next) => {
 	try{
@@ -19,17 +20,13 @@ productById = async (req, res, next) => {
 				let f_type = financeData.f_type;
 				let detail = await config.financeDetail.findOne({where:{f_type_id:f_type}})
 				if(detail){
+
 					let benefitDatas = await config.benefitData.findAll({where:{f_id:f_id},order:[['timestamps','DESC']]})
 					if(benefitDatas && benefitDatas.length>0){
-						let benefitValue=0;
-						let lastBenefit=0;
+						let benefitValue = await utils.benefitall_finace_by_f_id(f_id,f_type,0,timestamps);
 						let lastdays = config.utils.lastTimeFormat();
-						for(var i=0;i<benefitDatas.length;i++){
-							benefitValue +=Number(benefitDatas[i].dataValues.b_value);
-							if(new Date(lastdays).getTime()==Number(benefitDatas[i].dataValues.timestamps)){
-								lastBenefit = Number(benefitDatas[i].dataValues.b_value);
-							}
-						}
+						let lastBenefit =  await utils.benefitall_finace_by_f_id(f_id,f_type,-1,new Date(lastdays).getTime());;
+						
 						let obj ={
 							"totalBenefit":benefitValue,
 							"lastBenefit":lastBenefit,

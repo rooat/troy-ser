@@ -1,4 +1,5 @@
 var config = require('../../config');
+var utils = require('./utils')
 
 financeList = async (req, res, next) => {
 	try{
@@ -21,30 +22,19 @@ financeList = async (req, res, next) => {
 			let arr =new Array();
 			for(var k=0;k<financeDetail.length;k++){
 				let b_type_f = financeDetail[k].dataValues.f_type_id
-				let benefit=0;
-				let balance =0;
-				let lastbenefit =0;
-				let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:b_type_f,b_type_f:0},})
-				if(b_Data && b_Data.length>0){
-					for(var i=0;i<b_Data.length;i++){
-						benefit +=Number(b_Data[i].dataValues.b_value);
-						if(Number(b_Data[i].dataValues.timestamps)==new Date(lastdays).getTime()){
-							lastbenefit += Number(b_Data[i].dataValues.b_value);
-						}
-					}
-					
-				}
-				let f_Data = await config.financeData.findAll({where:{state:1,user_id:userId,f_type:b_type_f}})
-				if(f_Data && f_Data.length>0){
-					for(var ii=0;ii<f_Data.length;ii++){
-						balance +=Number(f_Data[ii].dataValues.f_value);
-					}
-				}
+				//计算总静态收益
+				let benefit= await utils.benefitAll(userId,b_type_f,0);
+				//计算昨日静态收益
+				let lastdays = config.utils.lastTimeFormat();
+				 let lastbenefit =await utils.benefitLast(userId,b_type_f,0,new Date(lastdays).getTime());
+				
+
+				let balance = await utils.calculateBalanceAll(userId,1,b_type_f);
 				let obj ={
 					"id":financeDetail[k].dataValues.f_type_id,
-					"benefit":benefit.toFixed(2),
-					"balance":balance.toFixed(2),
-					"lastbenefit":lastbenefit.toFixed(2),
+					"benefit":Number(benefit).toFixed(2),
+					"balance":Number(balance).toFixed(2),
+					"lastbenefit":Number(lastbenefit).toFixed(2),
 					"time_limit":financeDetail[k].dataValues.time_limit,
 					"day_benefit":financeDetail[k].dataValues.day_benefit
 				}

@@ -44,7 +44,7 @@ http://localhost:3000/api/notice/get_notice?noticeId=2
 
 http://localhost:3000/api/finance/super_node_benefit_by_user_id?user_id=12&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
-http://localhost:3000/api/finance/node_benefit_by_user_id?user_id=12&token=ad7bb5d7ec9d333dfea5012f27debfdf
+http://localhost:3000/api/finance/node_benefit_by_user_id?user_id=12&token=6db14600560f93b4d34f08a481c67cee
 
 http://13.124.2.239/apiserver/api/finance/get_finance_list_by_user_id?user_id=12&type=0&token=ec040fbc5e8ddcfc22c9ed9b84c8569d
 
@@ -52,15 +52,16 @@ http://localhost:3000/api/finance/get_finance_by_id?f_id=2056&token=ad7bb5d7ec9d
 
 http://localhost:3000/api/finance/get_benefit_list_by_user_id?user_id=12&token=848b59e88d07429cdfa28f1548eb08cc
 
-http://13.124.2.239:/apiserver/api/finance/product_ist?user_id=12&token=8edab629c3fe01b279d976364c04d84c
+http://localhost:3000/api/finance/product_ist?user_id=12&token=6db14600560f93b4d34f08a481c67cee
 
 http://localhost:3000/api/finance/add_finance?email_num=896466205@qq.com&trade_pad=12345678&type=1&value=1&benefit_time=2019-07-09 00:00:00&finance_time=2019-09-09 00:00:00&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
 http://localhost:3000/api/finance/redeem?f_id=2066&email_num=896466205@qq.com&trade_pwd=12345678&token=5383f88ecedc76c84df6cee2a1cfeb3e
-
+http://localhost:3000/api/finance/get_benefit_by_user_id_and_type?user_id=12&type=2&kind=0&token=6db14600560f93b4d34f08a481c67cee
 
 http://localhost:3000/api/finance/product_by_id?f_id=2066&token=c51c7e34a60164092f8e0250af6181ed
 
+http://localhost:3000/api/finance/get_benefit_list_by_user_id?user_id=12&token=6db14600560f93b4d34f08a481c67cee&page=1&pageSize=5
 
 http://localhost:3000/api/price/price_data_by_symbol?symbol=ETZ
 

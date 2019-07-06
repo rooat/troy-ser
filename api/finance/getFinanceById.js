@@ -10,9 +10,7 @@ getFinanceById = async (req, res, next) => {
 		
 		let f_id = obj.f_id;
 		let lan = obj.lan;
-		if(!lan){
-			lan = global.lan;
-		}
+		lan = config.utils.isLan(lan);
 		if(f_id){
 			let b_Data = await config.financeData.findOne({where:{e_id:f_id}})
 			if(b_Data){

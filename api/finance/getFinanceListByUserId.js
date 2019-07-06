@@ -1,4 +1,5 @@
 var config = require('../../config');
+var utils = require('./utils')
 
 getFinanceListByUserId = async (req, res, next) => {
 	try{
@@ -10,21 +11,22 @@ getFinanceListByUserId = async (req, res, next) => {
 
 		let user_id = obj.user_id;
 		let f_type = obj.type;
+
 		let lan = obj.lan;
-		if(!lan){
-			lan = global.lan;
-		}
+		let page = obj.page;
+		let pageSize = obj.pageSize;
+		lan = config.utils.isLan(lan)
+		page = config.utils.isPage(page)
+		pageSize = config.utils.isPageSize(pageSize)
+
 		if(user_id&&f_type){
 			let sf_Data;
 			if(f_type==0){
-				sf_Data = await config.financeData.findAll({where:{user_id:user_id},order:[['timestamps','DESC']]})
+				sf_Data = await utils.list_finance(user_id,page,pageSize,-1)
 			}else{
-				sf_Data = await config.financeData.findAll({
-					where:{user_id:user_id,f_type:f_type},
-					order:[['timestamps','DESC']]
-				})
+				sf_Data = await utils.list_finance(user_id,page,pageSize,f_type)
 			}
-			let f_Data = await makeData(sf_Data,user_id,f_type);
+			let f_Data = await makeData(sf_Data,f_type,page,pageSize);
 			
 			if(f_Data && f_Data.length>0){
 				return res.send(config.utils.result_req(0,"10010",f_Data));
@@ -39,58 +41,33 @@ getFinanceListByUserId = async (req, res, next) => {
 	
 }
 
-async function makeData(sf_Data,user_id,f_type){
+async function makeData(sf_Data,f_type,page,pageSize){
 	if(sf_Data&& sf_Data.length>0){
 		let arr = new Array();
 		
 		for(var i=0;i<sf_Data.length;i++){
-			let detail= await config.financeDetail.findOne({where:{f_type_id:sf_Data[i].dataValues.f_type}});
+			let detail= await config.financeDetail.findOne({where:{f_type_id:sf_Data[i].f_type}});
 			
-			let f_id = sf_Data[i].dataValues.e_id;
-			let params={
-				user_id:user_id,
-				b_type:f_type,
-				f_id:f_id,
-				b_type_f:0}
+			let f_id = sf_Data[i].e_id;
 
-				
+			let lastdays = config.utils.lastTimeFormat();
 
-			if(f_type==0){
-				params = {
-					user_id:user_id,
-					f_id:f_id,
-					b_type_f:0}
-			}
+			let benefitValue = await utils.benefitall_finace_by_f_id(f_id,f_type,0,new Date(lastdays).getTime())
+			let lastBenefit = await utils.benefitall_finace_by_f_id(f_id,f_type,-1,new Date(lastdays).getTime())
+			let benefitDatas = await utils.benefitall_finace_by_f_id_list(f_id,f_type,page,pageSize);
 			
-			
-			let benefitDatas = await config.benefitData.findAll({
-				where:params,
-				order:[['timestamps','DESC']]
-			})
-			let benefitValue=0;
-			let lastBenefit=0;
-			if(benefitDatas && benefitDatas.length>0){
-						
-				let lastdays = config.utils.lastTimeFormat();
-				for(var ik=0;ik<benefitDatas.length;ik++){
-					benefitValue +=Number(benefitDatas[ik].dataValues.b_value);
-					if(new Date(lastdays).getTime()==Number(benefitDatas[ik].dataValues.timestamps)){
-						lastBenefit = Number(benefitDatas[ik].dataValues.b_value);
-					}
-				}
-			}
 			
 			let obj ={
-				"e_id":sf_Data[i].dataValues.e_id,
-	            "f_type":sf_Data[i].dataValues.f_type,
-	            "f_value":sf_Data[i].dataValues.f_value,
-	            "get_value":sf_Data[i].dataValues.get_value,
-	            "timestamps":sf_Data[i].dataValues.timestamps,
-	            "f_benefit_time":sf_Data[i].dataValues.f_benefit_time,
-	            "f_finance_time":sf_Data[i].dataValues.f_finance_time,
-	            "end_time":sf_Data[i].dataValues.end_time,
-	            "user_id":sf_Data[i].dataValues.user_id,
-	            "state":sf_Data[i].dataValues.state,
+				"e_id":sf_Data[i].e_id,
+	            "f_type":sf_Data[i].f_type,
+	            "f_value":sf_Data[i].f_value,
+	            "get_value":sf_Data[i].get_value,
+	            "timestamps":sf_Data[i].timestamps,
+	            "f_benefit_time":sf_Data[i].f_benefit_time,
+	            "f_finance_time":sf_Data[i].f_finance_time,
+	            "end_time":sf_Data[i].end_time,
+	            "user_id":sf_Data[i].user_id,
+	            "state":sf_Data[i].state,
 	            "totalBenefit":benefitValue,
 				"lastBenefit":lastBenefit,
 				"rate":detail.day_benefit

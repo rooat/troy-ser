@@ -1,4 +1,5 @@
 var config = require('../../config');
+var utils = require('./utils')
 
 getBenefitByUserIdAndType = async (req, res, next) => {
 	try{
@@ -17,17 +18,18 @@ getBenefitByUserIdAndType = async (req, res, next) => {
 			lan = global.lan;
 		}
 		if(userId && type&&kind){
-			let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:type,b_type_f:kind},order:[['timestamps','DESC']]})
-			console.log("b_data===",b_Data)
-			if(b_Data && b_Data.length>0){
-				let value=0;
-				for(var i=0;i<b_Data.length;i++){
-					console.log("b_Data[i].dataValues.b_value:::",b_Data[i].dataValues.b_value)
-					value +=Number(b_Data[i].dataValues.b_value);
-				}
-				return res.send(config.utils.result_req(0,"10010",value))
-			}
-			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].DATA_NULL))
+			// let b_Data = await config.benefitData.findAll({where:{user_id:userId,b_type:type,b_type_f:kind},order:[['timestamps','DESC']]})
+			// console.log("b_data===",b_Data)
+			// if(b_Data && b_Data.length>0){
+			// 	let value=0;
+			// 	for(var i=0;i<b_Data.length;i++){
+			// 		console.log("b_Data[i].dataValues.b_value:::",b_Data[i].dataValues.b_value)
+			// 		value +=Number(b_Data[i].dataValues.b_value);
+			// 	}
+			// 	return res.send(config.utils.result_req(0,"10010",value))
+			// }
+			let value = await utils.benefitAll(userId,type,kind)
+			return res.send(config.utils.result_req(0,"10010",value))
 		}
 		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));		
 	}catch(e){
@@ -41,3 +43,4 @@ module.exports =
 {
 	getBenefitByUserIdAndType
 }
+
