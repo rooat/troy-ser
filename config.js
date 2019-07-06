@@ -163,7 +163,8 @@ var addressData = sequelize.define('addressdata',{
                         },
                         f_type_id:Sequelize.INTEGER(3),//1 为7天,2 为30天,3为60天,4为180天。11为美元兑换zc 22为zc兑换etz
                         time_limit:Sequelize.INTEGER(5),
-                        day_benefit:Sequelize.DECIMAL(3,2)
+                        day_benefit:Sequelize.DECIMAL(3,2),
+                        timestamps:Sequelize.BIGINT(18)
                         
                     },{
                         freezeTableName:true,
