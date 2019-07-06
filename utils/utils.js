@@ -227,5 +227,5 @@ function isPageSize(pageSize){
 }
 
 module.exports={
-	isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
+	invalidAddress,isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }
