@@ -11,32 +11,58 @@ financeList = async (req, res, next) => {
 
 		let userId =obj.user_id;
 		let lan = obj.lan;
-		if(!lan){
-			lan = global.lan;
-		}
-		let financeDetail = await config.financeDetail.findAll();
+		let page = obj.page;
+		let pageSize = obj.pageSize;
+		lan = config.utils.isLan(lan)
+		page = config.utils.isPage(page)
+		pageSize = config.utils.isPageSize(pageSize)
 
-		if(userId &&financeDetail && financeDetail.length>0){
+		let financeDetail = await config.financeDetail.findAll();
+		
+
+		if(userId){
+			let financeDetail = await config.utils.list_page(config," financedata ","",[],page,pageSize);
+
 			let lastdays = config.utils.lastTimeFormat();
 
 			let arr =new Array();
+
 			for(var k=0;k<financeDetail.length;k++){
-				let b_type_f = financeDetail[k].dataValues.f_type_id
+				let b_type_f = financeDetail[k].f_type_id
 				//计算总静态收益
 				let benefit= await utils.benefitAll(userId,b_type_f,0);
 				//计算昨日静态收益
 				let lastdays = config.utils.lastTimeFormat();
-				 let lastbenefit =await utils.benefitLast(userId,b_type_f,0,new Date(lastdays).getTime());
-				
 
+				//
+				 let names = "b_value";
+				 let option = " where user_id=? and b_type=? and b_type_f=? and timestamps=?";
+				 let params = [userId,b_type_f,2,new Date(lastdays).getTime()];
+				 let lastbenefit = await config.utils.list_sum(config,names,"benefitdata",option,params);
+
+// async function calculateBalanceAll(userId,state,b_type_f){
+//     let lastdays = config.utils.lastTimeFormat();
+//     let sqlBenefit = "select sum(f_value) as sum from financedata where user_id=? and state=? and f_type=?";
+//     let params =[userId,state,b_type_f]
+//     let balance= await config.utils.queryFromSql(config,sqlBenefit,params);
+//     balance = balance.result[0].sum;
+//     return balance;
+// }
+				// let names = "f_value";
+				//  let option = " where user_id=? and state=? and f_type=?";
+				//  let params = [userId,b_type_f,2,new Date(lastdays).getTime()];
+				//  let lastbenefit = await config.utils.list_sum(config,names,"benefitdata",option,params);
+
+
+				 console.log("lastbenefit---",lastbenefit)
 				let balance = await utils.calculateBalanceAll(userId,1,b_type_f);
 				let obj ={
-					"id":financeDetail[k].dataValues.f_type_id,
+					"id":financeDetail[k].f_type_id,
 					"benefit":Number(benefit).toFixed(2),
 					"balance":Number(balance).toFixed(2),
 					"lastbenefit":Number(lastbenefit).toFixed(2),
-					"time_limit":financeDetail[k].dataValues.time_limit,
-					"day_benefit":financeDetail[k].dataValues.day_benefit
+					"time_limit":financeDetail[k].time_limit,
+					"day_benefit":financeDetail[k].day_benefit
 				}
 				arr.push(obj);
 			}
@@ -49,6 +75,13 @@ financeList = async (req, res, next) => {
 	}
 	
 }
+
+// function cal_sum(){
+// 	let names = "b_value";
+// 	 let option = " where user_id=? and b_type=? and b_type_f=? and timestamps=?";
+// 	 let params = [userId,b_type_f,2,new Date(lastdays).getTime()];
+// 	 let lastbenefit = await config.utils.list_sum(config,names,"benefitdata",option,params);
+// }
 
 module.exports = 
 {

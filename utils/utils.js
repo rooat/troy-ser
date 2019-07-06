@@ -225,7 +225,21 @@ function isPageSize(pageSize){
 	}
 	return pageSize;
 }
+//列表分页
+async function list_page(config,tablename,option,params,page,pageSize){
+    let pg = (Number(page)-1)*pageSize;
+    let sql = "select *  from "+tablename+" "+option+" order by timestamps desc limit "+pg+","+pageSize;
+    let list= await config.utils.queryFromSql(config,sql,params);
+    return list.result;
+}
+//求和
+async function list_sum(config,names,tablename,option,params){
+    let sql = "select sum("+names+") as sum  from "+tablename+" "+option;
+    console.log("sql---",sql)
+    let ress= await config.utils.queryFromSql(config,sql,params);
+    return ress.result[0].sum;
+}
 
 module.exports={
-	invalidAddress,isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
+	list_sum,list_page,invalidAddress,isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

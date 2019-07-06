@@ -7,6 +7,7 @@ getCoinType = async (req, res, next) => {
 		if(!lan){
 			lan = global.lan;
 		}
+		
 		let coinData = await config.coinTypeData.findAll({where:{state:0}});
 		if(coinData && coinData.length>0){
 			return res.send(config.utils.result_req(0,"10010",coinData));

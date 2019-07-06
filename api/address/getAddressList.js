@@ -8,16 +8,18 @@ getAddressList = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
-		if(!lan){
-			lan = global.lan;
-		}
+		let page = obj.page;
+		let pageSize = obj.pageSize;
+		lan = config.utils.isLan(lan)
+		page = config.utils.isPage(page)
+		pageSize = config.utils.isPageSize(pageSize)
+
 		let user_id = obj.user_id;
 		if(user_id){
-			let addressArr = await config.addressData.findAll({where:{user_id:user_id}});
-			if(addressArr && addressArr.length>0){
-				return res.send(config.utils.result_req(0,"10010",addressArr));
-			}				
-			return res.send(config.utils.result_req(-1,"10011",config.tips[lan].DATA_NULL));
+			let option = " where user_id=? ";
+			let params = [user_id];
+			let addressArr = await config.utils.list_page(config," addressdata ",option,params,page,pageSize);
+			return res.send(config.utils.result_req(0,"10010",addressArr));
 		}
 		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));;
 	}catch(e){

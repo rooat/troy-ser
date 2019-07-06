@@ -27,8 +27,8 @@ http://localhost:3000/api/user/isExistUser/?email_num=896466205@qq.com
 
 http://localhost:3000/api/user/updateTradePwd?email_num=896466205@qq.com&login_pwd=123456&old_trade_pwd=1234567&new_trade_pwd=12345678&code=116233&token=944423269bae1e8fa4f086735dcf2b39
 
-http://localhost:3000/api/user/transfer_istory?address=0xe5a253043be58a0233a41150c00f60fdeb25c443&type=1&token=5383f88ecedc76c84df6cee2a1cfeb3e
-http://localhost:3000/api/user/transfer_istory?address=0xf2e95d6f75897e6501e185d218504995f300deb4&type=2&token=5383f88ecedc76c84df6cee2a1cfeb3e
+http://localhost:3000/api/user/transfer_history?user_id=12&token=15fdcec352c364bfb042f62b61f1850d
+http://localhost:3000/api/user/transfer_history?address=0xf2e95d6f75897e6501e185d218504995f300deb4&type=2&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
 http://localhost:3000/api/user/withdraw_history_by_user_id?user_id=12&token=5383f88ecedc76c84df6cee2a1cfeb3e
 
@@ -74,4 +74,4 @@ http://localhost:3000/api/price/price_data?token=5383f88ecedc76c84df6cee2a1cfeb3
 
 http://13.124.2.239/apiserver/api/address/add_address?type=eth&address=0x23e48fd0f704309ED6D7c7A57CdF45625309dF32&comment=hegkdk&user_id=12&lan=0&token=83e6d0420311296789e2069190084aa5
 
-http://13.124.2.239/apiserver/api/address/get_address_list?user_id=12&token=647a772efd17d446778d25165ceddce8
+http://localhost:3000/api/address/get_address_list?user_id=12&token=15fdcec352c364bfb042f62b61f1850d

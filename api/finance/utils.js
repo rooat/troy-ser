@@ -38,8 +38,12 @@ async function list_benefit(userId,b_type,b_type_f){
 //获取收益列表 user_id:userId,b_type:type,b_type_f:kind
 async function list_benefit_by_user_id(userId,page,pageSize,b_type_f){
 	let pg = (Number(page)-1)*pageSize;
+    let params =[userId];
+    if(b_type_f>1){
+        params.push(b_type_f);
+    }
 	let sql = "select * from benefitdata where user_id=? and b_type_f=? order by timestamps desc limit "+pg+","+pageSize;
-	let params =[userId,b_type_f];
+	
 	let list = await config.utils.queryFromSql(config,sql,params)
 	return list.result;
 }

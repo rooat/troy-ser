@@ -8,27 +8,35 @@ transferHistory = async (req, res, next) => {
 		}
 		obj = obj.data;
 		let lan = obj.lan;
-		let user_id  = obj.user_id;
-		if(!lan){
-			lan = global.lan;
-		}
+		let page = obj.page;
+		let pageSize = obj.pageSize;
+		lan = config.utils.isLan(lan)
+		page = config.utils.isPage(page)
+		pageSize = config.utils.isPageSize(pageSize)
+
+		let user_id = obj.user_id;
 		if(user_id){
 			let user = await config.etzAdmin.findOne({where:{e_id:user_id}});
 			if(user){
 				let arr = new Array();
-				let depositHistory = await config.etzData.findAll({where:{address:user.address},limit:30,order:[['timestamps','DESC']]})
-				let withdrawHistory = await config.etzWithdraw.findAll({where:{address:user.address},limit:30,order:[['timestamps','DESC']]})
-				let exchangeHistory = await config.exchangeData.findAll({where:{user_id:user_id},limit:30,order:[['timestamps','DESC']]})
+				let option = " where address=? ";
+				let params = [user.address];
+				let depositHistory = await config.utils.list_page(config," ethdatas ",option,params,page,pageSize);
+				let withdrawHistory = await config.utils.list_page(config," ethwithdraw ",option,params,page,pageSize);
+				 option = " where user_id=? ";
+				 params = [user_id];
+				let exchangeHistory = await config.utils.list_page(config," exchangedata ",option,params,page,pageSize);
+
 				//let benefit = await config.benefitData.findAll(where:{user_id:user_id},limit:30,order:[['timestamps','DESC']])
 				if(depositHistory &&depositHistory.length>0){
 					for(var i=0;i<depositHistory.length;i++){
 					let obj1 = {
-						"timestamps":depositHistory[i].dataValues.timestamps,
-						"value":Number(depositHistory[i].dataValues.valuex)/10**18,
+						"timestamps":depositHistory[i].timestamps,
+						"value":Number(depositHistory[i].valuex)/10**18,
 						"type":1,
-						"id":depositHistory[i].dataValues.e_id,
-						"from":depositHistory[i].dataValues.fromadd,
-						"to":depositHistory[i].dataValues.address,
+						"id":depositHistory[i].e_id,
+						"from":depositHistory[i].fromadd,
+						"to":depositHistory[i].address,
 					}
 					arr.push(obj1)
 					}
@@ -37,12 +45,12 @@ transferHistory = async (req, res, next) => {
 				if(withdrawHistory &&withdrawHistory.length>0){
 					for(var j=0;j<withdrawHistory.length;j++){
 					let obj2 = {
-						"timestamps":withdrawHistory[j].dataValues.timestamps,
-						"value":Number(withdrawHistory[j].dataValues.valuex)/10**18,
+						"timestamps":withdrawHistory[j].timestamps,
+						"value":Number(withdrawHistory[j].valuex)/10**18,
 						"type":2,
-						"id":withdrawHistory[j].dataValues.e_id,
+						"id":withdrawHistory[j].e_id,
 						"from":user.address,
-						"to":withdrawHistory[j].dataValues.address,
+						"to":withdrawHistory[j].address,
 					}
 					arr.push(obj2)
 					}
@@ -51,10 +59,10 @@ transferHistory = async (req, res, next) => {
 					for(var k=0;k<exchangeHistory.length;k++){
 					
 					let obj3 = {
-						"timestamps":exchangeHistory[k].dataValues.timestamps,
-						"value":exchangeHistory[k].dataValues.e_value,
-						"type":exchangeHistory[k].dataValues.e_type,
-						"id":exchangeHistory[k].dataValues.e_id,
+						"timestamps":exchangeHistory[k].timestamps,
+						"value":exchangeHistory[k].e_value,
+						"type":exchangeHistory[k].e_type,
+						"id":exchangeHistory[k].e_id,
 						"from":"",
 						"to":user.address,
 					}
