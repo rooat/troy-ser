@@ -61,6 +61,7 @@ async function list_finance(userId,page,pageSize,index){
 
 //获取该理财产品的总收益  昨日收益
 async function benefitall_finace_by_f_id(f_id,f_type,index,timestamps){
+
     let sql2=" f_id=? and b_type_f=? "
     let params = [f_id,0]; 
     if(f_type!=0){
@@ -78,8 +79,10 @@ async function benefitall_finace_by_f_id(f_id,f_type,index,timestamps){
 }
 
 //获取f_id 下的收益列表
-async function benefitall_finace_by_f_id_list(userId,f_id,f_type,page,pageSize){
+async function benefitall_finace_list_by_id(userId,f_id,f_type,page,pageSize){
+    console.log("parerd===",userId+","+f_id+","+page+","+pageSize)
     let pg = (Number(page)-1)*pageSize;
+
     let sql2=" user_id=? and f_id=? and b_type_f=? "
     let params = [userId,f_id,0]; 
     if(f_type!=0){
@@ -87,9 +90,8 @@ async function benefitall_finace_by_f_id_list(userId,f_id,f_type,page,pageSize){
         sql2 +=" and b_type=? "
     }
     let sqlBenefit = "select *  from benefitdata where "+sql2+" order by timestamps desc limit "+pg+","+pageSize;
-    let balance= await config.utils.queryFromSql(config,sqlBenefit,params);
-    balance = balance.result[0].sum;
-    return balance;
+    let list= await config.utils.queryFromSql(config,sqlBenefit,params);
+    return list.result;
 }
 
 //节点奖励. user_id:user_id,b_type_f:1为节点，2为超级节点
@@ -105,5 +107,5 @@ async function node_beneift_list(page,pageSize,userId,b_type_f){
 
 module.exports = 
 {
-	calculateBalanceAll,benefitAll,benefitLast,list_benefit_by_user_id,list_finance,benefitall_finace_by_f_id,benefitall_finace_by_f_id_list,node_beneift_list
+	calculateBalanceAll,benefitAll,benefitLast,list_benefit_by_user_id,list_finance,benefitall_finace_by_f_id,benefitall_finace_list_by_id,node_beneift_list
 }
