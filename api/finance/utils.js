@@ -1,6 +1,6 @@
 var config = require('../../config');
 
-//计算当前理财类型正在进行的总投资额
+//计算当前理财类型正在进行的总投资额calculateBalanceAllcalculateBalanceAll
 async function calculateBalanceAll(userId,state,b_type_f){
     let lastdays = config.utils.lastTimeFormat();
     let sqlBenefit = "select sum(f_value) as sum from financedata where user_id=? and state=? and f_type=?";
@@ -21,7 +21,7 @@ async function benefitAll(userId,b_type,b_type_f){
 //计算昨日当前类型 总收益
 async function benefitLast(userId,b_type,b_type_f,timestamps){
     let sqlBenefit = "select sum(b_value) as sum from benefitdata where user_id=? and b_type=? and b_type_f=0 and timestamps=?";
-    let params =[userId,b_type,0,timestamps]
+    let params =[userId,b_type,2,timestamps]
     let balance= await config.utils.queryFromSql(config,sqlBenefit,params);
     balance = balance.result[0].sum;
     return balance;
@@ -69,7 +69,7 @@ async function list_finance(userId,page,pageSize,index){
 async function benefitall_finace_by_f_id(f_id,f_type,index,timestamps){
 
     let sql2=" f_id=? and b_type_f=? "
-    let params = [f_id,0]; 
+    let params = [f_id,2]; 
     if(f_type!=0){
         params.push(f_type)
         sql2 +=" and b_type=? "
@@ -89,7 +89,7 @@ async function benefitall_finace_list_by_id(userId,f_id,f_type,page,pageSize){
     let pg = (Number(page)-1)*pageSize;
 
     let sql2=" user_id=? and f_id=? and b_type_f=? "
-    let params = [userId,f_id,0]; 
+    let params = [userId,f_id,2]; 
     if(f_type!=0){
         params.push(f_type)
         sql2 +=" and b_type=? "
