@@ -10,6 +10,7 @@ getBenefitListByUserId = async (req, res, next) => {
 		obj = obj.data;
 		
 		let userId = obj.user_id;
+		let b_type_f = obj.b_type_f;
 
 		let lan = obj.lan;
 		let page = obj.page;
@@ -19,7 +20,7 @@ getBenefitListByUserId = async (req, res, next) => {
 		pageSize = config.utils.isPageSize(pageSize)
 
 		if(userId){
-			let b_Data = await utils.list_benefit_by_user_id(userId,page,pageSize)
+			let b_Data = await utils.list_benefit_by_user_id(userId,page,pageSize,b_type_f)
 			return res.send(config.utils.result_req(0,"10010",b_Data))
 		}
 		return res.send(config.utils.result_req(-1,"10011",config.tips[lan].PARAMS_ERROR));		

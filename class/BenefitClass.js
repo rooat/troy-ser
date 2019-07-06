@@ -125,7 +125,7 @@ class BenefitClass{
 	          await config.benefitData.create({
 	                b_type:ff_type,
 	                b_value:benefit_one,
-	                b_type_f:0,//静态收益
+	                b_type_f:2,//静态收益
 	                timestamps:new Date(config.utils.getTimeDate()).getTime(),
 	                user_id:user.e_id,
 	                f_id:financeData[j].dataValues.e_id,
@@ -167,7 +167,7 @@ class BenefitClass{
 		        await config.benefitData.create({
 		            b_type:0,
 		            b_value:invit_benefit_day,
-		            b_type_f:1,//直推奖励
+		            b_type_f:3,//直推奖励
 		            timestamps:new Date(config.utils.getTimeDate()).getTime(),
 		            user_id:invitor.e_id,
 		            operate:0,
@@ -209,7 +209,7 @@ class BenefitClass{
 		    	await config.benefitData.create({
 			      b_type:0,
 			      b_value:invite_invite_benefit,
-			      b_type_f:2,//见点奖励
+			      b_type_f:4,//节点奖励
 			      timestamps:new Date(config.utils.getTimeDate()).getTime(),
 			      user_id:invitor_invite.e_id,
 			      operate:0,
