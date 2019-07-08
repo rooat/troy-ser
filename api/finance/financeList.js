@@ -30,7 +30,13 @@ financeList = async (req, res, next) => {
 			for(var k=0;k<financeDetail.length;k++){
 				let b_type_f = financeDetail[k].f_type_id
 				//计算总静态收益
-				let benefit= await utils.benefitAll(userId,b_type_f,0);
+				let namesa = "b_value";
+				 let optiona = " where user_id=? and b_type=? and b_type_f=? ";
+				 let paramsa = [userId,b_type_f,2];
+				 let benefit = await config.utils.list_sum(config,namesa,"benefitdata",optiona,paramsa);
+
+
+				//let benefit= await utils.benefitAll(userId,b_type_f,0);
 				//计算昨日静态收益
 				let lastdays = config.utils.lastTimeFormat();
 
@@ -39,14 +45,7 @@ financeList = async (req, res, next) => {
 				 let option = " where user_id=? and b_type=? and b_type_f=? and timestamps=?";
 				 let params = [userId,b_type_f,2,new Date(lastdays).getTime()];
 				 let lastbenefit = await config.utils.list_sum(config,names,"benefitdata",option,params);
-
-// async function calculateBalanceAll(userId,state,b_type_f){
-//     let sqlBenefit = "select sum(f_value) as sum from financedata where user_id=? and state=? and f_type=?";
-//     let params =[userId,state,b_type_f]
-//     let balance= await config.utils.queryFromSql(config,sqlBenefit,params);
-//     balance = balance.result[0].sum;
-//     return balance;
-// }		
+		
 				//计算正在进心中
 				 let namesb = "f_value";
 				 let optionb = " where user_id=? and state=? and f_type=?";
