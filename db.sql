@@ -246,6 +246,24 @@ CREATE TABLE `ethwithdraw` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+DROP TABLE IF EXISTS `examinedata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `examinedata` (
+  `e_id` int(11) NOT NULL AUTO_INCREMENT,
+  `timestamps` varchar(20) NOT NULL COMMENT '开始时间',
+  `endtime` varchar(20) NOT NULL COMMENT '结束时间',
+  `state` varchar(1) NOT NULL COMMENT '状态',
+  `valuex` decimal(16,5) NOT NULL COMMENT '提现金额',
+  `address` varchar(50) NOT NULL COMMENT '地址',
+  `user_id` int(11) NOT NULL,
+  `op_email` varchar(50) NOT NULL,
+  PRIMARY KEY (`e_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 --
 -- Dumping data for table `ethwithdraw`
 --

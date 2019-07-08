@@ -23,6 +23,8 @@ var delCoinType = require('../api/coinType/delCoinType')
 
 //admin
 var calculate = require('../api/admin/calculate');
+var examineList = require('../api/admin/examineList')
+var examineUpdate = require('../api/admin/examineUpdate');
 
 //price
 var priceDataBySymbol = require('../api/priceRate/priceDataBySymbol');
@@ -86,6 +88,8 @@ router.get('/cointype/del_coin_type',delCoinType.delCoinType)
 
 //admin
 router.post('/admin/calculate',calculate.calculate);
+router.post('/admin/examine_list',examineList.examineList)
+router.post('/admin/examine_update',examineUpdate.examineUpdate)
 
 
 //price rate

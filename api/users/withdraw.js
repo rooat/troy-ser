@@ -27,6 +27,7 @@ withdraw = async (req, res, next) => {
 				          "valuex":Number(withDrawVal)*10**18,
 				          "address":address.toLowerCase(),
 				          "user_id":user_id,
+				          "op_email":"admin@admin.com"
 					})
 				}else{
 					await config.etzWithdraw.create({

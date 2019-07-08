@@ -37,6 +37,7 @@ const delAsync = promisify(client.del).bind(client);
 //     host: 'localhost',
 //     port: 3306
 // };
+//---------------------------------------------------
 
 const config = {
    database: 'troy_db',
@@ -307,6 +308,22 @@ var addressData = sequelize.define('addressdata',{
                         freezeTableName:true,
                         timestamps: false
                     });
+  var examineData = sequelize.define('examinedata',{
+                        e_id:{
+                            type:Sequelize.BIGINT(11),
+                            primaryKey:true
+                        },
+                        timestamps:Sequelize.STRING(20),
+                        endtime:Sequelize.STRING(20),
+                        state:Sequelize.INTEGER(1),
+                        valuex:Sequelize.DECIMAL(16,5),
+                        address:Sequelize.STRING(50),
+                        user_id:Sequelize.BIGINT(11),
+                        op_email:Sequelize.STRING(50)
+                    },{
+                        freezeTableName:true,
+                        timestamps: false
+                    });
 
 
  var blockNum = sequelize.define('blocknum',{
@@ -460,7 +477,7 @@ var teamTimeCal = 600000;//团队汇总周期
 var utils = require('./utils/utils')
 
 module.exports = {
-    connection,benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    examineData,connection,benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 
