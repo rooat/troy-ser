@@ -50,7 +50,7 @@ financeList = async (req, res, next) => {
 				//计算正在进心中
 				 let namesb = "f_value";
 				 let optionb = " where user_id=? and state=? and f_type=?";
-				 let paramsb = [userId,1,2];
+				 let paramsb = [userId,1,b_type_f];
 				 let balance = await config.utils.list_sum(config,namesb,"financedata",optionb,paramsb);
 
 
