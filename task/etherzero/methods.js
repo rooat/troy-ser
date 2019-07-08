@@ -12,7 +12,9 @@ const axios = require("axios");
       console.log("private:",private)
       console.log("nonce===",nonce)
       let gasss = await eth_gasPrice()
-      value = Number(value)-Number(gasss)*50000;
+      value = Number(value)/10**18-Number(gasss)*50000/10**18;
+      
+      value = value*10**18
       console.log("value:",value);
       var txObject = await config.web3.eth.accounts.signTransaction({
           from : from,
@@ -21,7 +23,7 @@ const axios = require("axios");
           gasPrice: gasss,
           gasLimit: '0x7530',
           nonce: nonce++,
-          value: String(value)
+          value: value
       }, "0x"+private)
       console.log("txObject.rawTransaction:",txObject.rawTransaction)
       config.web3.eth.sendSignedTransaction(txObject.rawTransaction)
