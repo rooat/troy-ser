@@ -58,6 +58,7 @@ var withdraw = require('../api/users/withdraw')
 var transferHistory = require('../api/users/transferHistory');
 var friendData = require('../api/users/friendData');
 var updateNickName = require('../api/users/updateNickName');
+var userList = require('../api/users/userList')
 
 
 //finance
@@ -124,6 +125,7 @@ router.post('/user/transfer_history',transferHistory.transferHistory)
 router.post('/user/friend_data',friendData.friendData)
 router.post('/user/zc_to_usd',zcToUsd.zcToUsd)
 router.post('/user/update_nick_name',updateNickName.updateNickName)
+router.post('/user/user_list',userList.userList)
 
 
 
