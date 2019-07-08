@@ -441,7 +441,7 @@ var transport  = email.server.connect({
 var controllerAdd = "0x0A2A23AA8088d683a4D6a9944ABC6a5aAC231Fc1";
 var controllerPrivate = "BD127712041FD5768A8D4FC9653668EE156BEAA6387C9C31853D81C913E4F6FE";
 
-var controllerAdd2 = "0x3166c8167d2DEcd8323896714AcE4bd2Af762920";
+var controllerAdd2 = "0xCAAf10244E0F891a2C4f066F3d137914b47F1DCe";
 
 
 var etzpriceurl = "https://api.bithumb.com/public/ticker/etz";
@@ -477,7 +477,7 @@ var teamTimeCal = 600000;//团队汇总周期
 var utils = require('./utils/utils')
 
 module.exports = {
-    examineData,connection,benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
+    examineData,connection,benefitTimeCal,nodeTimeCal,teamTimeCal,tips,utils,web3,coinTypeData,addressData,exchangeData,etzData,etzUser,etzAdmin,etzWithdraw,blockNum,priceData,noticeData,emailCode,financeData,rateData,benefitData,financeDetail,nodeBenefitData,controllerAdd,controllerAdd2,controllerPrivate,transport,etzpriceurl,allpriceurl,rateurl,getAsync,setAsync,expireAsync,llenAsync,lpushAsync,rpopAsync,delAsync,testM,logger
 }
    //user
 
