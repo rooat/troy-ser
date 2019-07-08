@@ -12,13 +12,14 @@ class PriceClass{
 	}
 	async start(){
 		await this.init();
+		let that = this;
 		setInterval(function(){
 			this.version++
-			console.log("version:",version)
-			price.updatePriceFun(version);
+			console.log("version:",that.version)
+			price.updatePriceFun(that.version);
 			rate.updateRateFun()
-			if(version==100){
-				version=0;
+			if(that.version==100){
+				that.version=0;
 			}
 		},this.updatePriceTime)
 	}
