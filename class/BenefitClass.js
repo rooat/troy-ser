@@ -113,10 +113,10 @@ class BenefitClass{
 			            }
 		          }else if(ff_type==2){
 		          	type_2_total+=invet_value;
-		            benefit_one = invet_value*1/100;
+		            benefit_one = invet_value*8/1000;
 		          }else if(ff_type==3){
 		          	type_3_total+=invet_value;
-		            benefit_one = invet_value*12/1000;
+		            benefit_one = invet_value*1/100;
 		          }else if(ff_type==4){
 		          	type_4_total+=invet_value;
 		            benefit_one = invet_value*15/1000;

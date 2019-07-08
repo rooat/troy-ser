@@ -124,7 +124,7 @@ async function validToken(obj,req,config){
 			return {"state":0,"datas":"success","role":role}
 		}
 	}
-	return {"state":-2,"datas":config.tips[obj.lan].LOGIN_REPEAT}
+	return {"state":-2,"datas":config.tips[1].LOGIN_REPEAT}
 }
 
 function IsEmail(str) {
