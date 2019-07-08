@@ -26,4 +26,4 @@ class PriceClass{
 }
 
 var priceClass = new PriceClass();
-//priceClass.start();
+priceClass.start();
