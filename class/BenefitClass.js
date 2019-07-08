@@ -114,12 +114,18 @@ class BenefitClass{
 		          }else if(ff_type==2){
 		          	type_2_total+=invet_value;
 		            benefit_one = invet_value*8/1000;
+		            benefitStaticDay +=invet_value*8/1000;
+		            this.totalStaticBenefitDay+=invet_value*8/1000;
 		          }else if(ff_type==3){
 		          	type_3_total+=invet_value;
 		            benefit_one = invet_value*1/100;
+		            benefitStaticDay +=invet_value*1/100;
+		            this.totalStaticBenefitDay+=invet_value*1/100;
 		          }else if(ff_type==4){
 		          	type_4_total+=invet_value;
 		            benefit_one = invet_value*15/1000;
+		            benefitStaticDay +=invet_value*15/1000;
+		            this.totalStaticBenefitDay+=invet_value*15/1000;
 		          }
 	          //记录当天收益
 	          await config.benefitData.create({
@@ -131,12 +137,8 @@ class BenefitClass{
 	                f_id:financeData[j].dataValues.e_id,
 	                operate:0
 	          })
-	          benefitStaticDay += benefit_one
-	          this.totalStaticBenefitDay+=benefit_one;
 
 			}
-			console.log("benefitStaticDay===",benefitStaticDay)
-	          console.log("this.totalStaticBenefitDay=---",this.totalStaticBenefitDay)
 			//新的收益
 
 			let newStaticBenefitBalance = benefitStaticDay+Number(user.staticBenefitBalance);

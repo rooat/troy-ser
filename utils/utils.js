@@ -94,6 +94,19 @@ function getFullTime(){
 	return year+"-"+month+"-"+datex+" "+hour+":"+min+":"+sec
 }
 
+function nextWeekend(){
+	let date = new Date();
+	let day = new Date().getDay();
+	let suday =0
+	if(day!=0){
+		suday = 7-day;
+	}
+	let year = date.getFullYear();
+	let month = date.getMonth()+1;
+	let datex = date.getDate()+suday;
+	return year+"-"+month+"-"+datex+" 00:00:00";
+}
+
 function nextTimeFormat(){
 	let date = new Date();
 	let year = date.getFullYear();
@@ -241,5 +254,5 @@ async function list_sum(config,names,tablename,option,params){
 }
 
 module.exports={
-	list_sum,list_page,invalidAddress,isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
+	nextWeekend,list_sum,list_page,invalidAddress,isLan,isPage,isPageSize,queryFromSql,md5,createAccount,isExistEmail,sendCode,getObjParams,IsEmail,IsNumber,IsDate,IsDateSec,getTimeDate,getFullTime,nextTimeFormat,lastTimeFormat,validToken,result_req,getObj,makeInviteCode
 }

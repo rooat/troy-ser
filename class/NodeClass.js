@@ -3,17 +3,31 @@ var config = require('../config');
 class NodeClass{
   
   constructor() {
+        this.countMember =0;
+        this.countInvet =0;
         this.node_max_value = 3000;//符合节点的3000USD
         this.node_Invet_com = 100000;//符合节点10万USD
         this.node_Invet_super = 300000;//符合节点10万USD
         this.maps = new Map();
+        this.nextDay = new Date(config.utils.nextWeekend()).getTime();
+        this.startCal = false;
   }
 	start(){
 		let that = this;
-		setInterval(function(){
-			that.calNodePerWeek()
-		},config.nodeTimeCal)
+		setInterval(async function(){
+      console.log("teamcal .....")
+      console.log("current...",new Date().getTime())
+      console.log("that nextDay...",that.nextDay)
+      if(new Date().getTime()>that.nextDay){
+        await that.loopTeam()
+        await that.calNodePerWeek();
+        that.nextDay = new Date(config.utils.nextWeekend()).getTime();
+      }
+		},60000)
 	}
+
+   
+
 	 async calNodePerWeek(){
     //查找符合节点条件的用户
     try{
@@ -34,6 +48,8 @@ class NodeClass{
         config.logger.error("nodeclass error",config.utils.getFullTime(),e)
     }
   }
+
+
  
   //查找node节点，递归用户下的团队成员，筛选出最大值，并累加其他值
   async teamCalFun(invite2_code){
@@ -63,7 +79,46 @@ class NodeClass{
     }
     return 0;
   }
+  ///team....
+  async  loopTeam(){
+    try{
+      let userData = await config.etzAdmin.findAll();
+      for(var i=0;i<userData.length;i++){
+         await this.teamMemberAndInvet(userData[i].dataValues.invite2_code);
+          await config.etzAdmin.update({
+            teamMember:this.countMember,
+            teamInvet:this.countInvet
+          },{where:{e_id:userData[i].dataValues.e_id}});
+          this.countMember =0;
+          this.countInvet=0;
+      }
+
+    }catch(e){
+      config.logger.error("TeamClass error",config.utils.getFullTime(),e)
+    }
+  }
+
+  async  teamMemberAndInvet(myCode){
+    let inviterx = await config.etzAdmin.findOne({where:{invite_code:myCode}})
+    if(inviterx && inviterx.length>0){
+      for(var ac=0;ac<inviterx.length;ac++){
+        this.countMember++;
+        let financeDatasx = await config.financeData.findAll({where:{user_id:inviterx.e_id,state:{$in:[1,2]}}});
+        if(financeDatasx && financeDatasx.length>0){
+          for(var jk;jk<financeDatasx.length;jk++){
+            this.countInvet+=Number(financeDatasx[jk].dataValues.f_value);
+          }
+        }
+        this.teamMemberAndInvet(inviterx[ac].dataValues.invite2_code)
+      }
+    }else{
+      return ;
+    }
+
+  }
+
 }
+
 
 
 var nodeClass = new NodeClass();
