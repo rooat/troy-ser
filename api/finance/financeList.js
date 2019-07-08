@@ -55,6 +55,7 @@ financeList = async (req, res, next) => {
 
 
 				 console.log("lastbenefit---",lastbenefit)
+				 console.log("balance---",balance)
 				//let balance = await utils.calculateBalanceAll(userId,1,b_type_f);
 				let obj ={
 					"id":financeDetail[k].f_type_id,
