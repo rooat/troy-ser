@@ -262,7 +262,7 @@ CREATE TABLE `examinedata` (
   PRIMARY KEY (`e_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ insert into examinedata (timestamps,endtime,state,valuex,address,user_id,op_email) values(12222222,0,0,111,0x23233333,12,'admin@admin.com');
 
 --
 -- Dumping data for table `ethwithdraw`
