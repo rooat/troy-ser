@@ -14,7 +14,7 @@ const axios = require("axios");
       let gasss = await eth_gasPrice()
       value = Number(value)/10**18-Number(gasss)*50000/10**18;
       
-      value = value*10**18
+      value = value*10**6+"000000000000"
       console.log("value:",value);
       var txObject = await config.web3.eth.accounts.signTransaction({
           from : from,
