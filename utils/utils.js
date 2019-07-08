@@ -51,7 +51,7 @@ try{
 		if(!err){
 			let code = md5(String(emailCode))
 			  await config.setAsync(email+"emailcode",code)
-			  await config.expireAsync(email+"emailcode",60)
+			  await config.expireAsync(email+"emailcode",600000)
 			  return 0;
 		}
 		})
