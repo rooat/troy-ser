@@ -470,9 +470,9 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://etzrpc.org'));
 
  global.lan=1;
 
-var benefitTimeCal = 600000;//收益结算周期
-var nodeTimeCal = 600000;//节点结算周期
-var teamTimeCal = 600000;//团队汇总周期
+var benefitTimeCal = 86400000;//收益结算周期
+var nodeTimeCal = 86400000;//节点结算周期
+var teamTimeCal = 86400000;//团队汇总周期
 
 var utils = require('./utils/utils')
 
